@@ -1,9 +1,8 @@
 import React from 'react';
-import {View} from 'react-native';
-import {styles} from './styles/login-page-style.js';
+import {Login} from '../components/login';
 
-export function LoginPage() {
-  return (
-    <View style={styles.loginPageContainer}>{/* Your component here */}</View>
-  );
-}
+const LoginPage = () => {
+  return <Login />;
+};
+
+export {LoginPage};
