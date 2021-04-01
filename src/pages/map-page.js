@@ -1,7 +1,10 @@
 import React from 'react';
 import {View} from 'react-native';
 import {styles} from './styles/map-page-style.js';
+import {Map} from '../components/map';
 
-export function MapPage() {
-  return <View>{/* Your component here */}</View>;
-}
+const MapPage = () => {
+  return <Map />;
+};
+
+export {MapPage};

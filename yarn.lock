@@ -5297,6 +5297,11 @@ react-native-gmailtype-textinput@^1.0.6:
   resolved "https://registry.yarnpkg.com/react-native-gmailtype-textinput/-/react-native-gmailtype-textinput-1.0.6.tgz#2133b1918dfd75f3a7158db51715b55ae0f582bb"
   integrity sha512-rYMJu0cStjs88cNVHuJK+4Xy2fpw+i0PrnCnkAYFU8MfpNnFHUm3xtrMF/AdvZMqdDOf5Jd92k7eu1LdkGNiVA==
 
+react-native-maps@0.27.1:
+  version "0.27.1"
+  resolved "https://registry.yarnpkg.com/react-native-maps/-/react-native-maps-0.27.1.tgz#2f10cd417bb2fd938c9e015b1c9b6d9b1a44b97f"
+  integrity sha512-HygBkZBecTnIVRYrSiLRAvu4OmXOYso/A7c6Cy73HkOh9CgGV8Ap5eBea24tvmFGptjj5Hg8AJ94/YbmWK1Okw==
+
 react-native@0.64.0:
   version "0.64.0"
   resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.64.0.tgz"

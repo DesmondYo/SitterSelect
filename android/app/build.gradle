@@ -137,6 +137,7 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
     splits {
         abi {
             reset()
@@ -153,6 +154,8 @@ android {
             keyPassword 'android'
         }
     }
+
+
     buildTypes {
         debug {
             signingConfig signingConfigs.debug

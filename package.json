@@ -12,7 +12,8 @@
   "dependencies": {
     "react": "17.0.1",
     "react-native": "0.64.0",
-    "react-native-gmailtype-textinput": "^1.0.6"
+    "react-native-gmailtype-textinput": "^1.0.6",
+    "react-native-maps": "0.27.1"
   },
   "devDependencies": {
     "@babel/core": "^7.13.10",
