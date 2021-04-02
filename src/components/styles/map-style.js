@@ -1,9 +1,9 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Platform} from 'react-native';
 
 export const styles = StyleSheet.create({
   container: {
     height: 850,
-    width: 400,
+    width: Platform.OS === 'ios' ? 390 : 410,
     justifyContent: 'flex-end',
     alignItems: 'center',
   },
@@ -16,22 +16,22 @@ export const styles = StyleSheet.create({
     alignSelf: 'flex-end',
     height: 50,
     width: 50,
-    marginTop: -660,
-    marginLeft: -180,
+    marginTop: Platform.OS === 'ios' ? 30 : 20,
+    marginLeft: 20,
     position: 'absolute',
   },
   CurrentLocation: {
     ...StyleSheet.absoluteFillObject,
     alignSelf: 'flex-end',
-    height: 120,
-    width: 120,
-    marginTop: -680,
+    height: 50,
+    width: 50,
+    marginTop: 50,
     marginLeft: 70,
     position: 'absolute',
   },
   button: {
     marginTop: 50,
-    marginBottom: 45,
+    marginBottom: Platform.OS === 'ios' ? 50 : 220,
     width: 159,
     height: 41,
     alignItems: 'center',
@@ -41,7 +41,8 @@ export const styles = StyleSheet.create({
   },
   buttonText: {
     textAlign: 'center',
-    marginTop: -8,
+    marginTop: -9,
+    marginBottom: 5,
     padding: 20,
     color: '#5e4386',
     fontSize: 14,

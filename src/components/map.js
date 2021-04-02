@@ -18,23 +18,22 @@ export function Map() {
           longitude: -122.4324,
           latitudeDelta: 0.015,
           longitudeDelta: 0.0121,
-        }}></MapView>
-      <TouchableOpacity onPress={setbackButton}>
-        <Image
-          source={require('../img/backarrow.png')}
-          style={styles.backbutton}
+        }}>
+        <Marker
+          coordinate={{latitude: 37.78825, longitude: -122.4324}}
+          image={require('../img/LadyInPic.png')}
         />
+      </MapView>
+      <TouchableOpacity onPress={setbackButton} style={styles.backbutton}>
+        <Image source={require('../img/backarrow.png')} />
       </TouchableOpacity>
-      <TouchableOpacity onPress={setcurrentlocation}>
-        <Image
-          source={require('../img/CurrentLocation.png')}
-          style={styles.CurrentLocation}
-        />
+      <TouchableOpacity
+        onPress={setcurrentlocation}
+        style={styles.CurrentLocation}>
+        <Image source={require('../img/CurrentLocation.png')} />
       </TouchableOpacity>
-      <TouchableOpacity onPress={setbutton}>
-        <View style={styles.button}>
-          <Text style={styles.buttonText}>My Bookings</Text>
-        </View>
+      <TouchableOpacity onPress={setbutton} style={styles.button}>
+        <Text style={styles.buttonText}>My Bookings</Text>
       </TouchableOpacity>
     </View>
   );
