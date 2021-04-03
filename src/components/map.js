@@ -3,8 +3,9 @@ import {View, TouchableOpacity, Image, Text} from 'react-native';
 import {styles} from './styles/map-style.js';
 import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
 import {Marker} from 'react-native-maps';
+import { Navigation } from 'react-native-navigation';
 
-export function Map() {
+export function Map({ componentId }) {
   const [backButton, setbackButton] = useState(null);
   const [currentlocation, setcurrentlocation] = useState(null);
   const [button, setbutton] = useState(null);
@@ -24,7 +25,7 @@ export function Map() {
           image={require('../img/LadyInPic.png')}
         />
       </MapView>
-      <TouchableOpacity onPress={setbackButton} style={styles.backbutton}>
+      <TouchableOpacity onPress={onBack} style={styles.backbutton}>
         <Image source={require('../img/backarrow.png')} style={{width: 50, height: 50}} />
       </TouchableOpacity>
       <TouchableOpacity
@@ -41,4 +42,8 @@ export function Map() {
         />
     </View>
   );
+
+  function onBack(){
+    Navigation.pop(componentId);
+  }
 }

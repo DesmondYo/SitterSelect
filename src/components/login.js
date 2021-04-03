@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { Navigation } from "react-native-navigation";
 import {
   Platform,
   View,
@@ -12,8 +13,9 @@ import {
 } from 'react-native';
 import GmailInput from 'react-native-gmailtype-textinput';
 import {styles} from './styles/login-style.js';
+import { PrimaryButton } from "./primary-button"
 
-export function Login() {
+export function Login({ componentId }) {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const [button, setbutton] = useState(null);
@@ -33,14 +35,23 @@ export function Login() {
           secureTextEntry={setPassword}
         />
         <Text style={styles.password}> I forgot my password</Text>
-        <TouchableOpacity onPress={setbutton}>
-          <View style={styles.button}>
-            <Text style={styles.buttonText}>Login</Text>
-          </View>
-        </TouchableOpacity>
+       
+        <PrimaryButton
+            label="Login"
+            onPress={onLogin}
+        />
 
+        {/* Navigation.showOverlay("SignUpOverlay") */}
         <Text style={styles.signUp}> Don’t have an account? Sign Up</Text>
       </View>
     </View>
   );
+
+  function onLogin(){
+    Navigation.push(componentId, {
+      component: {
+        name: 'MapPage',
+      }
+    });
+  }
 }
