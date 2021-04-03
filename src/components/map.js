@@ -25,16 +25,20 @@ export function Map() {
         />
       </MapView>
       <TouchableOpacity onPress={setbackButton} style={styles.backbutton}>
-        <Image source={require('../img/backarrow.png')} />
+        <Image source={require('../img/backarrow.png')} style={{width: 50, height: 50}} />
       </TouchableOpacity>
       <TouchableOpacity
         onPress={setcurrentlocation}
         style={styles.CurrentLocation}>
-        <Image source={require('../img/CurrentLocation.png')} />
+        <Image source={require('../img/CurrentLocation.png')} style={{width: 100, height: 100}} />
       </TouchableOpacity>
       <TouchableOpacity onPress={setbutton} style={styles.button}>
         <Text style={styles.buttonText}>My Bookings</Text>
       </TouchableOpacity>
+      <Image
+          source={require('../img/CurrentLocationPin.png')}
+          style={styles.CurrentLocationPin}
+        />
     </View>
   );
 }
