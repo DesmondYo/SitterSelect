@@ -114,7 +114,6 @@
 				72947A2EA77C2243161F0A0B /* Pods-SitterSelect-SitterSelectTests.debug.xcconfig */,
 				2D13F5FD5DCBB5341624C3B3 /* Pods-SitterSelect-SitterSelectTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};

@@ -12,6 +12,7 @@
 #import <SKIOSNetworkPlugin/SKIOSNetworkAdapter.h>
 #import <FlipperKitReactPlugin/FlipperKitReactPlugin.h>
 #import <GoogleMaps/GoogleMaps.h>
+#import "SplashScreen.h"
 
 static void InitializeFlipper(UIApplication *application) {
   FlipperClient *client = [FlipperClient sharedClient];
@@ -35,7 +36,7 @@ static void InitializeFlipper(UIApplication *application) {
 
   [ReactNativeNavigation bootstrapWithDelegate:self launchOptions:launchOptions];
   
-
+  [SplashScreen show];
   return YES;
 }
 
