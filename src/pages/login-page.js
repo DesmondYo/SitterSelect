@@ -9,6 +9,7 @@ import {
   Button,
   title,
   TouchableOpacity,
+  name,
 } from 'react-native';
 import GmailInput from 'react-native-gmailtype-textinput';
 import {styles} from './styles/login-page-style';
@@ -34,14 +35,27 @@ const LoginPage = ({componentId}) => {
           secureTextEntry={setPassword}
         />
         <Text style={styles.password}> I forgot my password</Text>
-
         <PrimaryButton label="Login" onPress={onLogin} />
-
-        {/* Navigation.showOverlay("SignUpOverlay") */}
-        <Text style={styles.signUp}> Don’t have an account? Sign Up</Text>
+        <Text onPress={onOpenOverlay} style={styles.signUp}>
+          Don't have an account? Sign Up
+        </Text>
       </View>
     </View>
   );
+
+  function onOpenOverlay() {
+    Navigation.showOverlay({
+      component: {
+        name: 'SignUpOverlay',
+        options: {
+          layout: {
+            backgroundColor: 'transparent',
+            componentBackgroundColor: 'transparent',
+          },
+        },
+      },
+    });
+  }
 
   function onLogin() {
     Navigation.push(componentId, {

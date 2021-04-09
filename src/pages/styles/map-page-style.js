@@ -10,16 +10,6 @@ export const styles = StyleSheet.create({
   map: {
     ...StyleSheet.absoluteFillObject,
   },
-
-  backbutton: {
-    // ...StyleSheet.absoluteFillObject,
-    alignSelf: 'flex-end',
-    height: 50,
-    width: 50,
-    position: 'absolute',
-    top: 42,
-    left: 25,
-  },
   CurrentLocation: {
     alignSelf: 'flex-end',
     position: 'absolute',
@@ -49,5 +39,13 @@ export const styles = StyleSheet.create({
     right: 25,
     width: 20,
     height: 20,
+  },
+  backbutton: {
+    alignSelf: 'flex-end',
+    height: 50,
+    width: 50,
+    position: 'absolute',
+    top: 42,
+    left: 25,
   },
 });

@@ -4,6 +4,8 @@ import {styles} from './styles/map-page-style';
 import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
 import {Marker} from 'react-native-maps';
 import {Navigation} from 'react-native-navigation';
+import {SitterImage} from '../components/sitter-image';
+import {BackButton} from '../components/back-button';
 
 const MapPage = ({componentId}) => {
   const [backButton, setbackButton] = useState(null);
@@ -20,17 +22,17 @@ const MapPage = ({componentId}) => {
           latitudeDelta: 0.015,
           longitudeDelta: 0.0121,
         }}>
-        <Marker
-          coordinate={{latitude: 37.78825, longitude: -122.4324}}
+        <SitterImage
           image={require('../img/LadyInPic.png')}
+          onPress={SitterDetailsPage}
         />
       </MapView>
-      <TouchableOpacity onPress={onBack} style={styles.backbutton}>
-        <Image
-          source={require('../img/backarrow.png')}
-          style={{width: 50, height: 50}}
-        />
-      </TouchableOpacity>
+      <BackButton
+        onPress={onPress}
+        backButtonImage={require('../img/backarrow.png')}
+        imageWidth={50}
+        imageHeight={50}
+      />
       <TouchableOpacity
         onPress={setcurrentlocation}
         style={styles.CurrentLocation}>
@@ -49,8 +51,24 @@ const MapPage = ({componentId}) => {
     </View>
   );
 
+  function onPress() {
+    Navigation.push(componentId, {
+      component: {
+        name: 'LoginPage',
+      },
+    });
+  }
+
   function onBack() {
     Navigation.pop(componentId);
+  }
+
+  function SitterDetailsPage() {
+    Navigation.push(componentId, {
+      component: {
+        name: 'SitterDetails',
+      },
+    });
   }
 };
 
