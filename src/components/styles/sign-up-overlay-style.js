@@ -1,14 +1,14 @@
 import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
-  buttonStyle: {
-    width: '100%',
-    paddingTop: 50,
-    height: 230,
-    alignItems: 'center',
+  containerStyle: {
+    width: "100%",
+    maxHeight: 600,
+    borderTopRightRadius: 20,
+    borderTopLeftRadius: 20,
+    borderBottomLeftRadius: 0,
+    borderBottomRightRadius: 0,
     backgroundColor: '#fcf0f2',
-    borderRadius: 26,
-    top: 425,
   },
 
   buttonTextStyle: {
@@ -20,30 +20,22 @@ export const styles = StyleSheet.create({
   },
 
   text: {
-    padding: 15,
     color: '#15062C',
     fontSize: 24,
     fontWeight: 'bold',
     bottom: 45,
-    marginRight: 120,
     fontFamily: 'arial',
+    marginTop: 18,
   },
   rectangle: {
     borderRadius: 12,
     height: 51,
-    width: 335,
     backgroundColor: '#FFC5C4',
-    position: 'absolute',
-    top: 93,
-    left: 25,
+    marginBottom: 12,
   },
   rectangletwo: {
     height: 51,
-    width: 335,
     backgroundColor: '#FFC5C4',
-    position: 'absolute',
-    top: 155,
-    left: 25,
     borderRadius: 12,
   },
 });

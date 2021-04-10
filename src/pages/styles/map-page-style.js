@@ -34,9 +34,6 @@ export const styles = StyleSheet.create({
   },
   CurrentLocationPin: {
     alignSelf: 'flex-end',
-    position: 'absolute',
-    top: 350,
-    right: 25,
     width: 20,
     height: 20,
   },

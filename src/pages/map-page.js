@@ -3,14 +3,14 @@ import {View, TouchableOpacity, Image, Text} from 'react-native';
 import {styles} from './styles/map-page-style';
 import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
 import {Navigation} from 'react-native-navigation';
-import {SitterImage} from '../components/sitter-image';
+import {SitterMapMarker} from '../components/sitter-map-marker';
 import {BackButton} from '../components/back-button';
 import {Marker} from 'react-native-maps';
 
 const MapPage = ({componentId}) => {
-  const [backButton, setbackButton] = useState(null);
   const [currentlocation, setcurrentlocation] = useState(null);
   const [button, setbutton] = useState(null);
+
   return (
     <View style={styles.container}>
       <MapView
@@ -23,7 +23,14 @@ const MapPage = ({componentId}) => {
           longitudeDelta: 0.0121,
         }}>
         <Marker
-          coordinate={{latitude: 37.78825, longitude: -122.4324}}
+          coordinate={{latitude: 37.79825, longitude: -122.4424}}
+          icon={require('../img/CurrentLocationPin.png')}
+          onPress={onPress}
+          style={styles.CurrentLocationPin}
+        />
+        <SitterMapMarker
+          latitude={37.78825}
+          longitude={-122.4324}
           onPress={SitterDetailsPage}
           icon={require('../img/LadyInPic.png')}
         />
@@ -45,10 +52,6 @@ const MapPage = ({componentId}) => {
       <TouchableOpacity onPress={setbutton} style={styles.button}>
         <Text style={styles.buttonText}>My Bookings</Text>
       </TouchableOpacity>
-      <Image
-        source={require('../img/CurrentLocationPin.png')}
-        style={styles.CurrentLocationPin}
-      />
     </View>
   );
 
