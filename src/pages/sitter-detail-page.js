@@ -6,7 +6,7 @@ import {Navigation} from 'react-native-navigation';
 
 export function SitterDetailsPage({componentId}) {
   return (
-    <View>
+    <View styles={styles.SitterDetailContainer}>
       <BackButton
         onPress={onPress}
         backButtonImage={require('../img/backarrow.png')}

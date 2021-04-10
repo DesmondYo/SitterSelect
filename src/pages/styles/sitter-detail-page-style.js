@@ -1,5 +1,8 @@
 import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
-  exampleStyle: {},
+  SitterDetailContainer: {
+    backgroundColor: '#fcf0f2',
+    flex: 1,
+  },
 });
