@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Image, TouchableOpacity} from 'react-native';
+import {Image, TouchableOpacity} from 'react-native';
 import {styles} from './styles/back-button-style.js';
 
 export function BackButton({

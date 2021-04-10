@@ -2,10 +2,10 @@ import React, {useState} from 'react';
 import {View, TouchableOpacity, Image, Text} from 'react-native';
 import {styles} from './styles/map-page-style';
 import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
-import {Marker} from 'react-native-maps';
 import {Navigation} from 'react-native-navigation';
 import {SitterImage} from '../components/sitter-image';
 import {BackButton} from '../components/back-button';
+import {Marker} from 'react-native-maps';
 
 const MapPage = ({componentId}) => {
   const [backButton, setbackButton] = useState(null);
@@ -22,9 +22,10 @@ const MapPage = ({componentId}) => {
           latitudeDelta: 0.015,
           longitudeDelta: 0.0121,
         }}>
-        <SitterImage
-          image={require('../img/LadyInPic.png')}
+        <Marker
+          coordinate={{latitude: 37.78825, longitude: -122.4324}}
           onPress={SitterDetailsPage}
+          icon={require('../img/LadyInPic.png')}
         />
       </MapView>
       <BackButton
@@ -59,9 +60,9 @@ const MapPage = ({componentId}) => {
     });
   }
 
-  function onBack() {
-    Navigation.pop(componentId);
-  }
+  // function onBack() {
+  //   Navigation.pop(componentId);
+  // }
 
   function SitterDetailsPage() {
     Navigation.push(componentId, {
