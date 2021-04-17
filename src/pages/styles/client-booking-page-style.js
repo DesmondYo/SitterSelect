@@ -44,7 +44,7 @@ export const styles = StyleSheet.create({
     marginTop: 20,
   },
   SitterName: {
-    marginLeft: 80, 
+    marginLeft: 80,
     color: '#92465a',
     fontFamily: 'arial',
     fontSize: 16,
