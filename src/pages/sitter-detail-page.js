@@ -14,28 +14,14 @@ import {Navigation} from 'react-native-navigation';
 import {Calendar} from 'react-native-calendars';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import {PrimaryButton} from '../components/primary-button';
+import dayjs from "dayjs";
 
 export function SitterDetailsPage({componentId}) {
-  const [time, setTime] = useState(new Date(1598051730000));
-  const [mode, setMode] = useState('time');
-  const [show, setShow] = useState(false);
-
-  const onChange = (event, selectedTime) => {
-    const currentTime = selectedTime || time;
-    setShow(Platform.OS === 'ios');
-    setTime(currentTime);
-  };
-
-  const showMode = currentMode => {
-    setShow(true);
-    setMode(currentMode);
-  };
-
-  const showTimepicker = () => {
-    showMode('time');
-  };
+  const [startTime, setStartTime] = useState(dayjs().toDate());
+  const [endTime, setEndTime] = useState(dayjs().add(2, 'hour').toDate());
 
   return (
+    <>
     <ScrollView style={styles.SitterDetailContainer}>
       <View style={styles.SitterBackgroundColor}>
         <BackButton
@@ -107,43 +93,41 @@ export function SitterDetailsPage({componentId}) {
           textDayHeaderFontSize: 14,
         }}
       />
-      <View>
-        <Button onPress={showTimepicker} title="Start Time" />
-        {show && (
-          <DateTimePicker
-            testID="dateTimePicker"
-            value={time}
-            mode={mode}
-            is24Hour={true}
-            display="default"
-            onChange={onChange}
-            style={styles.LineWithText}
-          />
-        )}
-      </View>
-      <Button onPress={showTimepicker} title="End Time" />
-      {show && (
+
+      <View style={{ flex: 1, flexDirection: "row", paddingHorizontal: 16 }}>
         <DateTimePicker
-          testID="dateTimePicker"
-          value={time}
-          mode={mode}
+          value={startTime}
+          mode={"time"}
           is24Hour={true}
           display="default"
-          onChange={onChange}
-          style={styles.LineWithText}
+          onChange={(_, val) => setStartTime(val)}
+          style={[styles.LineWithText, { marginRight: 12 }]}
         />
-      )}
-      <View style={styles.BookNowBackground}>
-        <Text style={styles.Money}>$1,000</Text>
-        <Text style={styles.Rates}>Rate for 3 hours</Text>
-        <PrimaryButton
-          label="Book Now"
-          onPress={onLogin}
-          style={styles.BookNowButton}
-          TextStyle={styles.BookNowButtonText}
+
+        <DateTimePicker
+          value={endTime}
+          mode={"time"}
+          is24Hour={true}
+          display="default"
+          onChange={(_, val) => setEndTime(val)}
+          style={styles.LineWithText}
         />
       </View>
     </ScrollView>
+
+    <View style={styles.BookNowBackground}>
+      <View>
+        <Text style={styles.Money}>$1,000</Text>
+        <Text style={styles.Rates}>Rate for 3 hours</Text>
+      </View>
+      <PrimaryButton
+        label="Book Now"
+        onPress={onLogin}
+        style={styles.BookNowButton}
+        TextStyle={styles.BookNowButtonText}
+      />
+    </View>
+    </>
   );
   function onPress() {
     Navigation.push(componentId, {

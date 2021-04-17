@@ -86,39 +86,35 @@ export const styles = StyleSheet.create({
     fontSize: 12,
   },
   LineWithText: {
+    flex: 1,
     height: 45,
-    width: 160,
-    margin: 12,
     borderWidth: 1,
-    marginLeft: 100,
     borderColor: '#887b9b',
+    borderRadius: 12
   },
   BookNowBackground: {
-    height: 72,
-    width: 420,
+    width: "100%",
     backgroundColor: '#ffffff',
-    marginTop: 27,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingHorizontal: 16,
+    paddingVertical: 16
   },
   Money: {
     fontWeight: 'bold',
-    marginLeft: 19,
-    marginTop: 16,
     color: '#92465a',
     fontSize: 16,
+    marginBottom: 4
   },
   Rates: {
     fontSize: 12,
-    marginTop: 3,
-    marginLeft: 19,
     color: 'grey',
   },
   BookNowButton: {
-    marginTop: -37,
     width: 159,
     height: 41,
     backgroundColor: '#5e4386',
     borderRadius: 35,
-    marginLeft: 200,
   },
   BookNowButtonText: {
     textAlign: 'center',

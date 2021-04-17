@@ -1,12 +1,18 @@
-import React from 'react';
-import {View, Text, TouchableOpacity, Image} from 'react-native';
+import React, { useRef } from 'react';
+import {Text, TouchableOpacity, Image, Platform, Linking} from 'react-native';
 import {styles} from './styles/service-overlay-style.js';
 import {AwesomeModal} from 'react-native-awesome-modal';
 import {Navigation} from 'react-native-navigation';
+import ActionSheet from '@alessiocancian/react-native-actionsheet';
+const phoneNumber = '+1234567890';
 
 export function ServiceOverlay({componentId}) {
+  const actionSheetRef = useRef(null);
+  const awesomeModalRef = useRef(null);
+
   return (
     <AwesomeModal
+      ref={awesomeModalRef}
       onClose={() => Navigation.dismissOverlay(componentId)}
       onPressOutside={() => console.log('outside')}
       modalBottomMargin={0}
@@ -66,16 +72,39 @@ export function ServiceOverlay({componentId}) {
         <Text style={styles.ChildTutoringTextStyle}>Babysitting</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.rectangle}>
+      <TouchableOpacity style={styles.rectangle} onPress={onPressEventSitting}>
         <Image
           source={require('../img/EventSitting.png')}
           style={styles.DropInForPetsIcon}
         />
         <Text style={styles.ChildTutoringTextStyle}>Event-Sitting</Text>
       </TouchableOpacity>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => awesomeModalRef.current.close()}>
         <Text style={styles.close}>Close</Text>
       </TouchableOpacity>
+
+      <ActionSheet
+        ref={actionSheetRef}
+        title={'Please contact Josie for further booking'}
+        options={[phoneNumber, 'cancel']}
+        cancelButtonIndex={1}
+        onPress={onSelectOption}
+      />
     </AwesomeModal>
   );
+
+  function onPressEventSitting() {
+    awesomeModalRef.current.close();
+    actionSheetRef.current.show();
+  }
+
+  function onSelectOption(index) {
+    if(index === 0){
+      if (Platform.OS === 'android') {
+        Linking.openURL('tel:${' + phoneNumber + '}');
+      } else {
+        Linking.openURL('telprompt:${' + phoneNumber + '}');
+      }
+    }
+  }
 }

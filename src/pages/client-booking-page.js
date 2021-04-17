@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {View, Text} from 'react-native';
 import {styles} from './styles/client-booking-page-style.js';
 import {Navigation} from 'react-native-navigation';
 import {BackButton} from '../components/back-button';
 import {SitterStatusInformation} from '../components/sitter-status-information';
+import MaterialTabs from 'react-native-material-tabs';
 
 export function ClientBookingPage({componentId}) {
+  const [selectedTab, setSelectedTab] = useState(null);
+
   return (
     <View style={styles.PageContainer}>
       <BackButton
@@ -15,13 +18,16 @@ export function ClientBookingPage({componentId}) {
         imageHeight={50}
       />
       <Text style={styles.Text}> My Bookings </Text>
-      <View style={{flexDirection: 'row'}}>
-        <Text style={styles.Current}> Current </Text>
-        <Text style={styles.Past}> Past </Text>
-      </View>
-      <View style={styles.LineSeperator} />
+
+      <MaterialTabs
+        items={['Current', 'Past']}
+        selectedIndex={selectedTab}
+        onChange={setSelectedTab}
+        barColor="#1fbcd2"
+        indicatorColor="#fffe94"
+        activeTextColor="white"
+      />
       <SitterStatusInformation
-        style={styles.rectangle}
         source={require('../img/LadyInPic.png')}
         label= "Josie Emch"
         TextStyle={styles.SitterName}

@@ -10,13 +10,16 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@alessiocancian/react-native-actionsheet": "^2.4.11",
     "@react-native-community/datetimepicker": "^3.4.3",
+    "dayjs": "^1.10.4",
     "react": "17.0.1",
     "react-native": "0.64.0",
     "react-native-awesome-modal": "0.0.4",
     "react-native-calendars": "^1.1255.0",
     "react-native-gmailtype-textinput": "^1.0.6",
     "react-native-maps": "0.27.1",
+    "react-native-material-tabs": "^4.2.0",
     "react-native-navigation": "^7.12.0",
     "react-native-safe-area": "^0.5.1",
     "react-native-splash-screen": "3.0.6"
