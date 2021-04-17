@@ -25,7 +25,6 @@ const MapPage = ({componentId}) => {
         <Marker
           coordinate={{latitude: 37.79825, longitude: -122.4424}}
           icon={require('../img/CurrentLocationPin.png')}
-          onPress={onPress}
           style={styles.CurrentLocationPin}
         />
         <SitterMapMarker

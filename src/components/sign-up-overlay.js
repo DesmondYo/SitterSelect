@@ -2,9 +2,9 @@ import React from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import {styles} from './styles/sign-up-overlay-style.js';
 import {AwesomeModal} from 'react-native-awesome-modal';
-import { Navigation } from 'react-native-navigation';
+import {Navigation} from 'react-native-navigation';
 
-export function SignUpOverlay({ componentId }) {
+export function SignUpOverlay({componentId}) {
   return (
     <AwesomeModal
       onClose={() => Navigation.dismissOverlay(componentId)}
@@ -12,10 +12,9 @@ export function SignUpOverlay({ componentId }) {
       modalBottomMargin={0}
       modalContainerStyle={styles.containerStyle}
       modalOverlayStyle={{
-        backgroundColor: 'black'
+        backgroundColor: 'black',
       }}
-      modalInnerContainerStyle={{ backgroundColor: '#fcf0f2' }}
-    >
+      modalInnerContainerStyle={{backgroundColor: '#fcf0f2'}}>
       <Text style={styles.text}>What do you need?</Text>
 
       <TouchableOpacity style={styles.rectangle}>
@@ -23,9 +22,7 @@ export function SignUpOverlay({ componentId }) {
       </TouchableOpacity>
 
       <TouchableOpacity style={(styles.buttonTextStyle, styles.rectangletwo)}>
-        <Text style={styles.buttonTextStyle}>
-          I’d like to become a sitter
-        </Text>
+        <Text style={styles.buttonTextStyle}>I’d like to become a sitter</Text>
       </TouchableOpacity>
     </AwesomeModal>
   );

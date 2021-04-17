@@ -35,7 +35,12 @@ const LoginPage = ({componentId}) => {
           secureTextEntry={setPassword}
         />
         <Text style={styles.password}> I forgot my password</Text>
-        <PrimaryButton label="Login" onPress={onLogin} />
+        <PrimaryButton
+          label="Login"
+          onPress={onLogin}
+          style={styles.button}
+          TextStyle={styles.buttonText}
+        />
         <Text onPress={onOpenOverlay} style={styles.signUp}>
           Don't have an account? Sign Up
         </Text>
