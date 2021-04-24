@@ -37,8 +37,8 @@ const MapPage = ({componentId}) => {
       <BackButton
         onPress={onPress}
         backButtonImage={require('../img/backarrow.png')}
-        imageWidth={50}
-        imageHeight={50}
+        imageWidth={30}
+        imageHeight={30}
       />
       <TouchableOpacity
         onPress={setcurrentlocation}

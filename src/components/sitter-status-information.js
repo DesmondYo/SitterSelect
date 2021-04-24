@@ -1,34 +1,129 @@
 import React from 'react';
-import {View, Image, Text} from 'react-native';
+import {View, Image, Text, ScrollView, TouchableOpacity} from 'react-native';
 import {styles} from './styles/sitter-status-information-style.js';
 
-export function SitterStatusInformation({source, label}) {
+export function SitterStatusApproved({
+  source,
+  label,
+  text,
+  date,
+  time,
+  purpledot,
+  approved,
+  ApprovedPress,
+}) {
   return (
-    <View style={{ flexDirection: "row", justifyContent: "space-between", backgroundColor: "#ffffff", padding: 16, marginHorizontal: 16, marginTop: 12, borderRadius: 8 }}>
-      <View style={{ flexDirection: "row" }}>
-        <Image
-          source={source}
-          style={{width: 51, height: 51}}
-        />
+    <TouchableOpacity onPress={ApprovedPress}>
+      <View style={styles.MainRectangle}>
+        <View style={{flexDirection: 'row'}}>
+          <Image source={source} style={{width: 51, height: 51}} />
 
-        <View style={{ marginLeft: 16 }}>
-          <Text style={[styles.TextStyle, { marginBottom: 4 }]}>{label}</Text>
+          <View style={{marginLeft: 16}}>
+            <Text style={[styles.TextStyle, {marginBottom: 5}]}>{label}</Text>
 
-          <View style={{ flexDirection: "row", marginBottom: 4  }}>
-            <Text style={styles.TextStyle}>ICON </Text>
-            <Text style={styles.TextStyle}>Drop-In for Pets</Text>
-          </View>
+            <View style={{flexDirection: 'row', marginBottom: 5}}>
+              <Image
+                style={styles.ServiceImage}
+                source={require('../img/DropInForSittersNoPinkBackground.png')}
+              />
+              <Text style={styles.Text}>{text}</Text>
+            </View>
 
-          <View style={{ flexDirection: "row"  }}>
-            <Text style={styles.TextStyle}>date </Text>
-            <Text style={styles.TextStyle}>time</Text>
+            <View style={{flexDirection: 'row'}}>
+              <Text style={styles.date}>{date}</Text>
+              <Image style={styles.PurpleDot} source={purpledot} />
+              <Text style={styles.time}>{time}</Text>
+            </View>
           </View>
         </View>
+
+        <View style={styles.approved}>
+          <Text style={styles.approvedText}>{approved}</Text>
+        </View>
       </View>
-      
-      <View>
-        <Text style={styles.TextStyle}>Status</Text>
+    </TouchableOpacity>
+  );
+}
+export function SitterStatusDeclined({
+  source,
+  label,
+  text,
+  date,
+  time,
+  purpledot,
+  declined,
+  DeclinedPress,
+}) {
+  return (
+    <TouchableOpacity onPress={DeclinedPress}>
+      <View style={styles.MainRectangle}>
+        <View style={{flexDirection: 'row'}}>
+          <Image source={source} style={{width: 51, height: 51}} />
+
+          <View style={{marginLeft: 16}}>
+            <Text style={[styles.TextStyle, {marginBottom: 5}]}>{label}</Text>
+
+            <View style={{flexDirection: 'row', marginBottom: 5}}>
+              <Image
+                style={styles.ServiceImage}
+                source={require('../img/DropInForSittersNoPinkBackground.png')}
+              />
+              <Text style={styles.Text}>{text}</Text>
+            </View>
+
+            <View style={{flexDirection: 'row'}}>
+              <Text style={styles.date}>{date}</Text>
+              <Image style={styles.PurpleDot} source={purpledot} />
+              <Text style={styles.time}>{time}</Text>
+            </View>
+          </View>
+        </View>
+        <View style={styles.declined}>
+          <Text style={styles.declinedText}>{declined}</Text>
+        </View>
       </View>
-    </View>
+    </TouchableOpacity>
+  );
+}
+
+export function SitterStatusPending({
+  source,
+  label,
+  text,
+  date,
+  time,
+  purpledot,
+  pending,
+  PendingPress,
+}) {
+  return (
+    <TouchableOpacity onPress={PendingPress}>
+      <View style={styles.MainRectangle}>
+        <View style={{flexDirection: 'row'}}>
+          <Image source={source} style={{width: 51, height: 51}} />
+
+          <View style={{marginLeft: 16}}>
+            <Text style={[styles.TextStyle, {marginBottom: 5}]}>{label}</Text>
+
+            <View style={{flexDirection: 'row', marginBottom: 5}}>
+              <Image
+                style={styles.ServiceImage}
+                source={require('../img/DropInForSittersNoPinkBackground.png')}
+              />
+              <Text style={styles.Text}>{text}</Text>
+            </View>
+
+            <View style={{flexDirection: 'row'}}>
+              <Text style={styles.date}>{date}</Text>
+              <Image style={styles.PurpleDot} source={purpledot} />
+              <Text style={styles.time}>{time}</Text>
+            </View>
+          </View>
+        </View>
+        <View style={styles.pending}>
+          <Text style={styles.pendingText}>{pending}</Text>
+        </View>
+      </View>
+    </TouchableOpacity>
   );
 }

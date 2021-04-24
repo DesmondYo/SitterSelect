@@ -30,4 +30,14 @@ export const styles = StyleSheet.create({
     marginTop: 30,
     marginLeft: 149,
   },
+  declined: {
+    backgroundColor: '#FDE7E7',
+    color: '#c52222',
+    fontSize: 12,
+    height: 22,
+    width: 68,
+    textAlign: 'center',
+    borderRadius: 16,
+    paddingTop: 3,
+  },
 });

@@ -1,5 +1,112 @@
 import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
-  exampleStyle: {},
+  CheckoutPaymentPageContainer: {
+    backgroundColor: '#fcf0f2',
+    flex: 1,
+    alignItems: 'center',
+    paddingTop: 50,
+  },
+  Text: {
+    fontSize: 16,
+    color: '#92465a',
+    fontFamily: 'arial',
+    fontWeight: 'bold',
+  },
+  BookingInfoText: {
+    fontSize: 16,
+    color: '#92465a',
+    fontFamily: 'arial',
+    fontWeight: 'bold',
+    marginLeft: 20,
+  },
+  NameText: {
+    fontSize: 16,
+    color: '#92465a',
+    fontFamily: 'arial',
+    fontWeight: 'bold',
+  },
+  ServiceImage: {
+    height: 17,
+    width: 17,
+  },
+  DropInForPets: {
+    fontSize: 14,
+    color: '#92465a',
+    fontFamily: 'arial',
+    marginLeft: 8,
+  },
+  date: {
+    color: '#92465a',
+    fontFamily: 'arial',
+    fontSize: 12,
+  },
+  PurpleDot: {
+    height: 5,
+    width: 5,
+    marginTop: 4,
+    marginLeft: 5,
+  },
+  time: {
+    color: '#92465a',
+    fontFamily: 'arial',
+    fontSize: 12,
+    marginLeft: 8,
+  },
+  MainRectangle: {
+    flexDirection: 'row',
+    backgroundColor: '#ffffff',
+    padding: 18,
+    paddingHorizontal: 30,
+    marginTop: 12,
+    borderRadius: 10,
+  },
+  TotalHoursWorked: {
+    fontSize: 14,
+    color: '#92465a',
+    fontFamily: 'arial',
+    fontWeight: 'bold',
+  },
+  LineSeperator: {
+    borderBottomColor: '#f2d8df',
+    borderBottomWidth: 1,
+    marginTop: 24,
+    width: '100%',
+  },
+  GiveTipForService: {
+    fontSize: 16,
+    color: '#92465a',
+    fontFamily: 'arial',
+    fontWeight: 'bold',
+  },
+  Optional: {
+    fontSize: 16,
+    color: '#b59ea4',
+    fontFamily: 'arial',
+    fontWeight: 'bold',
+  },
+  Tip: {
+    width: 81,
+    backgroundColor: 'transparent',
+    borderWidth: 1,
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+    borderBottomRightRadius: 10,
+    borderBottomLeftRadius: 10,
+    borderColor: '#5e4386',
+    marginLeft: 4,
+  },
+  TipText: {
+    textAlign: 'center',
+    padding: 10,
+    color: '#5e4386',
+    fontSize: 14,
+    fontWeight: 'bold',
+  },
+  GiveTipForService: {
+    fontSize: 16,
+    color: '#92465a',
+    fontFamily: 'arial',
+    fontWeight: 'bold',
+  },
 });

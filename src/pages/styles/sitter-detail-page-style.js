@@ -90,21 +90,21 @@ export const styles = StyleSheet.create({
     height: 45,
     borderWidth: 1,
     borderColor: '#887b9b',
-    borderRadius: 12
+    borderRadius: 12,
   },
   BookNowBackground: {
-    width: "100%",
+    width: '100%',
     backgroundColor: '#ffffff',
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     paddingHorizontal: 16,
-    paddingVertical: 16
+    paddingVertical: 16,
   },
   Money: {
     fontWeight: 'bold',
     color: '#92465a',
     fontSize: 16,
-    marginBottom: 4
+    marginBottom: 4,
   },
   Rates: {
     fontSize: 12,
@@ -121,5 +121,19 @@ export const styles = StyleSheet.create({
     padding: 12,
     color: 'white',
     fontSize: 14,
+  },
+  StartTime: {
+    fontWeight: 'bold',
+    marginLeft: 50,
+    color: '#92465a',
+    fontSize: 16,
+  },
+  EndTime: {
+    fontWeight: 'bold',
+    marginRight: 50,
+    color: '#92465a',
+    fontSize: 16,
+    textAlign: 'right',
+    bottom: 20,
   },
 });

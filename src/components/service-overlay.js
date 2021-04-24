@@ -1,10 +1,10 @@
-import React, { useRef } from 'react';
+import React, {useRef} from 'react';
 import {Text, TouchableOpacity, Image, Platform, Linking} from 'react-native';
 import {styles} from './styles/service-overlay-style.js';
 import {AwesomeModal} from 'react-native-awesome-modal';
 import {Navigation} from 'react-native-navigation';
 import ActionSheet from '@alessiocancian/react-native-actionsheet';
-const phoneNumber = '+1234567890';
+const phoneNumber = 'Call (602) 803-4851';
 
 export function ServiceOverlay({componentId}) {
   const actionSheetRef = useRef(null);
@@ -85,7 +85,7 @@ export function ServiceOverlay({componentId}) {
 
       <ActionSheet
         ref={actionSheetRef}
-        title={'Please contact Josie for further booking'}
+        title={'Please Contact Josie Emch for Further Booking'}
         options={[phoneNumber, 'cancel']}
         cancelButtonIndex={1}
         onPress={onSelectOption}
@@ -94,12 +94,12 @@ export function ServiceOverlay({componentId}) {
   );
 
   function onPressEventSitting() {
-    awesomeModalRef.current.close();
+    //  awesomeModalRef.current.close();
     actionSheetRef.current.show();
   }
 
   function onSelectOption(index) {
-    if(index === 0){
+    if (index === 0) {
       if (Platform.OS === 'android') {
         Linking.openURL('tel:${' + phoneNumber + '}');
       } else {
