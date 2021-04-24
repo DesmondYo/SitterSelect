@@ -7,21 +7,20 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   SitterSelectLogo: {
-    height: 193,
-    width: 260,
-    marginTop: 64,
+    flex: 1,
+    width: "60%",
+    resizeMode: "contain",
+    marginTop: 22,
     alignItems: 'center',
-    marginLeft: 27,
   },
   Text: {
-    height: 37,
     fontSize: 27,
     textAlign: 'center',
     color: '#92465a',
     fontFamily: 'arial',
     fontWeight: 'bold',
     marginBottom: 40,
-    marginTop: -25,
+    marginTop: 8,
   },
   password: {
     color: '#5e4386',
@@ -33,11 +32,11 @@ export const styles = StyleSheet.create({
   },
   button: {
     marginTop: 50,
-    width: 300,
+    width: "100%",
     alignItems: 'center',
     backgroundColor: '#5e4386',
     borderRadius: 26,
-    marginLeft: 15,
+
   },
   buttonText: {
     textAlign: 'center',
@@ -46,7 +45,7 @@ export const styles = StyleSheet.create({
     fontSize: 16,
   },
   signUp: {
-    marginTop: -8,
+
     textAlign: 'center',
     padding: 20,
     color: 'black',

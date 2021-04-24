@@ -3,10 +3,8 @@ import {
   TouchableOpacity,
   View,
   Text,
-  TouchableHighlight,
   Pressable,
 } from 'react-native';
-import {styles} from './styles/primary-button-style.js';
 
 export function PrimaryButton({label, onPress, style, TextStyle, colorPress}) {
   return (

@@ -4,14 +4,8 @@ import {
   View,
   Image,
   Text,
-  KeyboardAvoidingView,
-  secureTextEntry,
-  Button,
-  title,
-  TouchableOpacity,
-  name,
 } from 'react-native';
-import GmailInput from 'react-native-gmailtype-textinput';
+import {GmailInput} from '../components/gmail-input';
 import {styles} from './styles/login-page-style';
 import {PrimaryButton} from '../components/primary-button';
 
@@ -21,11 +15,12 @@ const LoginPage = ({componentId}) => {
   const [button, setbutton] = useState(null);
   return (
     <View style={styles.loginPageContainer}>
-      <View>
         <Image
           source={require('../img/SitterSelectLogo.png')}
           style={styles.SitterSelectLogo}
         />
+
+      <View style={{ paddingHorizontal: 16 }}>
         <Text style={styles.Text}> Hi There!</Text>
         <GmailInput label="Email" onChangeText={setEmail} hideLabel={true} />
         <GmailInput

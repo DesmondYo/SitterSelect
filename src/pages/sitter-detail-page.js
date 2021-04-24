@@ -99,7 +99,7 @@ export function SitterDetailsPage({componentId}) {
         <Text style={styles.StartTime}>Start Time</Text>
         <Text style={styles.EndTime}>End Time</Text>
 
-        {/* <View style={{flex: 1, flexDirection: 'row', paddingHorizontal: 16}}>
+        <View style={{flex: 1, flexDirection: 'row', paddingHorizontal: 16}}>
           <DateTimePicker
             value={startTime}
             mode={'time'}
@@ -117,7 +117,7 @@ export function SitterDetailsPage({componentId}) {
             onChange={(_, val) => setEndTime(val)}
             style={styles.LineWithText}
           />
-        </View> */}
+        </View>
       </ScrollView>
 
       <View style={styles.BookNowBackground}>

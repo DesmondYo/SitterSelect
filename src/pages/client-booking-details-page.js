@@ -10,7 +10,7 @@ const phoneNumber = 'Call (602) 803-4851';
 export function ClientBookingDetails({componentId}) {
   const actionSheetRef = useRef(null);
   return (
-    <ScrollView>
+    <ScrollView style={{ backgroundColor: '#fcf0f2' }} contentInset={{ bottom: 20, top: 20 }}>
       <View style={styles.ClientBookingDetailsContainer}>
         <BackButton
           onPress={onPress}

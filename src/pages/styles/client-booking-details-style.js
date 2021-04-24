@@ -2,7 +2,6 @@ import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
   ClientBookingDetailsContainer: {
-    backgroundColor: '#fcf0f2',
     flex: 1,
     alignItems: 'center',
     paddingTop: 50,
