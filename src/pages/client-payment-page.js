@@ -5,9 +5,10 @@ import {BackButton} from '../components/back-button';
 import {Navigation} from 'react-native-navigation';
 import {PrimaryButton} from '../components/primary-button';
 import StarRating from 'react-native-star-rating';
+import { TipButton } from '../components/tip-button.js';
 
 export function CheckoutPaymentPage({componentId}) {
-  const [onstarRatingPress, setOnStarRatingPress] = useState(null);
+  const [selectedTip, setSelectedTip] = useState(null);
   return (
     // <ScrollView>
     <View style={styles.CheckoutPaymentPageContainer}>
@@ -84,27 +85,10 @@ export function CheckoutPaymentPage({componentId}) {
           marginTop: 24,
           marginLeft: 35,
         }}>
-        <PrimaryButton
-          label="$3"
-          style={styles.Tip}
-          TextStyle={styles.TipText}
-        />
-        <PrimaryButton
-          label="$5"
-          style={styles.Tip}
-          TextStyle={styles.TipText}
-        />
-        <PrimaryButton
-          label="$7"
-          style={styles.Tip}
-          TextStyle={styles.TipText}
-        />
-        <PrimaryButton
-          label="Other"
-          style={styles.Tip}
-          TextStyle={styles.TipText}
-          onPress={TippingOverlay}
-        />
+        <TipButton label="$3" selected={selectedTip === 3} onPress={() => setSelectedTip(3)} />
+        <TipButton label="$5" selected={selectedTip === 5} onPress={() => setSelectedTip(5)} />
+        <TipButton label="$7" selected={selectedTip === 7} onPress={() => setSelectedTip(7)} />
+        <TipButton label="Other" onPress={TippingOverlay} />
       </View>
       <View style={styles.LineSeperator} />
       <View
@@ -115,12 +99,12 @@ export function CheckoutPaymentPage({componentId}) {
           width: '100%',
         }}>
         <Text style={styles.BookingInfoText}> Rate your sitter </Text>
-        <StarRating
+        {/* <StarRating
           disabled={false}
           maxStars={5}
           rating={setOnStarRatingPress}
           selectedStar={setOnStarRatingPress}
-        />
+        /> */}
       </View>
     </View>
     // </ScrollView>

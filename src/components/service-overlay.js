@@ -94,7 +94,7 @@ export function ServiceOverlay({componentId}) {
   );
 
   function onPressEventSitting() {
-    //  awesomeModalRef.current.close();
+    awesomeModalRef.current.close();
     actionSheetRef.current.show();
   }
 

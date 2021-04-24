@@ -8,6 +8,7 @@ export function TippingOverlay({componentId}) {
   const awesomeModalRef = useRef(null);
   return (
     <AwesomeModal
+      ref={awesomeModalRef}
       onClose={() => Navigation.dismissOverlay(componentId)}
       onPressOutside={() => console.log('outside')}
       modalBottomMargin={0}
@@ -41,6 +42,7 @@ export function TippingOverlay({componentId}) {
       </TouchableOpacity>
     </AwesomeModal>
   );
+
   function onPressOther() {
     awesomeModalRef.current.close();
   }
