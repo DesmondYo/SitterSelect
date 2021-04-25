@@ -1,10 +1,6 @@
 import React, {useState} from 'react';
 import {Navigation} from 'react-native-navigation';
-import {
-  View,
-  Image,
-  Text,
-} from 'react-native';
+import {View, Image, Text} from 'react-native';
 import {GmailInput} from '../components/gmail-input';
 import {styles} from './styles/login-page-style';
 import {PrimaryButton} from '../components/primary-button';
@@ -15,12 +11,12 @@ const LoginPage = ({componentId}) => {
   const [button, setbutton] = useState(null);
   return (
     <View style={styles.loginPageContainer}>
-        <Image
-          source={require('../img/SitterSelectLogo.png')}
-          style={styles.SitterSelectLogo}
-        />
+      <Image
+        source={require('../img/SitterSelectLogo.png')}
+        style={styles.SitterSelectLogo}
+      />
 
-      <View style={{ paddingHorizontal: 16 }}>
+      <View style={{paddingHorizontal: 16}}>
         <Text style={styles.Text}> Hi There!</Text>
         <GmailInput label="Email" onChangeText={setEmail} hideLabel={true} />
         <GmailInput

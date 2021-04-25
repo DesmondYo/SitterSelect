@@ -8,8 +8,8 @@ export const styles = StyleSheet.create({
   },
   SitterSelectLogo: {
     flex: 1,
-    width: "60%",
-    resizeMode: "contain",
+    width: '60%',
+    resizeMode: 'contain',
     marginTop: 22,
     alignItems: 'center',
   },
@@ -32,11 +32,10 @@ export const styles = StyleSheet.create({
   },
   button: {
     marginTop: 50,
-    width: "100%",
+    width: '100%',
     alignItems: 'center',
     backgroundColor: '#5e4386',
     borderRadius: 26,
-
   },
   buttonText: {
     textAlign: 'center',
@@ -45,7 +44,6 @@ export const styles = StyleSheet.create({
     fontSize: 16,
   },
   signUp: {
-
     textAlign: 'center',
     padding: 20,
     color: 'black',

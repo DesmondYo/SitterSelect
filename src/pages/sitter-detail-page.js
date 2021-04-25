@@ -100,7 +100,7 @@ export function SitterDetailsPage({componentId}) {
         <Text style={styles.EndTime}>End Time</Text>
 
         <View style={{flex: 1, flexDirection: 'row', paddingHorizontal: 16}}>
-          <DateTimePicker
+          {/* <DateTimePicker
             value={startTime}
             mode={'time'}
             is24Hour={true}
@@ -116,7 +116,7 @@ export function SitterDetailsPage({componentId}) {
             display="default"
             onChange={(_, val) => setEndTime(val)}
             style={styles.LineWithText}
-          />
+          /> */}
         </View>
       </ScrollView>
 

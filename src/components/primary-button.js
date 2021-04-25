@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  TouchableOpacity,
-  View,
-  Text,
-  Pressable,
-} from 'react-native';
+import {TouchableOpacity, View, Text, Pressable} from 'react-native';
 
 export function PrimaryButton({label, onPress, style, TextStyle, colorPress}) {
   return (

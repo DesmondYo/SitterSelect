@@ -103,10 +103,47 @@ export const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: 'bold',
   },
-  GiveTipForService: {
-    fontSize: 16,
-    color: '#92465a',
-    fontFamily: 'arial',
-    fontWeight: 'bold',
+  Status: {
+    fontSize: 14,
+    flexDirection: 'row',
+    color: '#b59ea4',
+    alignSelf: 'stretch',
+    marginLeft: 16,
+  },
+  approved: {
+    backgroundColor: '#f5efff',
+    color: '#5e4386',
+    height: 22,
+    width: 68,
+    borderRadius: 16,
+    paddingTop: 3,
+    marginRight: 19,
+  },
+  approvedText: {
+    fontSize: 12,
+    color: '#5e4386',
+    textAlign: 'center',
+  },
+  InvoiceNumber: {
+    fontSize: 14,
+    textAlign: 'center',
+    color: '#b59ea4',
+    marginRight: 19,
+  },
+  Invoice: {
+    fontSize: 14,
+    color: '#b59ea4',
+    marginLeft: 16,
+  },
+  Booking: {
+    fontSize: 14,
+    color: '#b59ea4',
+    marginLeft: 16,
+  },
+  BookingDate: {
+    fontSize: 14,
+    textAlign: 'center',
+    color: '#b59ea4',
+    marginRight: 19,
   },
 });

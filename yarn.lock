@@ -5717,11 +5717,6 @@
     "jscodeshift" "^0.11.0"
     "nullthrows" "^1.1.1"
 
-"react-native-gmailtype-textinput@^1.0.6":
-  "integrity" "sha512-rYMJu0cStjs88cNVHuJK+4Xy2fpw+i0PrnCnkAYFU8MfpNnFHUm3xtrMF/AdvZMqdDOf5Jd92k7eu1LdkGNiVA=="
-  "resolved" "https://registry.npmjs.org/react-native-gmailtype-textinput/-/react-native-gmailtype-textinput-1.0.6.tgz"
-  "version" "1.0.6"
-
 "react-native-maps@0.27.1":
   "integrity" "sha512-HygBkZBecTnIVRYrSiLRAvu4OmXOYso/A7c6Cy73HkOh9CgGV8Ap5eBea24tvmFGptjj5Hg8AJ94/YbmWK1Okw=="
   "resolved" "https://registry.npmjs.org/react-native-maps/-/react-native-maps-0.27.1.tgz"
@@ -5781,7 +5776,7 @@
     "prop-types" "^15.5.10"
     "yargs" "^8.0.2"
 
-"react-native@*", "react-native@0.64.0":
+"react-native@0.64.0":
   "integrity" "sha512-8dhSHBthgGwAjU+OjqUEA49229ThPMQH7URH0u8L0xoQFCnZO2sZ9Wc6KcbxI0x9KSmjCMFFZqRe3w3QsRv64g=="
   "resolved" "https://registry.yarnpkg.com/react-native/-/react-native-0.64.0.tgz"
   "version" "0.64.0"

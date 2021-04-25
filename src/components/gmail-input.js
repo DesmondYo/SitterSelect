@@ -79,4 +79,4 @@ export class GmailInput extends Component {
       </View>
     );
   }
-};
+}
