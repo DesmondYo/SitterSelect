@@ -4,22 +4,25 @@ import {
   Image,
   ScrollView,
   Text,
-  Platform,
-  Button,
-  TextInput,
 } from 'react-native';
+import {GmailTouchable} from '../components/gmail-touchable';
 import {styles} from './styles/sitter-detail-page-style.js';
 import {BackButton} from '../components/back-button';
 import {Navigation} from 'react-native-navigation';
 import {Calendar} from 'react-native-calendars';
-import DateTimePicker from '@react-native-community/datetimepicker';
 import {PrimaryButton} from '../components/primary-button';
 import dayjs from 'dayjs';
+import DateTimePickerModal from "react-native-modal-datetime-picker";
 
 export function SitterDetailsPage({componentId}) {
   const [startTime, setStartTime] = useState(dayjs().toDate());
   const [endTime, setEndTime] = useState(dayjs().add(2, 'hour').toDate());
-
+  const [showStartTimePicker, setShowStartTimePicker] = useState(false);
+  const [showEndTimePicker, setShowEndTimePicker] = useState(false);
+  const formattedStartTime = dayjs(startTime).format("HH:mm");
+  const formattedEndTime = dayjs(endTime).format("HH:mm");
+  
+  console.log({ showStartTimePicker, showEndTimePicker });
   return (
     <>
       <ScrollView style={styles.SitterDetailContainer}>
@@ -96,27 +99,48 @@ export function SitterDetailsPage({componentId}) {
             textDayHeaderFontSize: 14,
           }}
         />
-        <Text style={styles.StartTime}>Start Time</Text>
-        <Text style={styles.EndTime}>End Time</Text>
+        {/* <Text style={styles.StartTime}>Start Time</Text>
+        <Text style={styles.EndTime}>End Time</Text> */}
 
-        <View style={{flex: 1, flexDirection: 'row', paddingHorizontal: 16}}>
-          {/* <DateTimePicker
-            value={startTime}
-            mode={'time'}
-            is24Hour={true}
-            display="default"
-            onChange={(_, val) => setStartTime(val)}
-            style={[styles.LineWithText, {marginRight: 15}]}
+        <View style={{flex: 1, flexDirection: 'row', paddingHorizontal: 32}}>
+          <GmailTouchable
+            label="Start Time"
+            isRow={true}
+            containerStyle={{ marginRight: 12 }}
+            value={formattedStartTime}
+            onPress={() => setShowStartTimePicker(true)}
+            editable={false}
           />
 
-          <DateTimePicker
-            value={endTime}
-            mode={'time'}
-            is24Hour={true}
-            display="default"
-            onChange={(_, val) => setEndTime(val)}
-            style={styles.LineWithText}
-          /> */}
+          <GmailTouchable
+            label="End Time"
+            isRow={true}
+            value={formattedEndTime}
+            onPress={() => setShowEndTimePicker(true)}
+            editable={false}
+          />
+
+          <DateTimePickerModal
+            isVisible={showStartTimePicker}
+            mode="time"
+            date={startTime}
+            onConfirm={val => {
+              setStartTime(val);
+              setShowStartTimePicker(false);
+            }}
+            onCancel={() => setShowStartTimePicker(false)}
+          />
+
+          <DateTimePickerModal
+            isVisible={showEndTimePicker}
+            mode="time"
+            date={startTime}
+            onConfirm={val => {
+              setEndTime(val);
+              setShowEndTimePicker(false);
+            }}
+            onCancel={() => setShowEndTimePicker(false)}
+          />
         </View>
       </ScrollView>
 

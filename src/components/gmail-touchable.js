@@ -2,11 +2,11 @@ import React, {Component} from 'react';
 import {View, TextInput, Text, TouchableOpacity} from 'react-native';
 TextInput.defaultProps.selectionColor = '#1a73e8';
 
-export class GmailInput extends Component {
+export class GmailTouchable extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isFocused: false,
+      isFocused: true,
       height: 30,
     };
   }
@@ -31,7 +31,7 @@ export class GmailInput extends Component {
       left: 0,
       top: !isFocused ? 35 : 10,
       fontSize: !isFocused ? 17 : 14,
-      color: !isFocused ? '#aaa' : '#1a73e8',
+      color: !isFocused ? '#aaa' : '#887b9b',
       marginLeft: 30,
       marginBottom: !isFocused ? 20 : 0,
       zIndex: !isFocused ? 0 : 9,
@@ -48,7 +48,7 @@ export class GmailInput extends Component {
       borderRadius: 4,
       height: 50,
       width: '100%',
-      borderColor: !isFocused ? '#aaa' : '#1a73e8',
+      borderColor: !isFocused ? '#aaa' : '#887b9b',
       borderTopWidth: !isFocused ? 2 : 2,
       zIndex: 1,
       overflow: 'visible',
@@ -60,7 +60,7 @@ export class GmailInput extends Component {
     };
 
     return (
-      <View style={[parent, containerStyle]} onPress={onPress}>
+      <TouchableOpacity style={[parent, containerStyle]} onPress={onPress}>
         <Text style={labelStyle}>{label}</Text>
         <View style={inputContainer}>
           <TextInput
@@ -77,7 +77,7 @@ export class GmailInput extends Component {
             underlineColorAndroid={'transparent'}
           />
         </View>
-      </View>
+      </TouchableOpacity>
     );
   }
 }

@@ -3,16 +3,14 @@ import {View, ScrollView, Text, Image} from 'react-native';
 import {styles} from './styles/client-payment-page-style.js';
 import {BackButton} from '../components/back-button';
 import {Navigation} from 'react-native-navigation';
-import {PrimaryButton} from '../components/primary-button';
-import StarRating from 'react-native-star-rating';
+import { Rating, AirbnbRating } from 'react-native-ratings';
 import {TipButton} from '../components/tip-button.js';
 
 export function CheckoutPaymentPage({componentId}) {
   const [selectedTip, setSelectedTip] = useState(null);
   const [onStarRatingPress, setOnStarRatingPress] = useState(null);
   return (
-    <ScrollView>
-    <View style={styles.CheckoutPaymentPageContainer}>
+    <ScrollView contentContainerStyle={styles.CheckoutPaymentPageContainer}>
       <BackButton
         onPress={onPress}
         backButtonImage={require('../img/backarrow.png')}
@@ -106,20 +104,19 @@ export function CheckoutPaymentPage({componentId}) {
       <View style={styles.LineSeperator} />
       <View
         style={{
-          flexDirection: 'row',
           marginTop: 20,
-          justifyContent: 'space-between',
           width: '100%',
         }}>
         <Text style={styles.BookingInfoText}> Rate your sitter </Text>
-        {/* <StarRating
-          disabled={false}
-          maxStars={5}
-          rating={setOnStarRatingPress}
-          selectedStar={setOnStarRatingPress}
-        /> */}
+        <AirbnbRating
+          count={5}
+          defaultRating={4}
+          size={25}
+          reviews={[]}
+          starContainerStyle={{ position: "absolute", left: 20 }}
+        />
       </View>
-      <View style={styles.LineSeperator} />
+      <View style={[styles.LineSeperator, { marginTop: 8 }]} />
       <View
         style={{
           flexDirection: 'row',
@@ -161,7 +158,6 @@ export function CheckoutPaymentPage({componentId}) {
           <Text style={styles.Booking}> Booking date </Text>
           <Text style={styles.BookingDate}>Wed, 12 Oct 2021</Text>
         </View>
-    </View>
      </ScrollView>
   );
   function onPress() {

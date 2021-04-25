@@ -19,10 +19,11 @@
     "react-native-calendars": "^1.1255.0",
     "react-native-maps": "0.27.1",
     "react-native-material-tabs": "^4.2.0",
+    "react-native-modal-datetime-picker": "^9.2.1",
     "react-native-navigation": "^7.12.0",
+    "react-native-ratings": "^8.0.3",
     "react-native-safe-area": "^0.5.1",
-    "react-native-splash-screen": "3.0.6",
-    "react-native-star-rating": "^1.1.0"
+    "react-native-splash-screen": "3.0.6"
   },
   "devDependencies": {
     "@babel/core": "^7.13.10",
