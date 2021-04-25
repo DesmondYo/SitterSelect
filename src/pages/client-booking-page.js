@@ -12,58 +12,56 @@ export function ClientBookingPage({componentId}) {
   const [selectedTab, setSelectedTab] = useState(null);
 
   return (
-    <ScrollView>
-      <View style={styles.PageContainer}>
-        <BackButton
-          onPress={onPress}
-          backButtonImage={require('../img/backarrow.png')}
-          imageWidth={30}
-          imageHeight={30}
-        />
-        <Text style={styles.Text}> My Bookings </Text>
+    <ScrollView style={styles.PageContainer}>
+      <BackButton
+        onPress={onPress}
+        backButtonImage={require('../img/backarrow.png')}
+        imageWidth={30}
+        imageHeight={30}
+      />
+      <Text style={styles.Text}> My Bookings </Text>
 
-        <MaterialTabs
-          items={['Current', 'Past']}
-          selectedIndex={selectedTab}
-          onChange={setSelectedTab}
-          barColor="#FCF0F2"
-          indicatorColor="#92465a"
-          activeTextColor="#92465a"
-          inactiveTextColor="rgba(30, 47, 68, 0.48)"
-        />
-        <SitterStatusApproved
-          source={require('../img/LadyInPic.png')}
-          label="Josie Emch"
-          text="Drop-In For Pets"
-          date="12 Oct 2021"
-          purpledot={require('../img/PurpleDot.png')}
-          time="07:00 - 10:00"
-          approved="Approved"
-          ApprovedPress={ApprovedPress}
-          imageOfLogo={require('../img/DropInForSittersNoPinkBackground.png')}
-        />
-        <SitterStatusDeclined
-          source={require('../img/LadyInPic.png')}
-          label="Josie Emch"
-          text="Drop-In For Pets"
-          date="12 Oct 2021"
-          purpledot={require('../img/PurpleDot.png')}
-          time="07:00 - 10:00"
-          declined="Declined"
-          DeclinedPress={DeclinedPress}
-          image={require('../img/DropInForSittersNoPinkBackground.png')}
-        />
-        <SitterStatusPending
-          source={require('../img/LadyInPic.png')}
-          label="Josie Emch"
-          text="Drop-In For Pets"
-          date="12 Oct 2021"
-          purpledot={require('../img/PurpleDot.png')}
-          time="07:00 - 10:00"
-          pending="Pending"
-          PendingPress={PendingPress}
-        />
-      </View>
+      <MaterialTabs
+        items={['Current', 'Past']}
+        selectedIndex={selectedTab}
+        onChange={setSelectedTab}
+        barColor="#FCF0F2"
+        indicatorColor="#92465a"
+        activeTextColor="#92465a"
+        inactiveTextColor="rgba(30, 47, 68, 0.48)"
+      />
+      <SitterStatusApproved
+        source={require('../img/LadyInPic.png')}
+        label="Josie Emch"
+        text="Drop-In For Pets"
+        date="12 Oct 2021"
+        purpledot={require('../img/PurpleDot.png')}
+        time="07:00 - 10:00"
+        approved="Approved"
+        ApprovedPress={ApprovedPress}
+        imageOfLogo={require('../img/DropInForSittersNoPinkBackground.png')}
+      />
+      <SitterStatusDeclined
+        source={require('../img/LadyInPic.png')}
+        label="Josie Emch"
+        text="Drop-In For Pets"
+        date="12 Oct 2021"
+        purpledot={require('../img/PurpleDot.png')}
+        time="07:00 - 10:00"
+        declined="Declined"
+        DeclinedPress={DeclinedPress}
+        image={require('../img/DropInForSittersNoPinkBackground.png')}
+      />
+      <SitterStatusPending
+        source={require('../img/LadyInPic.png')}
+        label="Josie Emch"
+        text="Drop-In For Pets"
+        date="12 Oct 2021"
+        purpledot={require('../img/PurpleDot.png')}
+        time="07:00 - 10:00"
+        pending="Pending"
+        PendingPress={PendingPress}
+      />
     </ScrollView>
   );
 

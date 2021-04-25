@@ -22,7 +22,6 @@ export function SitterDetailsPage({componentId}) {
   const formattedStartTime = dayjs(startTime).format("HH:mm");
   const formattedEndTime = dayjs(endTime).format("HH:mm");
   
-  console.log({ showStartTimePicker, showEndTimePicker });
   return (
     <>
       <ScrollView style={styles.SitterDetailContainer}>
