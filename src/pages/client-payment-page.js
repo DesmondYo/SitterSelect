@@ -3,14 +3,19 @@ import {View, ScrollView, Text, Image} from 'react-native';
 import {styles} from './styles/client-payment-page-style.js';
 import {BackButton} from '../components/back-button';
 import {Navigation} from 'react-native-navigation';
-import { Rating, AirbnbRating } from 'react-native-ratings';
+import {Rating, AirbnbRating} from 'react-native-ratings';
 import {TipButton} from '../components/tip-button.js';
+import {PrimaryButton} from '../components/primary-button.js';
+import CheckBox from '@react-native-community/checkbox';
 
 export function CheckoutPaymentPage({componentId}) {
   const [selectedTip, setSelectedTip] = useState(null);
   const [onStarRatingPress, setOnStarRatingPress] = useState(null);
+  const [toggleCheckBox, setToggleCheckBox] = useState(false);
   return (
-    <ScrollView contentContainerStyle={styles.CheckoutPaymentPageContainer}>
+    <ScrollView
+      contentContainerStyle={styles.CheckoutPaymentPageContainer}
+      contentInset={{top: -38}}>
       <BackButton
         onPress={onPress}
         backButtonImage={require('../img/backarrow.png')}
@@ -113,10 +118,10 @@ export function CheckoutPaymentPage({componentId}) {
           defaultRating={4}
           size={25}
           reviews={[]}
-          starContainerStyle={{ position: "absolute", left: 20 }}
+          starContainerStyle={{position: 'absolute', left: 20}}
         />
       </View>
-      <View style={[styles.LineSeperator, { marginTop: 8 }]} />
+      <View style={[styles.LineSeperator, {marginTop: 8}]} />
       <View
         style={{
           flexDirection: 'row',
@@ -124,46 +129,111 @@ export function CheckoutPaymentPage({componentId}) {
           justifyContent: 'space-between',
           width: '100%',
         }}>
-      <Text style={styles.BookingInfoText}> Price details </Text>
+        <Text style={styles.BookingInfoText}> Price details </Text>
       </View>
       <View
-          style={{
-            flexDirection: 'row',
-            marginTop: 29,
-            justifyContent: 'space-between',
-            width: '100%',
-          }}>
-          <Text style={styles.Status}> Status </Text>
-          <View style={styles.approved}>
-            <Text style={styles.approvedText}>Approved</Text>
-          </View>
+        style={{
+          flexDirection: 'row',
+          marginTop: 9,
+          justifyContent: 'space-between',
+          width: '100%',
+        }}>
+        <Text style={styles.BookingFee}>Booking fee </Text>
+        <View style={styles.PriceDetailsStyle}>
+          <Text style={styles.PriceDetailsText}>$8/day</Text>
         </View>
-        <View
-          style={{
-            flexDirection: 'row',
-            marginTop: 29,
-            justifyContent: 'space-between',
-            width: '100%',
-          }}>
-          <Text style={styles.Invoice}> Invoice </Text>
-          <Text style={styles.InvoiceNumber}>#GF20190928125</Text>
+      </View>
+      <View
+        style={{
+          flexDirection: 'row',
+          marginTop: 9,
+          justifyContent: 'space-between',
+          width: '100%',
+        }}>
+        <Text style={styles.BookingFee}>Booking price </Text>
+        <View style={styles.PriceDetailsStyle}>
+          <Text style={styles.HourlyDetailsText}>$500/hour</Text>
         </View>
-        <View
-          style={{
-            flexDirection: 'row',
-            marginTop: 29,
-            justifyContent: 'space-between',
-            width: '100%',
-          }}>
-          <Text style={styles.Booking}> Booking date </Text>
-          <Text style={styles.BookingDate}>Wed, 12 Oct 2021</Text>
+      </View>
+      <View
+        style={{
+          flexDirection: 'row',
+          marginTop: 9,
+          justifyContent: 'space-between',
+          width: '100%',
+        }}>
+        <Text style={styles.BookingFee}>Duration</Text>
+        <View style={styles.PriceDetailsStyle}>
+          <Text style={styles.PriceDetailsText}>3 hours</Text>
         </View>
-     </ScrollView>
+      </View>
+      <View
+        style={{
+          flexDirection: 'row',
+          marginTop: 9,
+          justifyContent: 'space-between',
+          width: '100%',
+        }}>
+        <Text style={styles.BookingFee}>Tax</Text>
+        <View style={styles.PriceDetailsStyle}>
+          <Text style={styles.PriceDetailsText}>0</Text>
+        </View>
+      </View>
+      <View
+        style={{
+          flexDirection: 'row',
+          marginTop: 9,
+          justifyContent: 'space-between',
+          width: '100%',
+        }}>
+        <Text style={styles.Total}>Total</Text>
+        <View style={styles.PriceDetailsStyle}>
+          <Text style={styles.TotalText}>$1,500</Text>
+        </View>
+      </View>
+      <View
+        style={{
+          flexDirection: 'row',
+          marginTop: 11,
+          width: '96%',
+          marginLeft: 20,
+        }}>
+        <CheckBox
+          style={styles.checkbox}
+          disabled={false}
+          value={toggleCheckBox}
+          onValueChange={newValue => setToggleCheckBox(newValue)}
+        />
+        <Text style={styles.CheckMarkText}>
+          I agree to cancellation policy, terms & conditions{'\n'}and privacy
+          policy
+        </Text>
+      </View>
+      <PrimaryButton
+        label="Confirm & Pay"
+        style={styles.Button}
+        TextStyle={styles.ButtonText}
+        onPress={onOpenOverlay}
+      />
+    </ScrollView>
   );
   function onPress() {
     Navigation.push(componentId, {
       component: {
         name: 'ClientBookingPage',
+      },
+    });
+  }
+  function onOpenOverlay() {
+    Navigation.showOverlay({
+      component: {
+        name: 'FinalPaymentOverlay',
+        options: {
+          layout: {
+            backgroundColor: 'transparent',
+            componentBackgroundColor: 'transparent',
+          },
+        },
       },
     });
   }

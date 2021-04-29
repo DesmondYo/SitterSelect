@@ -14,6 +14,10 @@ import {ClientBookingPage} from './src/pages/client-booking-page';
 import {ClientBookingDetails} from './src/pages/client-booking-details-page';
 import {CheckoutPaymentPage} from './src/pages/client-payment-page';
 import {TippingOverlay} from './src/components/tipping-overlay';
+import {FinalPaymentOverlay} from './src/components/final-payment-overlay';
+import {SitterBookingPage} from './src/pages/sitter-booking-page';
+import {SitterBookingDetailsPage} from './src/pages/sitter-booking-details-page';
+import {SitterClockInClockOutSubmitTimePage} from './src/pages/sitter-clock-in-clock-out-submit-time-page';
 
 SplashScreen.hide();
 
@@ -27,6 +31,10 @@ Navigation.registerComponent('ClientBookingPage', () => ClientBookingPage);
 Navigation.registerComponent('ClientBookingDetails', () => ClientBookingDetails);
 Navigation.registerComponent('CheckoutPaymentPage', () => CheckoutPaymentPage);
 Navigation.registerComponent('TippingOverlay', () => TippingOverlay);
+Navigation.registerComponent('FinalPaymentOverlay', () => FinalPaymentOverlay);
+Navigation.registerComponent('SitterBookingPage', () => SitterBookingPage);
+Navigation.registerComponent('SitterBookingDetailsPage', () => SitterBookingDetailsPage);
+Navigation.registerComponent('SitterClockInClockOutSubmitTimePage', () => SitterClockInClockOutSubmitTimePage);
 
 Navigation.events().registerAppLaunchedListener(() => {
   Navigation.setRoot({
@@ -35,7 +43,7 @@ Navigation.events().registerAppLaunchedListener(() => {
         children: [
           {
             component: {
-              name: 'LoginPage',
+              name: 'SitterBookingPage',
             },
           },
         ],

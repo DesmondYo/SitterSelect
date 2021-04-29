@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@alessiocancian/react-native-actionsheet": "^2.4.11",
+    "@react-native-community/checkbox": "^0.5.7",
     "@react-native-community/datetimepicker": "^3.4.3",
     "dayjs": "^1.10.4",
     "react": "17.0.1",

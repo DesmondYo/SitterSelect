@@ -24,7 +24,13 @@ export class GmailInput extends Component {
   };
 
   render() {
-    const {label, isRow = false, onPress, containerStyle, ...props} = this.props;
+    const {
+      label,
+      isRow = false,
+      onPress,
+      containerStyle,
+      ...props
+    } = this.props;
     const {isFocused} = this.state;
     const labelStyle = {
       position: 'absolute',

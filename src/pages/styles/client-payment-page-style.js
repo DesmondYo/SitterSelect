@@ -3,7 +3,6 @@ import {StyleSheet} from 'react-native';
 export const styles = StyleSheet.create({
   CheckoutPaymentPageContainer: {
     backgroundColor: '#fcf0f2',
-    flex: 1,
     alignItems: 'center',
     paddingTop: 50,
   },
@@ -103,47 +102,59 @@ export const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: 'bold',
   },
-  Status: {
+  BookingFee: {
     fontSize: 14,
     flexDirection: 'row',
     color: '#b59ea4',
     alignSelf: 'stretch',
-    marginLeft: 16,
+    marginLeft: 20,
   },
-  approved: {
-    backgroundColor: '#f5efff',
-    color: '#5e4386',
-    height: 22,
-    width: 68,
-    borderRadius: 16,
+  PriceDetailsStyle: {
+    color: '#92465a',
     paddingTop: 3,
-    marginRight: 19,
+    marginRight: 16,
   },
-  approvedText: {
-    fontSize: 12,
-    color: '#5e4386',
+  PriceDetailsText: {
+    fontSize: 14,
+    color: '#92465a',
     textAlign: 'center',
   },
-  InvoiceNumber: {
+  HourlyDetailsText: {
     fontSize: 14,
+    color: '#92465a',
     textAlign: 'center',
-    color: '#b59ea4',
-    marginRight: 19,
   },
-  Invoice: {
+  Total: {
     fontSize: 14,
-    color: '#b59ea4',
-    marginLeft: 16,
+    flexDirection: 'row',
+    color: '#92465a',
+    alignSelf: 'stretch',
+    marginLeft: 20,
+    fontWeight: 'bold',
   },
-  Booking: {
+  TotalText: {
     fontSize: 14,
-    color: '#b59ea4',
-    marginLeft: 16,
-  },
-  BookingDate: {
-    fontSize: 14,
+    color: '#92465a',
     textAlign: 'center',
-    color: '#b59ea4',
-    marginRight: 19,
+  },
+  CheckMarkText: {
+    fontSize: 13,
+    color: '#92465a',
+    marginLeft: 5,
+    fontWeight: 'bold',
+  },
+  Button: {
+    marginTop: 35,
+    width: 343,
+    height: 41,
+    backgroundColor: '#5e4386',
+    borderRadius: 35,
+    alignSelf: 'center',
+  },
+  ButtonText: {
+    textAlign: 'center',
+    padding: 12,
+    color: 'white',
+    fontSize: 14,
   },
 });

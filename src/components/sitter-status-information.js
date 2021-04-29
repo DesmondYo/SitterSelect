@@ -127,3 +127,41 @@ export function SitterStatusPending({
     </TouchableOpacity>
   );
 }
+export function SitterInformation({
+  source,
+  label,
+  text,
+  date,
+  time,
+  purpledot,
+  approved,
+  SitterBookingDetails,
+}) {
+  return (
+    <TouchableOpacity onPress={SitterBookingDetails}>
+      <View style={styles.MainRectangle}>
+        <View style={{flexDirection: 'row'}}>
+          <Image source={source} style={{width: 51, height: 51}} />
+
+          <View style={{marginLeft: 16}}>
+            <Text style={[styles.TextStyle, {marginBottom: 5}]}>{label}</Text>
+
+            <View style={{flexDirection: 'row', marginBottom: 5}}>
+              <Image
+                style={styles.ServiceImage}
+                source={require('../img/DropInForSittersNoPinkBackground.png')}
+              />
+              <Text style={styles.Text}>{text}</Text>
+            </View>
+
+            <View style={{flexDirection: 'row'}}>
+              <Text style={styles.date}>{date}</Text>
+              <Image style={styles.PurpleDot} source={purpledot} />
+              <Text style={styles.time}>{time}</Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </TouchableOpacity>
+  );
+}

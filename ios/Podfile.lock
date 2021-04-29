@@ -356,6 +356,8 @@ PODS:
     - React-Core
     - React-RCTImage
     - React-RCTText
+  - RNCCheckbox (0.5.7):
+    - React-Core
   - RNDateTimePicker (3.4.3):
     - React-Core
   - Yoga (1.14.0)
@@ -418,6 +420,7 @@ DEPENDENCIES:
   - React-runtimeexecutor (from `../node_modules/react-native/ReactCommon/runtimeexecutor`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - ReactNativeNavigation (from `../node_modules/react-native-navigation`)
+  - "RNCCheckbox (from `../node_modules/@react-native-community/checkbox`)"
   - "RNDateTimePicker (from `../node_modules/@react-native-community/datetimepicker`)"
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
@@ -503,6 +506,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   ReactNativeNavigation:
     :path: "../node_modules/react-native-navigation"
+  RNCCheckbox:
+    :path: "../node_modules/@react-native-community/checkbox"
   RNDateTimePicker:
     :path: "../node_modules/@react-native-community/datetimepicker"
   Yoga:
@@ -513,7 +518,7 @@ SPEC CHECKSUMS:
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
   DoubleConversion: cf9b38bf0b2d048436d9a82ad2abe1404f11e7de
   FBLazyVector: 49cbe4b43e445b06bf29199b6ad2057649e4c8f5
-  FBReactNativeSpec: b593e2c737be19f6dec1fba5ec3436f5187409a7
+  FBReactNativeSpec: e3f3b4896c0a735e102fb9bf9b900ad8ccb97fcc
   Flipper: d3da1aa199aad94455ae725e9f3aa43f3ec17021
   Flipper-DoubleConversion: 38631e41ef4f9b12861c67d17cb5518d06badc41
   Flipper-Folly: f7a3caafbd74bda4827954fd7a6e000e36355489
@@ -554,7 +559,8 @@ SPEC CHECKSUMS:
   React-runtimeexecutor: cad74a1eaa53ee6e7a3620231939d8fe2c6afcf0
   ReactCommon: cfe2b7fd20e0dbd2d1185cd7d8f99633fbc5ff05
   ReactNativeNavigation: 53ba485fbb370aeed7057020f351b814e51c18ef
-  RNDateTimePicker: e1c24487ab8aa0850403bd90dba75eff8a4e9b84
+  RNCCheckbox: d1749e6a92178ce5dbc31e63becd1f34f0c76bbd
+  RNDateTimePicker: d943800c936fb01c352fcfb70439550d2cb57092
   Yoga: 8c8436d4171c87504c648ae23b1d81242bdf3bbf
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 

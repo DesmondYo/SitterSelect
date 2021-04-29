@@ -1,10 +1,12 @@
-import React, {useRef} from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import React, {useRef, useState} from 'react';
+import {View, Text, TouchableOpacity, TextInput} from 'react-native';
 import {styles} from './styles/tipping-overlay-style.js';
 import {AwesomeModal} from 'react-native-awesome-modal';
 import {Navigation} from 'react-native-navigation';
+import {PrimaryButton} from './primary-button.js';
 
 export function TippingOverlay({componentId}) {
+  const [number, onChangeNumber] = useState(null);
   const awesomeModalRef = useRef(null);
   return (
     <AwesomeModal
@@ -17,26 +19,18 @@ export function TippingOverlay({componentId}) {
         backgroundColor: 'black',
       }}
       modalInnerContainerStyle={{backgroundColor: '#fcf0f2'}}>
-      <TouchableOpacity style={styles.rectangle10} onPress={onPressOther}>
-        <Text style={styles.buttonTextStyle10}>10</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={(styles.buttonTextStyle20, styles.rectangle20)}>
-        <Text style={styles.buttonTextStyle20}>20</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={(styles.buttonTextStyle30, styles.rectangle30)}>
-        <Text style={styles.buttonTextStyle30}>30</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={(styles.buttonTextStyle40, styles.rectangle40)}>
-        <Text style={styles.buttonTextStyle40}>40</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={(styles.buttonTextStyle50, styles.rectangle50)}>
-        <Text style={styles.buttonTextStyle50}>50</Text>
-      </TouchableOpacity>
-
+      <Text style={styles.inputText}>Input Tip</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Tip Amount"
+        value={number}
+        keyboardType="number-pad"
+      />
+      <PrimaryButton
+        label="Confirm"
+        style={styles.TipButton}
+        TextStyle={styles.TipButtonText}
+      />
       <TouchableOpacity onPress={() => awesomeModalRef.current.close()}>
         <Text style={styles.close}>Close</Text>
       </TouchableOpacity>

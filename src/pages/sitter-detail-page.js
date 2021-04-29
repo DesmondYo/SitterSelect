@@ -1,10 +1,5 @@
 import React, {useState} from 'react';
-import {
-  View,
-  Image,
-  ScrollView,
-  Text,
-} from 'react-native';
+import {View, Image, ScrollView, Text} from 'react-native';
 import {GmailTouchable} from '../components/gmail-touchable';
 import {styles} from './styles/sitter-detail-page-style.js';
 import {BackButton} from '../components/back-button';
@@ -12,16 +7,16 @@ import {Navigation} from 'react-native-navigation';
 import {Calendar} from 'react-native-calendars';
 import {PrimaryButton} from '../components/primary-button';
 import dayjs from 'dayjs';
-import DateTimePickerModal from "react-native-modal-datetime-picker";
+import DateTimePickerModal from 'react-native-modal-datetime-picker';
 
 export function SitterDetailsPage({componentId}) {
   const [startTime, setStartTime] = useState(dayjs().toDate());
   const [endTime, setEndTime] = useState(dayjs().add(2, 'hour').toDate());
   const [showStartTimePicker, setShowStartTimePicker] = useState(false);
   const [showEndTimePicker, setShowEndTimePicker] = useState(false);
-  const formattedStartTime = dayjs(startTime).format("HH:mm");
-  const formattedEndTime = dayjs(endTime).format("HH:mm");
-  
+  const formattedStartTime = dayjs(startTime).format('HH:mm');
+  const formattedEndTime = dayjs(endTime).format('HH:mm');
+
   return (
     <>
       <ScrollView style={styles.SitterDetailContainer}>
@@ -105,7 +100,7 @@ export function SitterDetailsPage({componentId}) {
           <GmailTouchable
             label="Start Time"
             isRow={true}
-            containerStyle={{ marginRight: 12 }}
+            containerStyle={{marginRight: 12}}
             value={formattedStartTime}
             onPress={() => setShowStartTimePicker(true)}
             editable={false}
