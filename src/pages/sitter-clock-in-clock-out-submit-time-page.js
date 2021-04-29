@@ -103,31 +103,40 @@ export function SitterClockInClockOutSubmitTimePage({componentId}) {
         </View>
         <View style={styles.LineSeperator} />
       </View>
-      <View style={{flexDirection: 'row'}}>
-          <Image
-            source={require('../img/CalenderImage.png')}
-            style={{width: 24, height: 24, marginTop: 34, marginLeft: 20.6}}
-          />
-          <View style={{marginLeft: 3}}>
-            <Text style={[styles.BookedLength, {marginTop: 24, marginLeft: 8}]}>
-              Clock In
-            </Text>
-            <View style={{marginTop: 4}}>
-              <Text style={styles.days}>NA</Text>
+      <View style={{flexDirection: 'row', alignItems: "center", justifyContent: "space-between", paddingHorizontal: 18, marginTop: 8}}>
+
+          <View style={{ flex: 1, flexDirection: 'row', alignItems: "center", justifyContent: "flex-start", backgroundColor: "blue", paddingVertical: 14  }}>
+            <Image
+              source={require('../img/CalenderImage.png')}
+              style={{width: 24, height: 24}}
+            />
+
+            <View style={{marginLeft: 3}}>
+              <Text style={[styles.BookedLength, {marginLeft: 8}]}>
+                Clock In
+              </Text>
+              <View style={{marginTop: 4}}>
+                <Text style={styles.days}>NA</Text>
+              </View>
             </View>
           </View>
-          <Image
-            source={require('../img/Clock.png')}
-            style={{width: 24, height: 24, marginTop: 34, marginLeft: 50}}
-          />
-          <View style={{marginLeft: 3}}>
-            <Text style={[styles.BookedLength, {marginTop: 24, marginLeft: 8}]}>
-              Clock Out
-            </Text>
-            <View style={{marginTop: 4}}>
-              <Text style={styles.days}>NA</Text>
+
+          <View style={{ flex: 1, flexDirection: 'row', alignItems: "center", justifyContent: "flex-start", backgroundColor: "red", paddingVertical: 14  }}>
+            <Image
+              source={require('../img/Clock.png')}
+              style={{width: 24, height: 24}}
+            />
+
+            <View style={{marginLeft: 3}}>
+              <Text style={[styles.BookedLength, { marginLeft: 8}]}>
+                Clock Out
+              </Text>
+              <View style={{marginTop: 4}}>
+                <Text style={styles.days}>NA</Text>
+              </View>
             </View>
           </View>
+
         </View>
     </ScrollView>
   );

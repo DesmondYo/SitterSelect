@@ -82,7 +82,6 @@ export const styles = StyleSheet.create({
     width: 343,
     backgroundColor: '#5e4386',
     borderRadius: 35,
-    marginTop: 232,
   },
   MakeFinalPaymentButtonText: {
     textAlign: 'center',
@@ -93,7 +92,7 @@ export const styles = StyleSheet.create({
   ContactJosieButton: {
     width: 343,
     marginTop: 13,
-    backgroundColor: 'transparent',
+    backgroundColor: '#fcf0f2',
     borderWidth: 1,
     borderTopLeftRadius: 35,
     borderTopRightRadius: 35,

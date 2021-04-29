@@ -2,9 +2,9 @@ import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
   CheckoutPaymentPageContainer: {
-    backgroundColor: '#fcf0f2',
+    flex: 1,
     alignItems: 'center',
-    paddingTop: 50,
+    paddingTop: 15,
   },
   Text: {
     fontSize: 16,

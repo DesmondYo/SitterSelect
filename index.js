@@ -43,7 +43,7 @@ Navigation.events().registerAppLaunchedListener(() => {
         children: [
           {
             component: {
-              name: 'SitterBookingPage',
+              name: 'SitterClockInClockOutSubmitTimePage',
             },
           },
         ],

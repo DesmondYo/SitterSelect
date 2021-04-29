@@ -13,14 +13,17 @@ export function CheckoutPaymentPage({componentId}) {
   const [onStarRatingPress, setOnStarRatingPress] = useState(null);
   const [toggleCheckBox, setToggleCheckBox] = useState(false);
   return (
+    <>
     <ScrollView
+      style={{  backgroundColor: '#fcf0f2', }}
       contentContainerStyle={styles.CheckoutPaymentPageContainer}
-      contentInset={{top: -38}}>
+      contentInset={{top: 0, bottom: 160}}>
       <BackButton
         onPress={onPress}
         backButtonImage={require('../img/backarrow.png')}
         imageWidth={30}
         imageHeight={30}
+        top={10}
       />
       <View style={{flexDirection: 'row'}}>
         <Text style={styles.Text}> Confirm & Pay </Text>
@@ -209,13 +212,17 @@ export function CheckoutPaymentPage({componentId}) {
           policy
         </Text>
       </View>
-      <PrimaryButton
+    </ScrollView>
+
+    <View style={{ position: "absolute", bottom: 20, alignSelf: "center" }}>
+    <PrimaryButton
         label="Confirm & Pay"
         style={styles.Button}
         TextStyle={styles.ButtonText}
         onPress={onOpenOverlay}
       />
-    </ScrollView>
+      </View>
+    </>
   );
   function onPress() {
     Navigation.push(componentId, {
@@ -228,6 +235,9 @@ export function CheckoutPaymentPage({componentId}) {
     Navigation.showOverlay({
       component: {
         name: 'FinalPaymentOverlay',
+        passProps: {
+          parentComponentId: componentId,
+        },
         options: {
           layout: {
             backgroundColor: 'transparent',
