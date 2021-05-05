@@ -3,42 +3,32 @@ import {StyleSheet} from 'react-native';
 export const styles = StyleSheet.create({
   containerStyle: {
     width: '100%',
-    maxHeight: 600,
+    maxHeight: '100%',
     borderTopRightRadius: 20,
     borderTopLeftRadius: 20,
     borderBottomLeftRadius: 0,
     borderBottomRightRadius: 0,
     backgroundColor: '#fcf0f2',
   },
-
   buttonTextStyle: {
-    textAlign: 'left',
+    textAlign: 'center',
     padding: 15,
-    color: '#92465a',
-    fontSize: 16,
+    color: '#ffffff',
+    fontSize: 14,
     fontFamily: 'arial',
   },
-
   text: {
     color: '#15062C',
-    fontSize: 24,
+    fontSize: 22,
     fontWeight: 'bold',
-    bottom: 45,
     fontFamily: 'arial',
-    marginTop: 18,
   },
   rectangle: {
-    borderRadius: 12,
-    height: 51,
-    backgroundColor: '#FFC5C4',
-    marginBottom: 12,
+    borderRadius: 35,
+    backgroundColor: '#5E4386',
+    marginTop: 20,
   },
-  rectangletwo: {
-    height: 51,
-    backgroundColor: '#FFC5C4',
-    borderRadius: 12,
-  },
-  modalOverlayStyle: {
+  ModalOverlayStyle: {
     backgroundColor: 'black',
   },
   modalInnerContainerStyle: {

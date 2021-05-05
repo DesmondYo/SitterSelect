@@ -11,19 +11,17 @@ export const styles = StyleSheet.create({
     ...StyleSheet.absoluteFillObject,
   },
   CurrentLocation: {
-    alignSelf: 'flex-end',
     position: 'absolute',
     top: 30,
     right: 10,
   },
   button: {
-    width: 159,
+    width: '40%',
     paddingTop: 12,
     alignItems: 'center',
     backgroundColor: '#ffffff',
     borderRadius: 26,
-    position: 'absolute',
-    bottom: 25,
+    marginBottom: 20,
   },
   buttonText: {
     textAlign: 'center',
@@ -37,12 +35,8 @@ export const styles = StyleSheet.create({
     width: 20,
     height: 20,
   },
-  backbutton: {
-    alignSelf: 'flex-end',
-    height: 50,
-    width: 50,
-    position: 'absolute',
-    top: 42,
-    left: 25,
+  imageStyle: {
+    width: 100,
+    height: 100,
   },
 });

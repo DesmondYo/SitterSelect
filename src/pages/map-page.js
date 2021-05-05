@@ -8,8 +8,7 @@ import {BackButton} from '../components/back-button';
 import {Marker} from 'react-native-maps';
 
 const MapPage = ({componentId}) => {
-  const [currentlocation, setcurrentlocation] = useState(null);
-  const [button, setbutton] = useState(null);
+  const [setcurrentlocation] = useState(null);
 
   return (
     <View style={styles.container}>
@@ -45,10 +44,10 @@ const MapPage = ({componentId}) => {
         style={styles.CurrentLocation}>
         <Image
           source={require('../img/CurrentLocation.png')}
-          style={{width: 100, height: 100}}
+          style={styles.imageStyle}
         />
       </TouchableOpacity>
-      <TouchableOpacity onPress={setbutton} style={styles.button}>
+      <TouchableOpacity onPress={onPressMyBooking} style={styles.button}>
         <Text style={styles.buttonText}>My Bookings</Text>
       </TouchableOpacity>
     </View>
@@ -62,9 +61,13 @@ const MapPage = ({componentId}) => {
     });
   }
 
-  // function onBack() {
-  //   Navigation.pop(componentId);
-  // }
+  function onPressMyBooking() {
+    Navigation.push(componentId, {
+      component: {
+        name: 'ClientBookingPage',
+      },
+    });
+  }
 
   function SitterDetailsPage() {
     Navigation.push(componentId, {

@@ -56,6 +56,9 @@ export const styles = StyleSheet.create({
     fontFamily: 'arial',
     fontWeight: 'bold',
   },
+  TextMargin: {
+    marginTop: 5,
+  },
   DropInForPets: {
     fontSize: 14,
     color: '#92465a',
@@ -71,6 +74,10 @@ export const styles = StyleSheet.create({
     fontSize: 14,
     color: '#b59ea4',
     fontFamily: 'arial',
+  },
+  BookedLengthStyle: {
+    marginTop: 24,
+    marginLeft: 8,
   },
   days: {
     fontSize: 14,
@@ -106,5 +113,57 @@ export const styles = StyleSheet.create({
     color: '#5e4386',
     fontSize: 14,
     fontWeight: 'bold',
+  },
+  BackgroundStyle: {
+    backgroundColor: '#fcf0f2',
+  },
+  ViewFlex: {
+    flexDirection: 'row',
+  },
+  BookingDateStyle: {
+    flexDirection: 'row',
+    marginTop: 32,
+    justifyContent: 'space-between',
+    width: '100%',
+  },
+  BookingInfoView: {
+    flexDirection: 'row',
+    marginTop: 20,
+    width: '100%',
+    marginLeft: 50,
+  },
+  ImageStyle: {
+    width: 51,
+    height: 51,
+  },
+  ViewStyle: {
+    marginLeft: 16,
+  },
+  ViewStyleInformation: {
+    flexDirection: 'row',
+    width: '100%',
+  },
+  ImageCalenderStyle: {
+    width: 24,
+    height: 24,
+    marginTop: 34,
+    marginLeft: 20.6,
+  },
+  SitterTitleStyle: {
+    marginLeft: 3,
+  },
+  SitterInformationStyle: {
+    marginTop: 4,
+  },
+  ImageServiceStyle: {
+    width: 24,
+    height: 24,
+    marginTop: 34,
+    marginLeft: 50,
+  },
+  PrimaryButtonStyle: {
+    position: 'absolute',
+    bottom: 20,
+    alignSelf: 'center',
   },
 });

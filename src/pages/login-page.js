@@ -6,9 +6,8 @@ import {styles} from './styles/login-page-style';
 import {PrimaryButton} from '../components/primary-button';
 
 const LoginPage = ({componentId}) => {
-  const [email, setEmail] = useState(null);
-  const [password, setPassword] = useState(null);
-  const [button, setbutton] = useState(null);
+  const [setEmail] = useState(null);
+  const [setPassword] = useState(null);
   return (
     <View style={styles.loginPageContainer}>
       <Image
@@ -16,7 +15,7 @@ const LoginPage = ({componentId}) => {
         style={styles.SitterSelectLogo}
       />
 
-      <View style={{paddingHorizontal: 16}}>
+      <View style={styles.AllInputs}>
         <Text style={styles.Text}> Hi There!</Text>
         <GmailInput label="Email" onChangeText={setEmail} hideLabel={true} />
         <GmailInput

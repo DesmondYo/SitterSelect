@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     width: '60%',
     resizeMode: 'contain',
-    marginTop: 22,
+    marginTop: 30,
     alignItems: 'center',
   },
   Text: {
@@ -19,8 +19,7 @@ export const styles = StyleSheet.create({
     color: '#92465a',
     fontFamily: 'arial',
     fontWeight: 'bold',
-    marginBottom: 40,
-    marginTop: 8,
+    marginBottom: 20,
   },
   password: {
     color: '#5e4386',
@@ -28,10 +27,9 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 14,
     marginTop: 8,
-    marginLeft: 8,
   },
   button: {
-    marginTop: 50,
+    marginTop: 40,
     width: '100%',
     alignItems: 'center',
     backgroundColor: '#5e4386',
@@ -48,5 +46,9 @@ export const styles = StyleSheet.create({
     padding: 20,
     color: 'black',
     fontSize: 16,
+  },
+  AllInputs: {
+    paddingHorizontal: 16,
+    marginBottom: 40,
   },
 });

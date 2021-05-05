@@ -84,4 +84,21 @@ export const styles = StyleSheet.create({
     color: '#c5b422',
     textAlign: 'center',
   },
+  ViewStyle: {
+    flexDirection: 'row',
+  },
+  ImageStyling: {
+    width: 51,
+    height: 51,
+  },
+  ViewMarginStyle: {
+    marginLeft: 16,
+  },
+  TextStyleMargin: {
+    marginBottom: 5,
+  },
+  ViewStyleLogo: {
+    flexDirection: 'row',
+    marginBottom: 5,
+  },
 });

@@ -44,4 +44,10 @@ export const styles = StyleSheet.create({
     color: 'white',
     fontSize: 14,
   },
+  modalOverlayStyle: {
+    backgroundColor: 'black',
+  },
+  modalInnerContainerStyle: {
+    backgroundColor: '#fcf0f2',
+  },
 });

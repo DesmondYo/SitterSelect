@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, ScrollView} from 'react-native';
+import {Text, ScrollView} from 'react-native';
 import {styles} from './styles/client-booking-page-style.js';
 import {Navigation} from 'react-native-navigation';
 import {BackButton} from '../components/back-button';

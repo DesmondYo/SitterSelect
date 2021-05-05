@@ -17,7 +17,7 @@ export const styles = StyleSheet.create({
     color: '#92465a',
     fontFamily: 'arial',
     fontWeight: 'bold',
-    marginLeft: 20,
+    marginLeft: 16,
   },
   NameText: {
     fontSize: 16,
@@ -156,5 +156,62 @@ export const styles = StyleSheet.create({
     padding: 12,
     color: 'white',
     fontSize: 14,
+  },
+  backgroundStyleColor: {
+    backgroundColor: '#fcf0f2',
+  },
+  ViewStyleRow: {
+    flexDirection: 'row',
+  },
+  ViewStyleBookingInfo: {
+    flexDirection: 'row',
+    marginTop: 20,
+    justifyContent: 'space-between',
+    width: '100%',
+  },
+  ViewStylePricingDetails: {
+    flexDirection: 'row',
+    marginTop: 20,
+    width: '100%',
+    marginLeft: 50,
+  },
+  ImageLadyInPic: {
+    width: 51,
+    height: 51,
+  },
+  BookingInfoMargin: {
+    marginLeft: 16,
+  },
+  NameMarginStyle: {
+    marginTop: 5,
+  },
+  ServiceView: {
+    flexDirection: 'row',
+    marginTop: 5,
+  },
+  GiveTipForServiceStyle: {
+    flexDirection: 'row',
+    width: '100%',
+    marginTop: 24,
+    marginLeft: 35,
+  },
+  RateYourSitterStyle: {
+    marginTop: 20,
+    width: '100%',
+  },
+  starContainerStyle: {
+    position: 'absolute',
+    left: 20,
+  },
+  TermsStyle: {
+    flexDirection: 'row',
+    marginTop: 11,
+    width: '96%',
+    marginLeft: 20,
+  },
+  PrimaryButtonStyle: {
+    position: 'absolute',
+    bottom: 20,
+    alignSelf: 'center',
   },
 });

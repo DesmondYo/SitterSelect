@@ -136,4 +136,17 @@ export const styles = StyleSheet.create({
     textAlign: 'right',
     bottom: 20,
   },
+
+  ViewStyleRow: {
+    flexDirection: 'row',
+  },
+
+  TimePicker: {
+    flex: 1,
+    flexDirection: 'row',
+    paddingHorizontal: 32,
+  },
+  GmailStartTimeStyle: {
+    marginRight: 12,
+  },
 });

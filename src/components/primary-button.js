@@ -6,7 +6,7 @@ export function PrimaryButton({label, onPress, style, TextStyle, colorPress}) {
     <TouchableOpacity onPress={onPress}>
       <View style={style}>
         <Text style={TextStyle}>{label}</Text>
-        <Pressable onPressIn={colorPress}></Pressable>
+        <Pressable onPressIn={colorPress} />
       </View>
     </TouchableOpacity>
   );

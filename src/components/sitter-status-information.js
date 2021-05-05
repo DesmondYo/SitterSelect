@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Image, Text, ScrollView, TouchableOpacity} from 'react-native';
+import {View, Image, Text, TouchableOpacity} from 'react-native';
 import {styles} from './styles/sitter-status-information-style.js';
 
 export function SitterStatusApproved({
@@ -15,13 +15,15 @@ export function SitterStatusApproved({
   return (
     <TouchableOpacity onPress={ApprovedPress}>
       <View style={styles.MainRectangle}>
-        <View style={{flexDirection: 'row'}}>
-          <Image source={source} style={{width: 51, height: 51}} />
+        <View style={styles.ViewStyle}>
+          <Image source={source} style={styles.ImageStyling} />
 
-          <View style={{marginLeft: 16}}>
-            <Text style={[styles.TextStyle, {marginBottom: 5}]}>{label}</Text>
+          <View style={styles.ViewMarginStyle}>
+            <Text style={[styles.TextStyle, styles.TextStyleMargin]}>
+              {label}
+            </Text>
 
-            <View style={{flexDirection: 'row', marginBottom: 5}}>
+            <View style={styles.ViewStyleLogo}>
               <Image
                 style={styles.ServiceImage}
                 source={require('../img/DropInForSittersNoPinkBackground.png')}
@@ -29,7 +31,7 @@ export function SitterStatusApproved({
               <Text style={styles.Text}>{text}</Text>
             </View>
 
-            <View style={{flexDirection: 'row'}}>
+            <View style={styles.ViewStyle}>
               <Text style={styles.date}>{date}</Text>
               <Image style={styles.PurpleDot} source={purpledot} />
               <Text style={styles.time}>{time}</Text>
@@ -57,13 +59,15 @@ export function SitterStatusDeclined({
   return (
     <TouchableOpacity onPress={DeclinedPress}>
       <View style={styles.MainRectangle}>
-        <View style={{flexDirection: 'row'}}>
-          <Image source={source} style={{width: 51, height: 51}} />
+        <View style={styles.ViewStyle}>
+          <Image source={source} style={styles.ImageStyling} />
 
-          <View style={{marginLeft: 16}}>
-            <Text style={[styles.TextStyle, {marginBottom: 5}]}>{label}</Text>
+          <View style={styles.ViewMarginStyle}>
+            <Text style={[styles.TextStyle, styles.TextStyleMargin]}>
+              {label}
+            </Text>
 
-            <View style={{flexDirection: 'row', marginBottom: 5}}>
+            <View style={styles.ViewStyleLogo}>
               <Image
                 style={styles.ServiceImage}
                 source={require('../img/DropInForSittersNoPinkBackground.png')}
@@ -71,7 +75,7 @@ export function SitterStatusDeclined({
               <Text style={styles.Text}>{text}</Text>
             </View>
 
-            <View style={{flexDirection: 'row'}}>
+            <View style={styles.ViewStyle}>
               <Text style={styles.date}>{date}</Text>
               <Image style={styles.PurpleDot} source={purpledot} />
               <Text style={styles.time}>{time}</Text>
@@ -99,13 +103,15 @@ export function SitterStatusPending({
   return (
     <TouchableOpacity onPress={PendingPress}>
       <View style={styles.MainRectangle}>
-        <View style={{flexDirection: 'row'}}>
-          <Image source={source} style={{width: 51, height: 51}} />
+        <View style={styles.ViewStyle}>
+          <Image source={source} style={styles.ImageStyling} />
 
-          <View style={{marginLeft: 16}}>
-            <Text style={[styles.TextStyle, {marginBottom: 5}]}>{label}</Text>
+          <View style={styles.ViewMarginStyle}>
+            <Text style={[styles.TextStyle, styles.TextStyleMargin]}>
+              {label}
+            </Text>
 
-            <View style={{flexDirection: 'row', marginBottom: 5}}>
+            <View style={styles.ViewStyleLogo}>
               <Image
                 style={styles.ServiceImage}
                 source={require('../img/DropInForSittersNoPinkBackground.png')}
@@ -113,7 +119,7 @@ export function SitterStatusPending({
               <Text style={styles.Text}>{text}</Text>
             </View>
 
-            <View style={{flexDirection: 'row'}}>
+            <View style={styles.ViewStyle}>
               <Text style={styles.date}>{date}</Text>
               <Image style={styles.PurpleDot} source={purpledot} />
               <Text style={styles.time}>{time}</Text>
@@ -140,13 +146,15 @@ export function SitterInformation({
   return (
     <TouchableOpacity onPress={SitterBookingDetails}>
       <View style={styles.MainRectangle}>
-        <View style={{flexDirection: 'row'}}>
-          <Image source={source} style={{width: 51, height: 51}} />
+        <View style={styles.ViewStyle}>
+          <Image source={source} style={styles.ImageStyling} />
 
-          <View style={{marginLeft: 16}}>
-            <Text style={[styles.TextStyle, {marginBottom: 5}]}>{label}</Text>
+          <View style={styles.ViewMarginStyle}>
+            <Text style={[styles.TextStyle, styles.TextStyleMargin]}>
+              {label}
+            </Text>
 
-            <View style={{flexDirection: 'row', marginBottom: 5}}>
+            <View style={styles.ViewStyleLogo}>
               <Image
                 style={styles.ServiceImage}
                 source={require('../img/DropInForSittersNoPinkBackground.png')}
@@ -154,7 +162,7 @@ export function SitterInformation({
               <Text style={styles.Text}>{text}</Text>
             </View>
 
-            <View style={{flexDirection: 'row'}}>
+            <View style={styles.ViewStyle}>
               <Text style={styles.date}>{date}</Text>
               <Image style={styles.PurpleDot} source={purpledot} />
               <Text style={styles.time}>{time}</Text>

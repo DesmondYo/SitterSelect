@@ -11,7 +11,7 @@ export function ClientBookingDetails({componentId}) {
   const actionSheetRef = useRef(null);
   return (
     <ScrollView
-      style={{backgroundColor: '#fcf0f2'}}
+      style={styles.BackgroundStyle}
       contentInset={{bottom: 20, top: 20}}>
       <View style={styles.ClientBookingDetailsContainer}>
         <BackButton
@@ -20,67 +20,37 @@ export function ClientBookingDetails({componentId}) {
           imageWidth={30}
           imageHeight={30}
         />
-        <View style={{flexDirection: 'row'}}>
+        <View style={styles.ViewFlex}>
           <Text style={styles.Text}> Booking Details </Text>
         </View>
-        <View
-          style={{
-            flexDirection: 'row',
-            marginTop: 29,
-            justifyContent: 'space-between',
-            width: '100%',
-          }}>
+        <View style={styles.ViewStatus}>
           <Text style={styles.Status}> Status </Text>
           <View style={styles.approved}>
             <Text style={styles.approvedText}>Approved</Text>
           </View>
         </View>
-        <View
-          style={{
-            flexDirection: 'row',
-            marginTop: 29,
-            justifyContent: 'space-between',
-            width: '100%',
-          }}>
+        <View style={styles.ViewStatus}>
           <Text style={styles.Invoice}> Invoice </Text>
           <Text style={styles.InvoiceNumber}>#GF20190928125</Text>
         </View>
-        <View
-          style={{
-            flexDirection: 'row',
-            marginTop: 29,
-            justifyContent: 'space-between',
-            width: '100%',
-          }}>
+        <View style={styles.ViewStatus}>
           <Text style={styles.Booking}> Booking date </Text>
           <Text style={styles.BookingDate}>Wed, 12 Oct 2021</Text>
         </View>
         <View style={styles.LineSeperator} />
-        <View
-          style={{
-            flexDirection: 'row',
-            marginTop: 20,
-            justifyContent: 'space-between',
-            width: '100%',
-          }}>
+        <View style={styles.ViewStatus}>
           <Text style={styles.BookingInfoText}> Booking Info </Text>
         </View>
-        <View
-          style={{
-            flexDirection: 'row',
-            marginTop: 20,
-            width: '100%',
-            marginLeft: 50,
-          }}>
+        <View style={styles.BookingInfoView}>
           <Image
             source={require('../img/LadyInPic.png')}
-            style={{width: 51, height: 51}}
+            style={styles.ImageStyle}
           />
 
-          <View style={{marginLeft: 16}}>
-            <Text style={[styles.NameText, {marginTop: 5}]}>Josie Emch</Text>
+          <View style={styles.ViewStyle}>
+            <Text style={[styles.NameText, styles.TextMargin]}>Josie Emch</Text>
 
-            <View style={{flexDirection: 'row', marginTop: 1}}>
+            <View style={styles.ViewStyleText}>
               <Image
                 style={styles.ServiceImage}
                 source={require('../img/DropInForSittersNoPinkBackground.png')}
@@ -90,42 +60,42 @@ export function ClientBookingDetails({componentId}) {
           </View>
         </View>
         <View style={styles.LineSeperatorBelowBookingInfo} />
-        <View style={{flexDirection: 'row', width: '100%'}}>
+        <View style={styles.ViewStyleInformation}>
           <Image
             source={require('../img/CalenderImage.png')}
-            style={{width: 24, height: 24, marginTop: 34, marginLeft: 20.6}}
+            style={styles.ImageCalenderStyle}
           />
-          <View style={{marginLeft: 12.6}}>
-            <Text style={[styles.BookedLength, {marginTop: 24, marginLeft: 8}]}>
+          <View style={styles.BookedLengthView}>
+            <Text style={[styles.BookedLength, styles.TextLengthView]}>
               Booked Length
             </Text>
-            <View style={{marginTop: 4}}>
+            <View style={styles.ViewTwoDays}>
               <Text style={styles.days}>2 days</Text>
             </View>
           </View>
           <Image
             source={require('../img/Service.png')}
-            style={{width: 24, height: 24, marginTop: 34, marginLeft: 50}}
+            style={styles.ImageServiceStyle}
           />
-          <View style={{marginLeft: 12.6}}>
-            <Text style={[styles.BookedLength, {marginTop: 24, marginLeft: 8}]}>
+          <View style={styles.BookedLengthView}>
+            <Text style={[styles.BookedLength, styles.TextLengthView]}>
               Service
             </Text>
-            <View style={{marginTop: 4}}>
+            <View style={styles.ViewTwoDays}>
               <Text style={styles.days}>Drop-In for Pets</Text>
             </View>
           </View>
         </View>
-        <View style={{flexDirection: 'row', width: '100%'}}>
+        <View style={styles.ViewStyleInformation}>
           <Image
             source={require('../img/Clock.png')}
-            style={{width: 24, height: 24, marginTop: 34, marginLeft: 20.6}}
+            style={styles.ImageCalenderStyle}
           />
-          <View style={{marginLeft: 12.6}}>
-            <Text style={[styles.BookedLength, {marginTop: 24, marginLeft: 8}]}>
+          <View style={styles.BookedLengthView}>
+            <Text style={[styles.BookedLength, styles.TextLengthView]}>
               Shift Length
             </Text>
-            <View style={{marginTop: 4}}>
+            <View style={styles.ViewTwoDays}>
               <Text style={styles.days}>9 hours</Text>
             </View>
           </View>

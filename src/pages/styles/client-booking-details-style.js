@@ -131,4 +131,62 @@ export const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: 'bold',
   },
+  BackgroundStyle: {
+    backgroundColor: '#fcf0f2',
+  },
+  ViewFlex: {
+    flexDirection: 'row',
+  },
+  ViewStatus: {
+    flexDirection: 'row',
+    marginTop: 29,
+    justifyContent: 'space-between',
+    width: '100%',
+  },
+  BookingInfoView: {
+    flexDirection: 'row',
+    marginTop: 20,
+    width: '100%',
+    marginLeft: 50,
+  },
+  ImageStyle: {
+    width: 51,
+    height: 51,
+  },
+  ViewStyle: {
+    marginLeft: 16,
+  },
+  TextMargin: {
+    marginTop: 5,
+  },
+  ViewStyleText: {
+    flexDirection: 'row',
+    marginTop: 1,
+  },
+  ViewStyleInformation: {
+    flexDirection: 'row',
+    width: '100%',
+  },
+  ImageCalenderStyle: {
+    width: 24,
+    height: 24,
+    marginTop: 34,
+    marginLeft: 20.6,
+  },
+  BookedLengthView: {
+    marginLeft: 12.6,
+  },
+  TextLengthView: {
+    marginTop: 24,
+    marginLeft: 8,
+  },
+  ViewTwoDays: {
+    marginTop: 4,
+  },
+  ImageServiceStyle: {
+    width: 24,
+    height: 24,
+    marginTop: 34,
+    marginLeft: 50,
+  },
 });

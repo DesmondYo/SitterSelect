@@ -17,10 +17,8 @@ export function ServiceOverlay({componentId}) {
       onClose={onClose}
       modalBottomMargin={0}
       modalContainerStyle={styles.containerStyle}
-      modalOverlayStyle={{
-        backgroundColor: 'black',
-      }}
-      modalInnerContainerStyle={{backgroundColor: '#fcf0f2'}}>
+      modalOverlayStyle={styles.modalOverlayStyle}
+      modalInnerContainerStyle={styles.modalInnerContainerStyle}>
       <TouchableOpacity style={styles.rectangle}>
         <Image
           source={require('../img/ChildTutoring.png')}
@@ -95,7 +93,7 @@ export function ServiceOverlay({componentId}) {
 
   /**
    * Dismisses the overlay when the actionsheet
-   * is not visible AKA. the user did not select
+   * is not visible. AKA, the user did not select
    * event sitting, which opens an actionsheet
    * with a mobile number
    */
@@ -118,6 +116,10 @@ export function ServiceOverlay({componentId}) {
     actionSheetRef.current.show();
   }
 
+  /**
+   * This closes the ActionSheet Phonenumber
+   * When you press cancel
+   */
   function onSelectOption(index) {
     Navigation.dismissOverlay(componentId);
     isActionSheetOpen.current = false;

@@ -33,7 +33,7 @@ export function SitterDetailsPage({componentId}) {
           />
         </View>
         <Text style={styles.SitterName}>Josie Emch</Text>
-        <View style={{flexDirection: 'row'}}>
+        <View style={styles.ViewStyleRow}>
           <Text style={styles.StarRating}> 4.8 </Text>
         </View>
         <Image
@@ -50,7 +50,6 @@ export function SitterDetailsPage({componentId}) {
         </Text>
         <View style={styles.LineSeperator} />
         <Text style={styles.TypeOfService}>Type of Service</Text>
-        <View style={{flexDirection: 'row'}}></View>
         <Image
           source={require('../img/DropInForPets.png')}
           style={styles.DropInForPetsIcon}
@@ -65,10 +64,6 @@ export function SitterDetailsPage({componentId}) {
           Add your booking date to see the price.
         </Text>
         <Calendar
-          style={{
-            height: 350,
-            marginTop: 22,
-          }}
           theme={{
             backgroundColor: 'transparent',
             calendarBackground: 'transparent',
@@ -93,14 +88,12 @@ export function SitterDetailsPage({componentId}) {
             textDayHeaderFontSize: 14,
           }}
         />
-        {/* <Text style={styles.StartTime}>Start Time</Text>
-        <Text style={styles.EndTime}>End Time</Text> */}
 
-        <View style={{flex: 1, flexDirection: 'row', paddingHorizontal: 32}}>
+        <View style={styles.TimePicker}>
           <GmailTouchable
             label="Start Time"
             isRow={true}
-            containerStyle={{marginRight: 12}}
+            containerStyle={styles.GmailStartTimeStyle}
             value={formattedStartTime}
             onPress={() => setShowStartTimePicker(true)}
             editable={false}
@@ -123,6 +116,7 @@ export function SitterDetailsPage({componentId}) {
               setShowStartTimePicker(false);
             }}
             onCancel={() => setShowStartTimePicker(false)}
+            headerTextIOS={'Pick a Start time'}
           />
 
           <DateTimePickerModal
@@ -134,6 +128,7 @@ export function SitterDetailsPage({componentId}) {
               setShowEndTimePicker(false);
             }}
             onCancel={() => setShowEndTimePicker(false)}
+            headerTextIOS={'Pick a End time'}
           />
         </View>
       </ScrollView>

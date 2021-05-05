@@ -45,4 +45,10 @@ export const styles = StyleSheet.create({
     borderBottomLeftRadius: 35,
     borderColor: '#5e4386',
   },
+  modalOverlayStyle: {
+    backgroundColor: 'black',
+  },
+  modalInnerContainerStyle: {
+    backgroundColor: '#fcf0f2',
+  },
 });
