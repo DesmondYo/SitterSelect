@@ -1,11 +1,13 @@
 import React, {useState} from 'react';
-import {View, ScrollView, Text, Image} from 'react-native';
+import {View, ScrollView, Text} from 'react-native';
 import {styles} from './styles/client-payment-page-style.js';
 import {BackButton} from '../components/back-button';
 import {Navigation} from 'react-native-navigation';
 import {AirbnbRating} from 'react-native-ratings';
 import {TipButton} from '../components/tip-button.js';
 import {PrimaryButton} from '../components/primary-button.js';
+import {SitterProfileWithDateAndTime} from '../components/sitter-profile-with-date-and-time';
+import {BookingDetailRow} from '../components/booking-detail-row';
 import CheckBox from '@react-native-community/checkbox';
 
 export function CheckoutPaymentPage({componentId}) {
@@ -31,32 +33,15 @@ export function CheckoutPaymentPage({componentId}) {
           <Text style={styles.BookingInfoText}> Booking Info </Text>
         </View>
         <View style={styles.ViewStylePricingDetails}>
-          <Image
-            source={require('../img/LadyInPic.png')}
-            style={styles.ImageLadyInPic}
+          <SitterProfileWithDateAndTime
+            image={require('../img/LadyInPic.png')}
+            name={'Josie Emch'}
+            serviceImage={require('../img/DropInForSittersNoPinkBackground.png')}
+            service={'Drop-In For Pets'}
+            PurpleDot={require('../img/PurpleDot.png')}
+            date={'12 Oct 2021'}
+            time={'07:00 - 10:00'}
           />
-
-          <View style={styles.BookingInfoMargin}>
-            <Text style={[styles.NameText, styles.NameMarginStyle]}>
-              Josie Emch
-            </Text>
-
-            <View style={styles.ServiceView}>
-              <Image
-                style={styles.ServiceImage}
-                source={require('../img/DropInForSittersNoPinkBackground.png')}
-              />
-              <Text style={styles.DropInForPets}>Drop-In For Pets</Text>
-            </View>
-            <View style={styles.ServiceView}>
-              <Text style={styles.date}>12 Oct 2021</Text>
-              <Image
-                style={styles.PurpleDot}
-                source={require('../img/PurpleDot.png')}
-              />
-              <Text style={styles.time}>07:00 - 10:00</Text>
-            </View>
-          </View>
         </View>
         <View style={styles.MainRectangle}>
           <Text style={styles.TotalHoursWorked}>
@@ -101,30 +86,10 @@ export function CheckoutPaymentPage({componentId}) {
         <View style={styles.ViewStyleBookingInfo}>
           <Text style={styles.BookingInfoText}> Price details </Text>
         </View>
-        <View style={styles.ViewStyleBookingInfo}>
-          <Text style={styles.BookingFee}>Booking fee </Text>
-          <View style={styles.PriceDetailsStyle}>
-            <Text style={styles.PriceDetailsText}>$8/day</Text>
-          </View>
-        </View>
-        <View style={styles.ViewStyleBookingInfo}>
-          <Text style={styles.BookingFee}>Booking price </Text>
-          <View style={styles.PriceDetailsStyle}>
-            <Text style={styles.HourlyDetailsText}>$500/hour</Text>
-          </View>
-        </View>
-        <View style={styles.ViewStyleBookingInfo}>
-          <Text style={styles.BookingFee}>Duration</Text>
-          <View style={styles.PriceDetailsStyle}>
-            <Text style={styles.PriceDetailsText}>3 hours</Text>
-          </View>
-        </View>
-        <View style={styles.ViewStyleBookingInfo}>
-          <Text style={styles.BookingFee}>Tax</Text>
-          <View style={styles.PriceDetailsStyle}>
-            <Text style={styles.PriceDetailsText}>0</Text>
-          </View>
-        </View>
+        <BookingDetailRow label={'Booking fee'} value={'$8/day'} />
+        <BookingDetailRow label={'Booking price'} value={'$500/hour'} />
+        <BookingDetailRow label={'Duration'} value={'3 hours'} />
+        <BookingDetailRow label={'Tax'} value={'0'} />
         <View style={styles.ViewStyleBookingInfo}>
           <Text style={styles.Total}>Total</Text>
           <View style={styles.PriceDetailsStyle}>

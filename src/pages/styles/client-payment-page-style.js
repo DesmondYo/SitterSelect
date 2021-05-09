@@ -19,39 +19,6 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginLeft: 16,
   },
-  NameText: {
-    fontSize: 16,
-    color: '#92465a',
-    fontFamily: 'arial',
-    fontWeight: 'bold',
-  },
-  ServiceImage: {
-    height: 17,
-    width: 17,
-  },
-  DropInForPets: {
-    fontSize: 14,
-    color: '#92465a',
-    fontFamily: 'arial',
-    marginLeft: 8,
-  },
-  date: {
-    color: '#92465a',
-    fontFamily: 'arial',
-    fontSize: 12,
-  },
-  PurpleDot: {
-    height: 5,
-    width: 5,
-    marginTop: 4,
-    marginLeft: 5,
-  },
-  time: {
-    color: '#92465a',
-    fontFamily: 'arial',
-    fontSize: 12,
-    marginLeft: 8,
-  },
   MainRectangle: {
     flexDirection: 'row',
     backgroundColor: '#ffffff',
@@ -95,34 +62,10 @@ export const styles = StyleSheet.create({
     borderColor: '#5e4386',
     marginLeft: 4,
   },
-  TipText: {
-    textAlign: 'center',
-    padding: 10,
-    color: '#5e4386',
-    fontSize: 14,
-    fontWeight: 'bold',
-  },
-  BookingFee: {
-    fontSize: 14,
-    flexDirection: 'row',
-    color: '#b59ea4',
-    alignSelf: 'stretch',
-    marginLeft: 20,
-  },
   PriceDetailsStyle: {
     color: '#92465a',
     paddingTop: 3,
     marginRight: 16,
-  },
-  PriceDetailsText: {
-    fontSize: 14,
-    color: '#92465a',
-    textAlign: 'center',
-  },
-  HourlyDetailsText: {
-    fontSize: 14,
-    color: '#92465a',
-    textAlign: 'center',
   },
   Total: {
     fontSize: 14,
@@ -136,6 +79,7 @@ export const styles = StyleSheet.create({
     fontSize: 14,
     color: '#92465a',
     textAlign: 'center',
+    fontWeight: 'bold',
   },
   CheckMarkText: {
     fontSize: 13,
@@ -160,9 +104,6 @@ export const styles = StyleSheet.create({
   backgroundStyleColor: {
     backgroundColor: '#fcf0f2',
   },
-  ViewStyleRow: {
-    flexDirection: 'row',
-  },
   ViewStyleBookingInfo: {
     flexDirection: 'row',
     marginTop: 20,
@@ -179,14 +120,7 @@ export const styles = StyleSheet.create({
     width: 51,
     height: 51,
   },
-  BookingInfoMargin: {
-    marginLeft: 16,
-  },
   NameMarginStyle: {
-    marginTop: 5,
-  },
-  ServiceView: {
-    flexDirection: 'row',
     marginTop: 5,
   },
   GiveTipForServiceStyle: {

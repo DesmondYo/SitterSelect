@@ -4,6 +4,7 @@ import {styles} from './styles/sitter-booking-details-page-style.js';
 import {BackButton} from '../components/back-button';
 import {Navigation} from 'react-native-navigation';
 import {PrimaryButton} from '../components/primary-button.js';
+import {BookingProperty} from '../components/booking-property';
 
 export function SitterBookingDetailsPage({componentId}) {
   return (
@@ -42,44 +43,23 @@ export function SitterBookingDetailsPage({componentId}) {
         </View>
         <View style={styles.LineSeperatorBelowBookingInfo} />
         <View style={styles.ViewStyleInformation}>
-          <Image
-            source={require('../img/CalenderImage.png')}
-            style={styles.ImageCalenderStyle}
+          <BookingProperty
+            image={require('../img/CalenderImage.png')}
+            name={'Booked Length'}
+            bookedLength={'2 days'}
           />
-          <View style={styles.SitterTitleStyle}>
-            <Text style={[styles.BookedLength, styles.BookedLengthStyle]}>
-              Booked Length
-            </Text>
-            <View style={styles.SitterInformationStyle}>
-              <Text style={styles.days}>2 days</Text>
-            </View>
-          </View>
-          <Image
-            source={require('../img/Service.png')}
-            style={styles.ImageServiceStyle}
+          <BookingProperty
+            image={require('../img/Service.png')}
+            name={'Service'}
+            bookedLength={'Drop-In for Pets'}
           />
-          <View style={styles.SitterTitleStyle}>
-            <Text style={[styles.BookedLength, styles.BookedLengthStyle]}>
-              Service
-            </Text>
-            <View style={styles.SitterInformationStyle}>
-              <Text style={styles.days}>Drop-In for Pets</Text>
-            </View>
-          </View>
         </View>
         <View style={styles.ViewStyleInformation}>
-          <Image
-            source={require('../img/Clock.png')}
-            style={styles.ImageCalenderStyle}
+          <BookingProperty
+            image={require('../img/Clock.png')}
+            name={'Shift Length'}
+            bookedLength={'9 hours'}
           />
-          <View style={styles.SitterTitleStyle}>
-            <Text style={[styles.BookedLength, styles.BookedLengthStyle]}>
-              Shift Length
-            </Text>
-            <View style={styles.SitterInformationStyle}>
-              <Text style={styles.days}>9 hours</Text>
-            </View>
-          </View>
         </View>
 
         <View style={styles.PrimaryButtonStyle}>

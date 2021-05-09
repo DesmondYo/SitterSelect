@@ -39,17 +39,6 @@ export const styles = StyleSheet.create({
     marginTop: 20,
     marginLeft: 20,
   },
-  BookingInfoText: {
-    fontSize: 16,
-    color: '#92465a',
-    fontFamily: 'arial',
-    fontWeight: 'bold',
-    marginLeft: 20,
-  },
-  ServiceImage: {
-    height: 17,
-    width: 17,
-  },
   NameText: {
     fontSize: 16,
     color: '#92465a',
@@ -69,21 +58,6 @@ export const styles = StyleSheet.create({
     borderBottomWidth: 1,
     marginTop: 19,
     width: '90%',
-  },
-  BookedLength: {
-    fontSize: 14,
-    color: '#b59ea4',
-    fontFamily: 'arial',
-  },
-  BookedLengthStyle: {
-    marginTop: 24,
-    marginLeft: 8,
-  },
-  days: {
-    fontSize: 14,
-    color: '#92465a',
-    fontFamily: 'arial',
-    marginLeft: 8,
   },
   MakeFinalPaymentButton: {
     width: 343,
@@ -117,9 +91,6 @@ export const styles = StyleSheet.create({
   BackgroundStyle: {
     backgroundColor: '#fcf0f2',
   },
-  ViewFlex: {
-    flexDirection: 'row',
-  },
   BookingDateStyle: {
     flexDirection: 'row',
     marginTop: 32,
@@ -142,24 +113,6 @@ export const styles = StyleSheet.create({
   ViewStyleInformation: {
     flexDirection: 'row',
     width: '100%',
-  },
-  ImageCalenderStyle: {
-    width: 24,
-    height: 24,
-    marginTop: 34,
-    marginLeft: 20.6,
-  },
-  SitterTitleStyle: {
-    marginLeft: 3,
-  },
-  SitterInformationStyle: {
-    marginTop: 4,
-  },
-  ImageServiceStyle: {
-    width: 24,
-    height: 24,
-    marginTop: 34,
-    marginLeft: 50,
   },
   PrimaryButtonStyle: {
     position: 'absolute',

@@ -4,6 +4,7 @@ import {styles} from './styles/service-overlay-style.js';
 import {AwesomeModal} from 'react-native-awesome-modal';
 import {Navigation} from 'react-native-navigation';
 import ActionSheet from '@alessiocancian/react-native-actionsheet';
+import {ServiceButton} from './service-button';
 const phoneNumber = 'Call (602) 803-4851';
 
 export function ServiceOverlay({componentId}) {
@@ -19,64 +20,35 @@ export function ServiceOverlay({componentId}) {
       modalContainerStyle={styles.containerStyle}
       modalOverlayStyle={styles.modalOverlayStyle}
       modalInnerContainerStyle={styles.modalInnerContainerStyle}>
-      <TouchableOpacity style={styles.rectangle}>
-        <Image
-          source={require('../img/ChildTutoring.png')}
-          style={styles.DropInForPetsIcon}
-        />
-        <Text style={styles.ChildTutoringTextStyle}>Child Tutoring</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.rectangle}>
-        <Image
-          source={require('../img/Kids-Portation.png')}
-          style={styles.DropInForPetsIcon}
-        />
-        <Text style={styles.ChildTutoringTextStyle}>Kids-Portation</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={styles.rectangle}>
-        <Image
-          source={require('../img/PetSitting.png')}
-          style={styles.DropInForPetsIcon}
-        />
-        <Text style={styles.ChildTutoringTextStyle}>Pet Sitting</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={styles.rectangle}>
-        <Image
-          source={require('../img/Drop-inForHouseSitting.png')}
-          style={styles.DropInForPetsIcon}
-        />
-        <Text style={styles.ChildTutoringTextStyle}>
-          Drop-in for House Sitting
-        </Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={styles.rectangle}>
-        <Image
-          source={require('../img/OvernightHouseSitting.png')}
-          style={styles.DropInForPetsIcon}
-        />
-        <Text style={styles.ChildTutoringTextStyle}>
-          Overnight House Sitting
-        </Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={styles.rectangle}>
-        <Image
-          source={require('../img/BabySitting.png')}
-          style={styles.DropInForPetsIcon}
-        />
-        <Text style={styles.ChildTutoringTextStyle}>Babysitting</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={styles.rectangle} onPress={onPressEventSitting}>
-        <Image
-          source={require('../img/EventSitting.png')}
-          style={styles.DropInForPetsIcon}
-        />
-        <Text style={styles.ChildTutoringTextStyle}>Event-Sitting</Text>
-      </TouchableOpacity>
+      <ServiceButton
+        image={require('../img/DropInForPets.png')}
+        label="Drop-In For Pets"
+      />
+      <ServiceButton
+        image={require('../img/Kids-Portation.png')}
+        label="Kids-Portation"
+      />
+      <ServiceButton
+        image={require('../img/PetSitting.png')}
+        label="Pet Sitting"
+      />
+      <ServiceButton
+        image={require('../img/OvernightHouseSitting.png')}
+        label="Overnight House Sitting"
+      />
+      <ServiceButton
+        image={require('../img/Drop-inForHouseSitting.png')}
+        label="Drop-in for House Sitting"
+      />
+      <ServiceButton
+        image={require('../img/BabySitting.png')}
+        label="Babysitting"
+      />
+      <ServiceButton
+        image={require('../img/EventSitting.png')}
+        label="Event-Sitting"
+        onPress={onPressEventSitting}
+      />
       <TouchableOpacity onPress={() => awesomeModalRef.current.close()}>
         <Text style={styles.close}>Close</Text>
       </TouchableOpacity>

@@ -7,6 +7,7 @@ import {styles} from './styles/sitter-clock-in-clock-out-submit-time-page-style.
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import dayjs from 'dayjs';
 import ActionSheet from '@alessiocancian/react-native-actionsheet';
+import {BookingProperty} from '../components/booking-property.js';
 const phoneNumber = 'Call (602) 803-4851';
 
 export function SitterClockInClockOutSubmitTimePage({componentId}) {
@@ -55,77 +56,40 @@ export function SitterClockInClockOutSubmitTimePage({componentId}) {
       </View>
       <View style={styles.LineSeperator} />
       <View style={styles.ViewStyleInformation}>
-        <Image
-          source={require('../img/CalenderImage.png')}
-          style={styles.ImageCalenderStyle}
+        <BookingProperty
+          image={require('../img/CalenderImage.png')}
+          name={'Booked Length'}
+          bookedLength={'2 days'}
         />
-        <View style={styles.SitterStyleTitle}>
-          <Text style={[styles.BookedLength, styles.BookedLengthStyle]}>
-            Booked Length
-          </Text>
-          <View style={styles.SitterInformationStyle}>
-            <Text style={styles.days}>2 days</Text>
-          </View>
-        </View>
-        <Image
-          source={require('../img/Service.png')}
-          style={styles.ImageServiceStyle}
+        <BookingProperty
+          image={require('../img/Service.png')}
+          name={'Service'}
+          bookedLength={'Drop-In for Pets'}
         />
-        <View style={styles.SitterStyleTitle}>
-          <Text style={[styles.BookedLength, styles.BookedLengthStyle]}>
-            Service
-          </Text>
-          <View style={styles.SitterInformationStyle}>
-            <Text style={styles.days}>Drop-In for Pets</Text>
-          </View>
-        </View>
       </View>
       <View style={styles.ViewStyleInformation}>
-        <Image
-          source={require('../img/Clock.png')}
-          style={styles.ImageCalenderStyle}
+        <BookingProperty
+          image={require('../img/Clock.png')}
+          name={'Shift Length'}
+          bookedLength={'9 hours'}
         />
-        <View style={styles.SitterStyleTitle}>
-          <Text style={[styles.BookedLength, styles.BookedLengthStyle]}>
-            Shift Length
-          </Text>
-          <View style={styles.SitterInformationStyle}>
-            <Text style={styles.days}>9 hours</Text>
-          </View>
-        </View>
       </View>
       <View style={styles.LineSeperator} />
       <View style={styles.ClockedInStyle}>
         <View style={styles.ClockedInStyleNaText}>
-          <Image
-            source={require('../img/CalenderImage.png')}
-            style={styles.ImageStyleCalender}
+          <BookingProperty
+            image={require('../img/CalenderImage.png')}
+            name={'Clock In'}
+            bookedLength={'NA'}
           />
-
-          <View style={styles.SitterTitleStyle}>
-            <Text style={[styles.BookedLength, styles.ClockInStyle]}>
-              Clock In
-            </Text>
-            <View style={styles.SitterInformationStyle}>
-              <Text style={styles.days}>NA</Text>
-            </View>
-          </View>
         </View>
 
         <View style={styles.ClockedInStyleNaText}>
-          <Image
-            source={require('../img/Clock.png')}
-            style={styles.ImageStyleCalender}
+          <BookingProperty
+            image={require('../img/Clock.png')}
+            name={'Clock Out'}
+            bookedLength={'NA'}
           />
-
-          <View style={styles.SitterTitleStyle}>
-            <Text style={[styles.BookedLength, styles.ClockInStyle]}>
-              Clock Out
-            </Text>
-            <View style={styles.SitterInformationStyle}>
-              <Text style={styles.days}>NA</Text>
-            </View>
-          </View>
         </View>
       </View>
       <View style={styles.PrimaryButtonStyle}>
@@ -143,7 +107,7 @@ export function SitterClockInClockOutSubmitTimePage({componentId}) {
         />
         <ActionSheet
           ref={actionSheetRef}
-          title={'Please Contact '}
+          title={'Please Contact Josie Emch'}
           options={[phoneNumber, 'cancel']}
           cancelButtonIndex={1}
           onPress={onSelectOption}
@@ -162,10 +126,23 @@ export function SitterClockInClockOutSubmitTimePage({componentId}) {
       </View>
     </ScrollView>
   );
+
+  /**
+   * This closes the modal with an animation,
+   * then it shows the action sheet and
+   * sets isActionSheetOpen to true, so
+   * we don't dismiss the modal when actionsheet
+   * is open
+   */
   function onPressContactJosie() {
     isActionSheetOpen.current = true;
     actionSheetRef.current.show();
   }
+
+  /**
+   * This closes the ActionSheet Phonenumber
+   * When you press cancel
+   */
   function onSelectOption(index) {
     Navigation.dismissOverlay(componentId);
     isActionSheetOpen.current = false;
