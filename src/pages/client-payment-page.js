@@ -6,7 +6,7 @@ import {Navigation} from 'react-native-navigation';
 import {AirbnbRating} from 'react-native-ratings';
 import {TipButton} from '../components/tip-button.js';
 import {PrimaryButton} from '../components/primary-button.js';
-import {SitterProfileWithDateAndTime} from '../components/sitter-profile-with-date-and-time';
+import {SitterProfile} from '../components/sitter-profile';
 import {BookingDetailRow} from '../components/booking-detail-row';
 import CheckBox from '@react-native-community/checkbox';
 
@@ -33,12 +33,11 @@ export function CheckoutPaymentPage({componentId}) {
           <Text style={styles.BookingInfoText}> Booking Info </Text>
         </View>
         <View style={styles.ViewStylePricingDetails}>
-          <SitterProfileWithDateAndTime
+          <SitterProfile
             image={require('../img/LadyInPic.png')}
             name={'Josie Emch'}
             serviceImage={require('../img/DropInForSittersNoPinkBackground.png')}
             service={'Drop-In For Pets'}
-            PurpleDot={require('../img/PurpleDot.png')}
             date={'12 Oct 2021'}
             time={'07:00 - 10:00'}
           />

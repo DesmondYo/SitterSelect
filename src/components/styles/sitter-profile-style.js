@@ -24,10 +24,31 @@ export const styles = StyleSheet.create({
     width: 17,
     marginLeft: 16,
   },
+  ServiceView: {
+    flexDirection: 'row',
+    marginTop: 5,
+  },
   service: {
     fontSize: 14,
     color: '#92465a',
     fontFamily: 'arial',
     marginLeft: 6,
+  },
+  date: {
+    color: '#92465a',
+    fontFamily: 'arial',
+    fontSize: 12,
+  },
+  PurpleDot: {
+    height: 5,
+    width: 5,
+    marginTop: 4,
+    marginLeft: 5,
+  },
+  time: {
+    color: '#92465a',
+    fontFamily: 'arial',
+    fontSize: 12,
+    marginLeft: 8,
   },
 });

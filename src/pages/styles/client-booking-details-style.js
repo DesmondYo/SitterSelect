@@ -82,5 +82,12 @@ export const styles = StyleSheet.create({
   ViewStyleInformation: {
     flexDirection: 'row',
     width: '100%',
+    paddingHorizontal: 16,
+    marginTop: 26
+  },
+  PrimaryButtonStyle: {
+    position: 'absolute',
+    bottom: 40,
+    alignSelf: 'center',
   },
 });

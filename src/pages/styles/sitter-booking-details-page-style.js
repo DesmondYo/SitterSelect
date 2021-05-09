@@ -108,15 +108,17 @@ export const styles = StyleSheet.create({
     height: 51,
   },
   ViewStyle: {
-    marginLeft: 16,
+    marginLeft: 16, 
   },
   ViewStyleInformation: {
     flexDirection: 'row',
     width: '100%',
+    paddingHorizontal: 18,
+    marginTop: 26,
   },
   PrimaryButtonStyle: {
     position: 'absolute',
-    bottom: 20,
+    bottom: 40,
     alignSelf: 'center',
   },
 });

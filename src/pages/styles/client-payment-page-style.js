@@ -145,7 +145,7 @@ export const styles = StyleSheet.create({
   },
   PrimaryButtonStyle: {
     position: 'absolute',
-    bottom: 20,
+    bottom: 35,
     alignSelf: 'center',
   },
 });

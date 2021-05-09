@@ -20,7 +20,6 @@ export const styles = StyleSheet.create({
     marginRight: 19,
   },
   valueText: {
-    color: '#92465a',
     fontSize: 14,
     textAlign: 'center',
   },

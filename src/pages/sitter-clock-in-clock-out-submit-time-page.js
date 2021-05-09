@@ -17,6 +17,7 @@ export function SitterClockInClockOutSubmitTimePage({componentId}) {
   const awesomeModalRef = useRef(null);
   const isActionSheetOpen = useRef(false);
   return (
+    <>
     <ScrollView
       ref={awesomeModalRef}
       style={styles.BackgroundStyle}
@@ -67,6 +68,7 @@ export function SitterClockInClockOutSubmitTimePage({componentId}) {
           bookedLength={'Drop-In for Pets'}
         />
       </View>
+
       <View style={styles.ViewStyleInformation}>
         <BookingProperty
           image={require('../img/Clock.png')}
@@ -75,24 +77,41 @@ export function SitterClockInClockOutSubmitTimePage({componentId}) {
         />
       </View>
       <View style={styles.LineSeperator} />
-      <View style={styles.ClockedInStyle}>
-        <View style={styles.ClockedInStyleNaText}>
-          <BookingProperty
-            image={require('../img/CalenderImage.png')}
-            name={'Clock In'}
-            bookedLength={'NA'}
-          />
-        </View>
 
-        <View style={styles.ClockedInStyleNaText}>
-          <BookingProperty
-            image={require('../img/Clock.png')}
-            name={'Clock Out'}
-            bookedLength={'NA'}
-          />
-        </View>
+      <View style={styles.ViewStyleInformation}>
+        <BookingProperty
+          image={require('../img/CalenderImage.png')}
+          name={'Clock In'}
+          bookedLength={'NA'}
+        />
+
+        <BookingProperty
+          image={require('../img/Clock.png')}
+          name={'Clock Out'}
+          bookedLength={'NA'}
+        />
       </View>
-      <View style={styles.PrimaryButtonStyle}>
+
+      <ActionSheet
+        ref={actionSheetRef}
+        title={'Please Contact Josie Emch'}
+        options={[phoneNumber, 'cancel']}
+        cancelButtonIndex={1}
+        onPress={onSelectOption}
+      />
+      <DateTimePickerModal
+        isVisible={showStartTimePicker}
+        mode="time"
+        date={startTime}
+        onConfirm={val => {
+          setStartTime(val);
+          setShowStartTimePicker(false);
+        }}
+        onCancel={() => setShowStartTimePicker(false)}
+        headerTextIOS={'Clock In'}
+      />
+    </ScrollView>
+    <View style={styles.PrimaryButtonStyle}>
         <PrimaryButton
           label="Clock In"
           style={styles.MakeFinalPaymentButton}
@@ -105,26 +124,8 @@ export function SitterClockInClockOutSubmitTimePage({componentId}) {
           TextStyle={styles.ContactJosieButtonText}
           onPress={onPressContactJosie}
         />
-        <ActionSheet
-          ref={actionSheetRef}
-          title={'Please Contact Josie Emch'}
-          options={[phoneNumber, 'cancel']}
-          cancelButtonIndex={1}
-          onPress={onSelectOption}
-        />
-        <DateTimePickerModal
-          isVisible={showStartTimePicker}
-          mode="time"
-          date={startTime}
-          onConfirm={val => {
-            setStartTime(val);
-            setShowStartTimePicker(false);
-          }}
-          onCancel={() => setShowStartTimePicker(false)}
-          headerTextIOS={'Clock In'}
-        />
       </View>
-    </ScrollView>
+    </>
   );
 
   /**

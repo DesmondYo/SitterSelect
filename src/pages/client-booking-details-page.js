@@ -8,14 +8,16 @@ import ActionSheet from '@alessiocancian/react-native-actionsheet';
 import {BookingDetailRow} from '../components/booking-detail-row';
 import {SitterProfile} from '../components/sitter-profile';
 import {BookingProperty} from '../components/booking-property';
+import { BookingDetailStatus } from '../components/booking-detail-status.js';
 const phoneNumber = 'Call (602) 803-4851';
 
 export function ClientBookingDetails({componentId}) {
   const actionSheetRef = useRef(null);
   return (
+    <>
     <ScrollView
       style={styles.BackgroundStyle}
-      contentInset={{bottom: 20, top: 20}}>
+      contentInset={{bottom: 100, top: 20}}>
       <View style={styles.ClientBookingDetailsContainer}>
         <BackButton
           onPress={onPress}
@@ -26,7 +28,7 @@ export function ClientBookingDetails({componentId}) {
         <View style={styles.ViewFlex}>
           <Text style={styles.Text}> Booking Details </Text>
         </View>
-        <BookingDetailRow label={'Status'} value={'Approved'} />
+        <BookingDetailStatus label={'Status'} value={'Approved'} status="approved" />
         <BookingDetailRow label={'Invoice'} value={'#GF20190928125'} />
         <BookingDetailRow label={'Booking Date'} value={'Wed, 12 Oct 2021'} />
         <View style={styles.LineSeperator} />
@@ -61,6 +63,17 @@ export function ClientBookingDetails({componentId}) {
             bookedLength={'9 hours'}
           />
         </View>
+       
+        <ActionSheet
+          ref={actionSheetRef}
+          options={[phoneNumber, 'cancel']}
+          cancelButtonIndex={1}
+          onPress={onSelectOption}
+        />
+      </View>
+    </ScrollView>
+
+      <View style={styles.PrimaryButtonStyle}>
         <PrimaryButton
           label="Make final payment"
           style={styles.MakeFinalPaymentButton}
@@ -73,14 +86,8 @@ export function ClientBookingDetails({componentId}) {
           TextStyle={styles.ContactJosieButtonText}
           onPress={onPressCallJosie}
         />
-        <ActionSheet
-          ref={actionSheetRef}
-          options={[phoneNumber, 'cancel']}
-          cancelButtonIndex={1}
-          onPress={onSelectOption}
-        />
       </View>
-    </ScrollView>
+    </>
   );
 
   function onPress() {

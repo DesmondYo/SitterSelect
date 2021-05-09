@@ -7,10 +7,11 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   SitterSelectLogo: {
-    flex: 1,
+    marginTop: 120,
+    marginBottom: 60,
+    height: 120,
     width: '60%',
     resizeMode: 'contain',
-    marginTop: 30,
     alignItems: 'center',
   },
   Text: {
@@ -30,7 +31,6 @@ export const styles = StyleSheet.create({
   },
   button: {
     marginTop: 40,
-    width: '100%',
     alignItems: 'center',
     backgroundColor: '#5e4386',
     borderRadius: 26,

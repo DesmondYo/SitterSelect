@@ -144,6 +144,9 @@ export const styles = StyleSheet.create({
   ViewStyleInformation: {
     flexDirection: 'row',
     width: '100%',
+    justifyContent: "flex-start",
+    marginTop: 16,
+    paddingHorizontal: 26
   },
   ImageCalenderStyle: {
     width: 24,

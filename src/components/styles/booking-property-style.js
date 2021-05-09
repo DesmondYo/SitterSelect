@@ -4,8 +4,6 @@ export const styles = StyleSheet.create({
   ImageStyle: {
     width: 24,
     height: 24,
-    marginTop: 34,
-    marginLeft: 20.6,
   },
   TitleView: {
     marginLeft: 12.6,
@@ -16,7 +14,6 @@ export const styles = StyleSheet.create({
     fontFamily: 'arial',
   },
   TextLengthView: {
-    marginTop: 24,
     marginLeft: 8,
   },
   ViewLengthOfTime: {

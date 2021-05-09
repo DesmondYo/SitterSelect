@@ -61,8 +61,9 @@ export function SitterBookingDetailsPage({componentId}) {
             bookedLength={'9 hours'}
           />
         </View>
+      </ScrollView>
 
-        <View style={styles.PrimaryButtonStyle}>
+      <View style={styles.PrimaryButtonStyle}>
           <PrimaryButton
             label="Accept"
             style={styles.MakeFinalPaymentButton}
@@ -76,7 +77,6 @@ export function SitterBookingDetailsPage({componentId}) {
             onPress={onPress}
           />
         </View>
-      </ScrollView>
     </>
   );
   function AcceptPress() {

@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Image, Text} from 'react-native';
 import {styles} from './styles/sitter-profile-style.js';
 
-export function SitterProfile({image, name, service, serviceImage}) {
+export function SitterProfile({image, name, service, serviceImage, date, time}) {
   return (
     <>
       <Image source={image} style={styles.ImageStyle} />
@@ -13,6 +13,16 @@ export function SitterProfile({image, name, service, serviceImage}) {
           <Image style={styles.ServiceImage} source={serviceImage} />
           <Text style={styles.service}>{service}</Text>
         </View>
+
+        {
+          (date && time) ? (
+            <View style={styles.ServiceView}>
+              <Text style={styles.date}>{date}</Text>
+              <Image style={styles.PurpleDot} source={require('../img/PurpleDot.png')} />
+              <Text style={styles.time}>{time}</Text>
+            </View>
+          ) : null
+        }
       </View>
     </>
   );
