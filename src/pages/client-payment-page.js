@@ -18,7 +18,7 @@ export function CheckoutPaymentPage({componentId}) {
       <ScrollView
         style={styles.backgroundStyleColor}
         contentContainerStyle={styles.CheckoutPaymentPageContainer}
-        contentInset={{top: 0, bottom: 160}}>
+        contentInset={{top: 0, bottom: 150}}>
         <BackButton
           onPress={onPress}
           backButtonImage={require('../img/backarrow.png')}
@@ -26,13 +26,11 @@ export function CheckoutPaymentPage({componentId}) {
           imageHeight={30}
           top={10}
         />
-        <View style={styles.ViewStyleRow}>
-          <Text style={styles.Text}> Confirm & Pay </Text>
-        </View>
+        <Text style={styles.Text}> Confirm & Pay </Text>
         <View style={styles.ViewStylePricingDetails}>
           <Text style={styles.BookingInfoText}> Booking Info </Text>
         </View>
-        <View style={styles.ViewStylePricingDetails}>
+        <View style={styles.ViewStyleSitterInformation}>
           <SitterProfile
             image={require('../img/LadyInPic.png')}
             name={'Josie Emch'}
@@ -107,16 +105,15 @@ export function CheckoutPaymentPage({componentId}) {
             policy
           </Text>
         </View>
+        <View style={styles.PrimaryButtonStyle}>
+          <PrimaryButton
+            label="Confirm & Pay"
+            style={styles.Button}
+            TextStyle={styles.ButtonText}
+            onPress={onOpenOverlay}
+          />
+        </View>
       </ScrollView>
-
-      <View style={styles.PrimaryButtonStyle}>
-        <PrimaryButton
-          label="Confirm & Pay"
-          style={styles.Button}
-          TextStyle={styles.ButtonText}
-          onPress={onOpenOverlay}
-        />
-      </View>
     </>
   );
   function onPress() {

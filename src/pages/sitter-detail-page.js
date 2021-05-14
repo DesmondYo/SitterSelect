@@ -26,6 +26,7 @@ export function SitterDetailsPage({componentId}) {
             backButtonImage={require('../img/backarrow.png')}
             imageWidth={25}
             imageHeight={25}
+            top={42}
           />
           <Image
             source={require('../img/PhotoOfSitter.png')}

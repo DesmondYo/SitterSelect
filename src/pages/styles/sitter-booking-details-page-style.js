@@ -95,7 +95,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     marginTop: 32,
     justifyContent: 'space-between',
-    width: '100%',
+    alignSelf: 'stretch',
   },
   BookingInfoView: {
     flexDirection: 'row',
@@ -108,7 +108,7 @@ export const styles = StyleSheet.create({
     height: 51,
   },
   ViewStyle: {
-    marginLeft: 16, 
+    marginLeft: 16,
   },
   ViewStyleInformation: {
     flexDirection: 'row',

@@ -3,7 +3,6 @@ import {StyleSheet} from 'react-native';
 export const styles = StyleSheet.create({
   PageContainer: {
     backgroundColor: '#fcf0f2',
-    flex: 1,
   },
   Text: {
     fontSize: 16,
@@ -11,7 +10,7 @@ export const styles = StyleSheet.create({
     color: '#92465a',
     fontFamily: 'arial',
     fontWeight: 'bold',
-    marginTop: 59,
+    marginTop: 60,
   },
   Current: {
     fontSize: 14,
@@ -29,15 +28,5 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginTop: 30,
     marginLeft: 149,
-  },
-  declined: {
-    backgroundColor: '#FDE7E7',
-    color: '#c52222',
-    fontSize: 12,
-    height: 22,
-    width: 68,
-    textAlign: 'center',
-    borderRadius: 16,
-    paddingTop: 3,
   },
 });

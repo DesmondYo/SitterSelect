@@ -2,7 +2,6 @@ import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
   CheckoutPaymentPageContainer: {
-    flex: 1,
     alignItems: 'center',
     paddingTop: 15,
   },
@@ -69,9 +68,7 @@ export const styles = StyleSheet.create({
   },
   Total: {
     fontSize: 14,
-    flexDirection: 'row',
     color: '#92465a',
-    alignSelf: 'stretch',
     marginLeft: 20,
     fontWeight: 'bold',
   },
@@ -88,12 +85,9 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   Button: {
-    marginTop: 35,
     width: 343,
-    height: 41,
     backgroundColor: '#5e4386',
     borderRadius: 35,
-    alignSelf: 'center',
   },
   ButtonText: {
     textAlign: 'center',
@@ -103,35 +97,36 @@ export const styles = StyleSheet.create({
   },
   backgroundStyleColor: {
     backgroundColor: '#fcf0f2',
+    flex: 1,
   },
   ViewStyleBookingInfo: {
     flexDirection: 'row',
     marginTop: 20,
     justifyContent: 'space-between',
-    width: '100%',
+    alignSelf: 'stretch',
   },
   ViewStylePricingDetails: {
-    flexDirection: 'row',
-    marginTop: 20,
-    width: '100%',
-    marginLeft: 50,
+    marginTop: 28,
+    marginLeft: 5,
+    alignSelf: 'flex-start',
   },
-  ImageLadyInPic: {
-    width: 51,
-    height: 51,
+  ViewStyleSitterInformation: {
+    alignSelf: 'flex-start',
+    marginTop: 20,
+    marginLeft: 35,
   },
   NameMarginStyle: {
     marginTop: 5,
   },
   GiveTipForServiceStyle: {
     flexDirection: 'row',
-    width: '100%',
+    alignSelf: 'flex-start',
     marginTop: 24,
-    marginLeft: 35,
+    marginLeft: 20,
   },
   RateYourSitterStyle: {
     marginTop: 20,
-    width: '100%',
+    alignSelf: 'flex-start',
   },
   starContainerStyle: {
     position: 'absolute',
@@ -144,8 +139,7 @@ export const styles = StyleSheet.create({
     marginLeft: 20,
   },
   PrimaryButtonStyle: {
-    position: 'absolute',
-    bottom: 35,
     alignSelf: 'center',
+    marginTop: 35,
   },
 });

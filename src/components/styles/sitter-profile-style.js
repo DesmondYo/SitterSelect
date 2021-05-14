@@ -38,6 +38,7 @@ export const styles = StyleSheet.create({
     color: '#92465a',
     fontFamily: 'arial',
     fontSize: 12,
+    marginLeft: 16,
   },
   PurpleDot: {
     height: 5,
@@ -50,5 +51,8 @@ export const styles = StyleSheet.create({
     fontFamily: 'arial',
     fontSize: 12,
     marginLeft: 8,
+  },
+  SitterProfileView: {
+    flexDirection: 'row',
   },
 });

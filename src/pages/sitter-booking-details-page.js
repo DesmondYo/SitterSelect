@@ -11,17 +11,16 @@ export function SitterBookingDetailsPage({componentId}) {
     <>
       <ScrollView
         style={styles.BackgroundStyle}
-        contentInset={{bottom: 20, top: 20}}
+        contentInset={{bottom: 20, top: 50}}
         contentContainerStyle={styles.ClientBookingDetailsContainer}>
         <BackButton
           onPress={onPress}
           backButtonImage={require('../img/backarrow.png')}
           imageWidth={30}
           imageHeight={30}
+          top={42}
         />
-        <View style={styles.ViewFlex}>
-          <Text style={styles.Text}> Booking Details </Text>
-        </View>
+        <Text style={styles.Text}> Booking Details </Text>
         <View style={styles.BookingDateStyle}>
           <Text style={styles.Booking}> Booking date </Text>
           <Text style={styles.BookingDate}>Wed, 12 Oct 2021</Text>
@@ -64,19 +63,19 @@ export function SitterBookingDetailsPage({componentId}) {
       </ScrollView>
 
       <View style={styles.PrimaryButtonStyle}>
-          <PrimaryButton
-            label="Accept"
-            style={styles.MakeFinalPaymentButton}
-            TextStyle={styles.MakeFinalPaymentButtonText}
-            onPress={AcceptPress}
-          />
-          <PrimaryButton
-            label="Decline"
-            style={styles.ContactJosieButton}
-            TextStyle={styles.ContactJosieButtonText}
-            onPress={onPress}
-          />
-        </View>
+        <PrimaryButton
+          label="Accept"
+          style={styles.MakeFinalPaymentButton}
+          TextStyle={styles.MakeFinalPaymentButtonText}
+          onPress={AcceptPress}
+        />
+        <PrimaryButton
+          label="Decline"
+          style={styles.ContactJosieButton}
+          TextStyle={styles.ContactJosieButtonText}
+          onPress={onPress}
+        />
+      </View>
     </>
   );
   function AcceptPress() {

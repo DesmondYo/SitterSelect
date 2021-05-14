@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Navigation} from 'react-native-navigation';
-import {View, Image, Text} from 'react-native';
+import {View, Image, Text, ScrollView} from 'react-native';
 import {GmailInput} from '../components/gmail-input';
 import {styles} from './styles/login-page-style';
 import {PrimaryButton} from '../components/primary-button';
@@ -9,13 +9,16 @@ const LoginPage = ({componentId}) => {
   const [setEmail] = useState(null);
   const [setPassword] = useState(null);
   return (
-    <View style={styles.loginPageContainer}>
+    <ScrollView
+      style={styles.backgroundStyleColor}
+      contentContainerStyle={styles.CheckoutPaymentPageContainer}
+      contentInset={{top: 0, bottom: 150}}>
       <Image
         source={require('../img/SitterSelectLogo.png')}
         style={styles.SitterSelectLogo}
       />
 
-      <View style={styles.AllInputs}>
+      <View>
         <Text style={styles.Text}> Hi There!</Text>
         <GmailInput label="Email" onChangeText={setEmail} hideLabel={true} />
         <GmailInput
@@ -26,8 +29,14 @@ const LoginPage = ({componentId}) => {
         />
         <Text style={styles.password}> I forgot my password</Text>
         <PrimaryButton
-          label="Login"
-          onPress={onLogin}
+          label="Client Login"
+          onPress={onClientLogin}
+          style={styles.button}
+          TextStyle={styles.buttonText}
+        />
+        <PrimaryButton
+          label=" Sitter Login"
+          onPress={onSitterLogin}
           style={styles.button}
           TextStyle={styles.buttonText}
         />
@@ -35,7 +44,7 @@ const LoginPage = ({componentId}) => {
           Don't have an account? Sign Up
         </Text>
       </View>
-    </View>
+    </ScrollView>
   );
 
   function onOpenOverlay() {
@@ -52,10 +61,18 @@ const LoginPage = ({componentId}) => {
     });
   }
 
-  function onLogin() {
+  function onClientLogin() {
     Navigation.push(componentId, {
       component: {
         name: 'MapPage',
+      },
+    });
+  }
+
+  function onSitterLogin() {
+    Navigation.push(componentId, {
+      component: {
+        name: 'SitterBookingPage',
       },
     });
   }

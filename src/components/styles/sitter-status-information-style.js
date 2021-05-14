@@ -8,8 +8,6 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   MainRectangle: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
     backgroundColor: '#ffffff',
     padding: 16,
     marginHorizontal: 16,
@@ -43,47 +41,6 @@ export const styles = StyleSheet.create({
     marginTop: 4,
     marginLeft: 5,
   },
-  approved: {
-    backgroundColor: '#f5efff',
-    color: '#5e4386',
-    height: 22,
-    width: 68,
-    borderRadius: 16,
-    paddingTop: 3,
-  },
-  approvedText: {
-    fontSize: 12,
-    color: '#5e4386',
-    textAlign: 'center',
-  },
-  declined: {
-    backgroundColor: '#FDE7E7',
-    color: '#c52222',
-    height: 22,
-    width: 68,
-    borderRadius: 16,
-    paddingTop: 3,
-  },
-  declinedText: {
-    fontSize: 12,
-    color: '#c52222',
-    textAlign: 'center',
-  },
-  pending: {
-    backgroundColor: '#fdfbe7',
-    color: '#c5b422',
-    fontSize: 12,
-    height: 22,
-    width: 68,
-    textAlign: 'center',
-    borderRadius: 16,
-    paddingTop: 3,
-  },
-  pendingText: {
-    fontSize: 12,
-    color: '#c5b422',
-    textAlign: 'center',
-  },
   ViewStyle: {
     flexDirection: 'row',
   },
@@ -100,5 +57,18 @@ export const styles = StyleSheet.create({
   ViewStyleLogo: {
     flexDirection: 'row',
     marginBottom: 5,
+  },
+  value: {
+    color: '#b59ea4',
+    borderRadius: 16,
+    paddingTop: 3,
+    marginRight: 19,
+    position: 'absolute',
+    bottom: 45,
+    left: 175,
+  },
+  valueText: {
+    fontSize: 14,
+    textAlign: 'center',
   },
 });

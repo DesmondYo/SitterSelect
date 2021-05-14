@@ -3,8 +3,8 @@ import {StyleSheet} from 'react-native';
 export const styles = StyleSheet.create({
   ClientBookingDetailsContainer: {
     flex: 1,
-    alignItems: 'center',
     paddingTop: 50,
+    backgroundColor: '#fcf0f2',
   },
   Text: {
     fontSize: 16,
@@ -28,7 +28,7 @@ export const styles = StyleSheet.create({
   LineSeperatorBelowBookingInfo: {
     borderBottomColor: '#f2d8df',
     borderBottomWidth: 1,
-    marginTop: 20,
+    marginTop: 10,
     width: '90%',
   },
   MakeFinalPaymentButton: {
@@ -65,7 +65,8 @@ export const styles = StyleSheet.create({
     backgroundColor: '#fcf0f2',
   },
   ViewFlex: {
-    flexDirection: 'row',
+    alignSelf: 'center',
+    marginTop: 10,
   },
   ViewStatus: {
     flexDirection: 'row',
@@ -74,20 +75,18 @@ export const styles = StyleSheet.create({
     width: '100%',
   },
   BookingInfoView: {
-    flexDirection: 'row',
-    marginTop: 20,
-    width: '100%',
-    marginLeft: 50,
+    marginTop: 10,
+    marginLeft: 20,
   },
   ViewStyleInformation: {
     flexDirection: 'row',
     width: '100%',
     paddingHorizontal: 16,
-    marginTop: 26
+    marginTop: 26,
   },
   PrimaryButtonStyle: {
     position: 'absolute',
-    bottom: 40,
+    bottom: 25,
     alignSelf: 'center',
   },
 });

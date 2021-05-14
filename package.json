@@ -13,6 +13,7 @@
     "@alessiocancian/react-native-actionsheet": "^2.4.11",
     "@react-native-community/checkbox": "^0.5.7",
     "@react-native-community/datetimepicker": "^3.4.3",
+    "@react-native-firebase/app": "^11.5.0",
     "dayjs": "^1.10.4",
     "react": "17.0.1",
     "react-native": "0.64.0",

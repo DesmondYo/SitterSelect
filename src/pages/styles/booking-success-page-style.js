@@ -4,14 +4,16 @@ export const styles = StyleSheet.create({
   PageContainer: {
     backgroundColor: '#fcf0f2',
     flex: 1,
+    justifyContent: 'center',
   },
   OkButton: {
-    marginTop: 590,
-    width: 343,
+    width: '90%',
     height: 46,
     alignSelf: 'center',
     backgroundColor: '#5e4386',
     borderRadius: 35,
+    position: 'absolute',
+    bottom: 40,
   },
   OkButtonText: {
     textAlign: 'center',
@@ -20,7 +22,6 @@ export const styles = StyleSheet.create({
     fontSize: 16,
   },
   CheckmarkLogo: {
-    marginTop: -450,
     height: 164,
     width: 164,
     alignSelf: 'center',
@@ -33,7 +34,6 @@ export const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   ParagraphText: {
-    width: 300,
     color: '#92465a',
     marginTop: 8,
     fontFamily: 'arial',

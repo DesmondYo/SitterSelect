@@ -3,7 +3,7 @@ import {StyleSheet} from 'react-native';
 export const styles = StyleSheet.create({
   PageContainer: {
     backgroundColor: '#fcf0f2',
-    justifyContent: "center",
+    justifyContent: 'center',
     flex: 1,
   },
   OkButton: {
@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
     alignSelf: 'center',
     backgroundColor: '#5e4386',
     borderRadius: 35,
-    position: "absolute",
+    position: 'absolute',
     bottom: 40,
   },
   OkButtonText: {

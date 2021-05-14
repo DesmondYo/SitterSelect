@@ -1,20 +1,34 @@
 import React from 'react';
-import {BookingDetailRow} from './booking-detail-row';
+import {SitterStatusDetail} from './sitter-status-detail.js';
 
-export function BookingDetailStatus({label, value, status}) {
+export function ClientBookingStatus({
+  label,
+  value,
+  status,
+  source,
+  text,
+  date,
+  time,
+  purpledot,
+  ApprovedPress,
+}) {
   const textColor = getTextColor();
   const backgroundColor = getBackgroundColor();
-
   return (
-    <BookingDetailRow
+    <SitterStatusDetail
       label={label}
+      source={source}
+      text={text}
+      date={date}
+      time={time}
       value={value}
+      purpledot={purpledot}
+      ApprovedPress={ApprovedPress}
       textColor={textColor}
       backgroundColor={backgroundColor}
       hasBackground={true}
     />
   );
-
   function getTextColor() {
     if (status === 'approved') {
       return '#5E4386';
@@ -32,7 +46,7 @@ export function BookingDetailStatus({label, value, status}) {
       return '#F5EFFF';
     } else if (status === 'declined') {
       return '#fde7e7';
-    } else if (status === 'pending') {
+    } else if (status === 'ending') {
       return '#fdfbe7';
     } else {
       return null;

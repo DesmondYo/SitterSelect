@@ -1,13 +1,16 @@
 import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
-  loginPageContainer: {
+  backgroundStyleColor: {
     backgroundColor: '#fcf0f2',
     flex: 1,
+  },
+  CheckoutPaymentPageContainer: {
     alignItems: 'center',
+    paddingTop: 15,
   },
   SitterSelectLogo: {
-    marginTop: 120,
+    marginTop: 90,
     marginBottom: 60,
     height: 120,
     width: '60%',
@@ -46,9 +49,5 @@ export const styles = StyleSheet.create({
     padding: 20,
     color: 'black',
     fontSize: 16,
-  },
-  AllInputs: {
-    paddingHorizontal: 16,
-    marginBottom: 40,
   },
 });

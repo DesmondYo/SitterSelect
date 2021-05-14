@@ -117,19 +117,19 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     marginTop: 32,
     justifyContent: 'space-between',
-    width: '100%',
+    alignSelf: 'stretch',
   },
   BookingInfoView: {
     flexDirection: 'row',
     marginTop: 20,
     justifyContent: 'space-between',
-    width: '100%',
+    alignSelf: 'stretch',
   },
   BookingInfoStats: {
     flexDirection: 'row',
     marginTop: 22,
-    width: '100%',
-    marginLeft: 50,
+    alignSelf: 'stretch',
+    marginLeft: 20,
   },
   ImageStyle: {
     width: 51,
@@ -144,9 +144,9 @@ export const styles = StyleSheet.create({
   ViewStyleInformation: {
     flexDirection: 'row',
     width: '100%',
-    justifyContent: "flex-start",
+    justifyContent: 'flex-start',
     marginTop: 16,
-    paddingHorizontal: 26
+    paddingHorizontal: 26,
   },
   ImageCalenderStyle: {
     width: 24,

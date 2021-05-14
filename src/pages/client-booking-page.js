@@ -3,10 +3,8 @@ import {Text, ScrollView} from 'react-native';
 import {styles} from './styles/client-booking-page-style.js';
 import {Navigation} from 'react-native-navigation';
 import {BackButton} from '../components/back-button';
-import {SitterStatusApproved} from '../components/sitter-status-information';
-import {SitterStatusDeclined} from '../components/sitter-status-information';
-import {SitterStatusPending} from '../components/sitter-status-information';
 import MaterialTabs from 'react-native-material-tabs';
+import {ClientBookingStatus} from '../components/client-booking-status';
 
 export function ClientBookingPage({componentId}) {
   const [selectedTab, setSelectedTab] = useState(null);
@@ -18,6 +16,7 @@ export function ClientBookingPage({componentId}) {
         backButtonImage={require('../img/backarrow.png')}
         imageWidth={30}
         imageHeight={30}
+        top={45}
       />
       <Text style={styles.Text}> My Bookings </Text>
 
@@ -30,37 +29,39 @@ export function ClientBookingPage({componentId}) {
         activeTextColor="#92465a"
         inactiveTextColor="rgba(30, 47, 68, 0.48)"
       />
-      <SitterStatusApproved
+      <ClientBookingStatus
         source={require('../img/LadyInPic.png')}
         label="Josie Emch"
         text="Drop-In For Pets"
         date="12 Oct 2021"
         purpledot={require('../img/PurpleDot.png')}
         time="07:00 - 10:00"
-        approved="Approved"
-        ApprovedPress={ApprovedPress}
         imageOfLogo={require('../img/DropInForSittersNoPinkBackground.png')}
+        value={'Approved'}
+        status="approved"
+        ApprovedPress={ApprovedPress}
       />
-      <SitterStatusDeclined
+      <ClientBookingStatus
         source={require('../img/LadyInPic.png')}
         label="Josie Emch"
         text="Drop-In For Pets"
         date="12 Oct 2021"
         purpledot={require('../img/PurpleDot.png')}
         time="07:00 - 10:00"
-        declined="Declined"
-        DeclinedPress={DeclinedPress}
-        image={require('../img/DropInForSittersNoPinkBackground.png')}
+        imageOfLogo={require('../img/DropInForSittersNoPinkBackground.png')}
+        value={'Declined'}
+        status="declined"
       />
-      <SitterStatusPending
+      <ClientBookingStatus
         source={require('../img/LadyInPic.png')}
         label="Josie Emch"
         text="Drop-In For Pets"
         date="12 Oct 2021"
         purpledot={require('../img/PurpleDot.png')}
         time="07:00 - 10:00"
-        pending="Pending"
-        PendingPress={PendingPress}
+        imageOfLogo={require('../img/DropInForSittersNoPinkBackground.png')}
+        value={'Pending'}
+        status="pending"
       />
     </ScrollView>
   );
@@ -73,20 +74,6 @@ export function ClientBookingPage({componentId}) {
     });
   }
   function ApprovedPress() {
-    Navigation.push(componentId, {
-      component: {
-        name: 'ClientBookingDetails',
-      },
-    });
-  }
-  function DeclinedPress() {
-    Navigation.push(componentId, {
-      component: {
-        name: 'ClientBookingDetails',
-      },
-    });
-  }
-  function PendingPress() {
     Navigation.push(componentId, {
       component: {
         name: 'ClientBookingDetails',

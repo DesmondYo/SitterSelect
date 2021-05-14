@@ -18,100 +18,101 @@ export function SitterClockInClockOutSubmitTimePage({componentId}) {
   const isActionSheetOpen = useRef(false);
   return (
     <>
-    <ScrollView
-      ref={awesomeModalRef}
-      style={styles.BackgroundStyle}
-      contentInset={{bottom: 20, top: 20}}
-      contentContainerStyle={
-        styles.SitterClockInClockOutSubmitTimePageContainer
-      }>
-      <BackButton
-        onPress={onPress}
-        backButtonImage={require('../img/backarrow.png')}
-        imageWidth={30}
-        imageHeight={30}
-      />
-      <View style={styles.ViewFlex}>
-        <Text style={styles.Text}> Booking Details </Text>
-      </View>
-      <View style={styles.BookingDateStyle}>
-        <Text style={styles.Accepted}> Accepted date </Text>
-        <Text style={styles.BookingDate}>Wed, 12 Oct 2021</Text>
-      </View>
-      <View style={styles.LineSeperatorBelowBookingInfo} />
-      <View style={styles.BookingInfoView}>
-        <Text style={styles.BookingInfoText}> Booking Info </Text>
-      </View>
-      <View style={styles.BookingInfoStats}>
-        <Image
-          source={require('../img/LadyInPic.png')}
-          style={styles.ImageStyle}
+      <ScrollView
+        ref={awesomeModalRef}
+        style={styles.BackgroundStyle}
+        contentInset={{bottom: 20, top: 20}}
+        contentContainerStyle={
+          styles.SitterClockInClockOutSubmitTimePageContainer
+        }>
+        <BackButton
+          onPress={onPress}
+          backButtonImage={require('../img/backarrow.png')}
+          imageWidth={30}
+          imageHeight={30}
+          top={42}
         />
-        <View style={styles.ViewStyle}>
-          <Text style={[styles.NameText, styles.TextMargin]}>Josie Emch</Text>
-          <Text style={styles.Address}>
-            4172 W. Tierra Buena Dr.{'\n'}
-            Phoenix, AZ 85394
-          </Text>
+        <View style={styles.ViewFlex}>
+          <Text style={styles.Text}> Booking Details </Text>
         </View>
-      </View>
-      <View style={styles.LineSeperator} />
-      <View style={styles.ViewStyleInformation}>
-        <BookingProperty
-          image={require('../img/CalenderImage.png')}
-          name={'Booked Length'}
-          bookedLength={'2 days'}
-        />
-        <BookingProperty
-          image={require('../img/Service.png')}
-          name={'Service'}
-          bookedLength={'Drop-In for Pets'}
-        />
-      </View>
+        <View style={styles.BookingDateStyle}>
+          <Text style={styles.Accepted}> Accepted date </Text>
+          <Text style={styles.BookingDate}>Wed, 12 Oct 2021</Text>
+        </View>
+        <View style={styles.LineSeperatorBelowBookingInfo} />
+        <View style={styles.BookingInfoView}>
+          <Text style={styles.BookingInfoText}> Booking Info </Text>
+        </View>
+        <View style={styles.BookingInfoStats}>
+          <Image
+            source={require('../img/LadyInPic.png')}
+            style={styles.ImageStyle}
+          />
+          <View style={styles.ViewStyle}>
+            <Text style={[styles.NameText, styles.TextMargin]}>Josie Emch</Text>
+            <Text style={styles.Address}>
+              4172 W. Tierra Buena Dr.{'\n'}
+              Phoenix, AZ 85394
+            </Text>
+          </View>
+        </View>
+        <View style={styles.LineSeperator} />
+        <View style={styles.ViewStyleInformation}>
+          <BookingProperty
+            image={require('../img/CalenderImage.png')}
+            name={'Booked Length'}
+            bookedLength={'2 days'}
+          />
+          <BookingProperty
+            image={require('../img/Service.png')}
+            name={'Service'}
+            bookedLength={'Drop-In for Pets'}
+          />
+        </View>
 
-      <View style={styles.ViewStyleInformation}>
-        <BookingProperty
-          image={require('../img/Clock.png')}
-          name={'Shift Length'}
-          bookedLength={'9 hours'}
-        />
-      </View>
-      <View style={styles.LineSeperator} />
+        <View style={styles.ViewStyleInformation}>
+          <BookingProperty
+            image={require('../img/Clock.png')}
+            name={'Shift Length'}
+            bookedLength={'9 hours'}
+          />
+        </View>
+        <View style={styles.LineSeperator} />
 
-      <View style={styles.ViewStyleInformation}>
-        <BookingProperty
-          image={require('../img/CalenderImage.png')}
-          name={'Clock In'}
-          bookedLength={'NA'}
-        />
+        <View style={styles.ViewStyleInformation}>
+          <BookingProperty
+            image={require('../img/CalenderImage.png')}
+            name={'Clock In'}
+            bookedLength={'NA'}
+          />
 
-        <BookingProperty
-          image={require('../img/Clock.png')}
-          name={'Clock Out'}
-          bookedLength={'NA'}
-        />
-      </View>
+          <BookingProperty
+            image={require('../img/Clock.png')}
+            name={'Clock Out'}
+            bookedLength={'NA'}
+          />
+        </View>
 
-      <ActionSheet
-        ref={actionSheetRef}
-        title={'Please Contact Josie Emch'}
-        options={[phoneNumber, 'cancel']}
-        cancelButtonIndex={1}
-        onPress={onSelectOption}
-      />
-      <DateTimePickerModal
-        isVisible={showStartTimePicker}
-        mode="time"
-        date={startTime}
-        onConfirm={val => {
-          setStartTime(val);
-          setShowStartTimePicker(false);
-        }}
-        onCancel={() => setShowStartTimePicker(false)}
-        headerTextIOS={'Clock In'}
-      />
-    </ScrollView>
-    <View style={styles.PrimaryButtonStyle}>
+        <ActionSheet
+          ref={actionSheetRef}
+          title={'Please Contact Josie Emch'}
+          options={[phoneNumber, 'cancel']}
+          cancelButtonIndex={1}
+          onPress={onSelectOption}
+        />
+        <DateTimePickerModal
+          isVisible={showStartTimePicker}
+          mode="time"
+          date={startTime}
+          onConfirm={val => {
+            setStartTime(val);
+            setShowStartTimePicker(false);
+          }}
+          onCancel={() => setShowStartTimePicker(false)}
+          headerTextIOS={'Clock In'}
+        />
+      </ScrollView>
+      <View style={styles.PrimaryButtonStyle}>
         <PrimaryButton
           label="Clock In"
           style={styles.MakeFinalPaymentButton}
