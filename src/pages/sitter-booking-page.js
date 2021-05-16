@@ -3,7 +3,7 @@ import {View, ScrollView, Text} from 'react-native';
 import {styles} from './styles/sitter-booking-page-style.js';
 import MaterialTabs from 'react-native-material-tabs';
 import {Navigation} from 'react-native-navigation';
-import {ClientBookingStatus} from '../components/client-booking-status';
+import {ActiveBookingItem} from '../components/active-booking-item';
 import {BackButton} from '../components/back-button.js';
 
 export function SitterBookingPage({componentId}) {
@@ -27,7 +27,7 @@ export function SitterBookingPage({componentId}) {
         activeTextColor="#92465a"
         inactiveTextColor="rgba(30, 47, 68, 0.48)"
       />
-      <ClientBookingStatus
+      <ActiveBookingItem
         source={require('../img/LadyInPic.png')}
         label="Josie Emch"
         text="Drop-In For Pets"
@@ -41,7 +41,7 @@ export function SitterBookingPage({componentId}) {
       />
       <View style={styles.LineSeperator} />
       <Text style={styles.NewRequests}> New Requests </Text>
-      <ClientBookingStatus
+      <ActiveBookingItem
         source={require('../img/LadyInPic.png')}
         label="Josie Emch"
         text="Drop-In For Pets"
@@ -50,7 +50,7 @@ export function SitterBookingPage({componentId}) {
         time="07:00 - 10:00"
         ApprovedPress={SitterBookingDetails}
       />
-      <ClientBookingStatus
+      <ActiveBookingItem
         source={require('../img/LadyInPic.png')}
         label="Josie Emch"
         text="Drop-In For Pets"

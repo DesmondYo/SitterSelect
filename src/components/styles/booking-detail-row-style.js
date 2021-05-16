@@ -22,5 +22,6 @@ export const styles = StyleSheet.create({
   valueText: {
     fontSize: 14,
     textAlign: 'center',
+    color: '#92465a',
   },
 });

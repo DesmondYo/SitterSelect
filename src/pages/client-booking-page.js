@@ -4,7 +4,7 @@ import {styles} from './styles/client-booking-page-style.js';
 import {Navigation} from 'react-native-navigation';
 import {BackButton} from '../components/back-button';
 import MaterialTabs from 'react-native-material-tabs';
-import {ClientBookingStatus} from '../components/client-booking-status';
+import {ActiveBookingItem} from '../components/active-booking-item';
 
 export function ClientBookingPage({componentId}) {
   const [selectedTab, setSelectedTab] = useState(null);
@@ -29,7 +29,7 @@ export function ClientBookingPage({componentId}) {
         activeTextColor="#92465a"
         inactiveTextColor="rgba(30, 47, 68, 0.48)"
       />
-      <ClientBookingStatus
+      <ActiveBookingItem
         source={require('../img/LadyInPic.png')}
         label="Josie Emch"
         text="Drop-In For Pets"
@@ -41,7 +41,7 @@ export function ClientBookingPage({componentId}) {
         status="approved"
         ApprovedPress={ApprovedPress}
       />
-      <ClientBookingStatus
+      <ActiveBookingItem
         source={require('../img/LadyInPic.png')}
         label="Josie Emch"
         text="Drop-In For Pets"
@@ -52,7 +52,7 @@ export function ClientBookingPage({componentId}) {
         value={'Declined'}
         status="declined"
       />
-      <ClientBookingStatus
+      <ActiveBookingItem
         source={require('../img/LadyInPic.png')}
         label="Josie Emch"
         text="Drop-In For Pets"
