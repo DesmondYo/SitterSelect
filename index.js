@@ -9,7 +9,7 @@ import SplashScreen from 'react-native-splash-screen';
 import {SignUpOverlay} from './src/components/sign-up-overlay';
 import {SitterDetailsPage} from './src/pages/sitter-detail-page';
 import {ServiceOverlay} from './src/components/service-overlay';
-import {BookingSuccessPage} from './src/pages/booking-success-page';
+import {BookingSuccessPage} from './src/pages/client-booking-success-page';
 import {ClientBookingPage} from './src/pages/client-booking-page';
 import {ClientBookingDetails} from './src/pages/client-booking-details-page';
 import {CheckoutPaymentPage} from './src/pages/client-payment-page';

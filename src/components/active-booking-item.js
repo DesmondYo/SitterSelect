@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Image, Text, TouchableOpacity} from 'react-native';
-import { StatusBadge } from './status-badge';
+import {StatusBadge} from './status-badge';
 import {styles} from './styles/active-booking-item-style';
 
 export function ActiveBookingItem({

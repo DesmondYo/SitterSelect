@@ -9,17 +9,17 @@ export const styles = StyleSheet.create({
     borderRadius: 8,
   },
   InnerContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between"
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   PhotoAndDetailsContainer: {
-    flexDirection: "row"
-  },  
+    flexDirection: 'row',
+  },
   DetailsContainer: {
     marginLeft: 12,
   },
   ServiceRow: {
-    flexDirection: "row",
+    flexDirection: 'row',
     marginBottom: 4,
   },
   ServiceImage: {
@@ -33,7 +33,7 @@ export const styles = StyleSheet.create({
     marginLeft: 8,
   },
   DateContainer: {
-    flexDirection: "row",
+    flexDirection: 'row',
   },
   Date: {
     color: '#92465a',
@@ -57,7 +57,7 @@ export const styles = StyleSheet.create({
     fontFamily: 'arial',
     fontSize: 16,
     fontWeight: 'bold',
-    marginBottom: 4
+    marginBottom: 4,
   },
   ImageStyling: {
     width: 51,

@@ -8,7 +8,7 @@ import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import dayjs from 'dayjs';
 import ActionSheet from '@alessiocancian/react-native-actionsheet';
 import {BookingProperty} from '../components/booking-property.js';
-const phoneNumber = 'Call (602) 803-4851';
+const phoneNumber = '(602) 803-4851';
 
 export function SitterClockInClockOutSubmitTimePage({componentId}) {
   const [showStartTimePicker, setShowStartTimePicker] = useState(false);

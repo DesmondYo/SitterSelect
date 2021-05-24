@@ -9,7 +9,7 @@ import {BookingDetailRow} from '../components/booking-detail-row';
 import {SitterProfile} from '../components/sitter-profile';
 import {BookingProperty} from '../components/booking-property';
 import {BookingDetailStatus} from '../components/booking-detail-status.js';
-const phoneNumber = 'Call (602) 803-4851';
+const phoneNumber = '(602) 803-4851';
 
 export function ClientBookingDetails({componentId}) {
   const actionSheetRef = useRef(null);

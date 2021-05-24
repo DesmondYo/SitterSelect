@@ -5,8 +5,8 @@ export const styles = StyleSheet.create({
     borderRadius: 18,
     width: 80,
     height: 22,
-    justifyContent: "center",
-    alignItems: "center"
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   StatusText: {},
 });

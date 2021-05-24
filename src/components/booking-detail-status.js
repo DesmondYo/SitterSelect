@@ -1,6 +1,6 @@
 import React from 'react';
 import {BookingDetailRow} from './booking-detail-row';
-import { StatusBadge } from './status-badge';
+import {StatusBadge} from './status-badge';
 
 export function BookingDetailStatus({label, value, status}) {
   return (

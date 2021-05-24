@@ -1,13 +1,40 @@
 import React, {useState} from 'react';
 import {Navigation} from 'react-native-navigation';
-import {View, Image, Text, ScrollView} from 'react-native';
-import {GmailInput} from '../components/gmail-input';
+import {View, Image, Text, ScrollView, Alert} from 'react-native';
+import {Login} from '../components/login';
 import {styles} from './styles/login-page-style';
 import {PrimaryButton} from '../components/primary-button';
+import auth from '@react-native-firebase/auth';
 
 const LoginPage = ({componentId}) => {
   const [setEmail] = useState(null);
   const [setPassword] = useState(null);
+
+  function createUser() {
+    auth()
+      .signInWithEmailAndPassword('setEmail', 'setPassword')
+      .then(() => {
+        Navigation.push(componentId, {
+          component: {
+            name: 'MapPage',
+          },
+        });
+      })
+      .catch(error => {
+        if (error) {
+          Alert.alert(
+            'Oops! Login failed',
+            'There has been an issue with your login details. Please contact Josie Emch for further details.',
+            [
+              {
+                text: 'Cancel',
+              },
+              {text: 'OK'},
+            ],
+          );
+        }
+      });
+  }
   return (
     <ScrollView
       style={styles.backgroundStyleColor}
@@ -20,8 +47,8 @@ const LoginPage = ({componentId}) => {
 
       <View>
         <Text style={styles.Text}> Hi There!</Text>
-        <GmailInput label="Email" onChangeText={setEmail} hideLabel={true} />
-        <GmailInput
+        <Login label="Email" onChangeText={setEmail} hideLabel={true} />
+        <Login
           label="Password"
           onChangeText={setPassword}
           hideLabel={true}
@@ -30,7 +57,7 @@ const LoginPage = ({componentId}) => {
         <Text style={styles.password}> I forgot my password</Text>
         <PrimaryButton
           label="Client Login"
-          onPress={onClientLogin}
+          onPress={createUser}
           style={styles.button}
           TextStyle={styles.buttonText}
         />
@@ -57,14 +84,6 @@ const LoginPage = ({componentId}) => {
             componentBackgroundColor: 'transparent',
           },
         },
-      },
-    });
-  }
-
-  function onClientLogin() {
-    Navigation.push(componentId, {
-      component: {
-        name: 'MapPage',
       },
     });
   }

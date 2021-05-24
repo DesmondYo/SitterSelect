@@ -4,7 +4,7 @@ import {Linking, Platform, Text, TouchableOpacity} from 'react-native';
 import {AwesomeModal} from 'react-native-awesome-modal';
 import {Navigation} from 'react-native-navigation';
 import {styles} from './styles/contact-josie-overlay-style.js';
-const phoneNumber = 'Call (602) 803-4851';
+const phoneNumber = '(602) 803-4851';
 
 export function ContactJosieOverlay({componentId}) {
   const actionSheetRef = useRef(null);

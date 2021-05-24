@@ -5,7 +5,7 @@ import {AwesomeModal} from 'react-native-awesome-modal';
 import {Navigation} from 'react-native-navigation';
 import ActionSheet from '@alessiocancian/react-native-actionsheet';
 import {ServiceButton} from './service-button';
-const phoneNumber = 'Call (602) 803-4851';
+const phoneNumber = '(602) 803-4851';
 
 export function ServiceOverlay({componentId}) {
   const actionSheetRef = useRef(null);

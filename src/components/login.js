@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {View, TextInput, Text} from 'react-native';
 TextInput.defaultProps.selectionColor = '#1a73e8';
 
-export class GmailInput extends Component {
+export class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {

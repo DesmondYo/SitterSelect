@@ -1,22 +1,21 @@
-import React from "react";
-import { Text, View } from "react-native";
-import { styles } from "./styles/status-badge-style";
-import _ from "lodash";
+import React from 'react';
+import {Text, View} from 'react-native';
+import {styles} from './styles/status-badge-style';
+import _ from 'lodash';
 
-export function StatusBadge({ status }) {
-    const textColor = getTextColor();
-    const backgroundColor = getBackgroundColor();
+export function StatusBadge({status}) {
+  const textColor = getTextColor();
+  const backgroundColor = getBackgroundColor();
 
-    return (
-        <View style={[styles.StatusContainer, { backgroundColor }]}>
-            <Text style={[styles.StatusText, {color: textColor }]}>
-                {_.capitalize(status)}
-            </Text>
-        </View>
+  return (
+    <View style={[styles.StatusContainer, {backgroundColor}]}>
+      <Text style={[styles.StatusText, {color: textColor}]}>
+        {_.capitalize(status)}
+      </Text>
+    </View>
+  );
 
-    )
-    
-    function getTextColor() {
+  function getTextColor() {
     if (status === 'approved') {
       return '#5E4386';
     } else if (status === 'declined') {
