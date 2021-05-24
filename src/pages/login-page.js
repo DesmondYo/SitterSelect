@@ -7,34 +7,9 @@ import {PrimaryButton} from '../components/primary-button';
 import auth from '@react-native-firebase/auth';
 
 const LoginPage = ({componentId}) => {
-  const [setEmail] = useState(null);
-  const [setPassword] = useState(null);
+  const [email, setEmail] = useState(null);
+  const [password, setPassword] = useState(null);
 
-  function createUser() {
-    auth()
-      .signInWithEmailAndPassword('setEmail', 'setPassword')
-      .then(() => {
-        Navigation.push(componentId, {
-          component: {
-            name: 'MapPage',
-          },
-        });
-      })
-      .catch(error => {
-        if (error) {
-          Alert.alert(
-            'Oops! Login failed',
-            'There has been an issue with your login details. Please contact Josie Emch for further details.',
-            [
-              {
-                text: 'Cancel',
-              },
-              {text: 'OK'},
-            ],
-          );
-        }
-      });
-  }
   return (
     <ScrollView
       style={styles.backgroundStyleColor}
@@ -47,8 +22,9 @@ const LoginPage = ({componentId}) => {
 
       <View>
         <Text style={styles.Text}> Hi There!</Text>
-        <Login label="Email" onChangeText={setEmail} hideLabel={true} />
+        <Login value={email} label="Email"  onChangeText={setEmail} hideLabel={true} />
         <Login
+          value={password}
           label="Password"
           onChangeText={setPassword}
           hideLabel={true}
@@ -73,6 +49,40 @@ const LoginPage = ({componentId}) => {
       </View>
     </ScrollView>
   );
+
+  function createUser() {
+    auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(() => {
+        // .then(({ user }) => {
+        // firestore().collection('Users').where('user_id', '==', user.uid).get()
+        // .then(userData => {
+        //   if userData.type === "sitter" {
+
+        //   }
+        // });
+
+        Navigation.push(componentId, {
+          component: {
+            name: 'MapPage',
+          },
+        });
+      })
+      .catch(error => {
+        if (error) {
+          Alert.alert(
+            'Oops! Login failed',
+            'There has been an issue with your login details. Please contact Josie Emch for further details.',
+            [
+              {
+                text: 'Cancel',
+              },
+              {text: 'OK'},
+            ],
+          );
+        }
+      });
+  }
 
   function onOpenOverlay() {
     Navigation.showOverlay({
