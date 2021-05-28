@@ -4,7 +4,8 @@ import {View, Image, Text, ScrollView, Alert} from 'react-native';
 import {Login} from '../components/login';
 import {styles} from './styles/login-page-style';
 import {PrimaryButton} from '../components/primary-button';
-import auth from '@react-native-firebase/auth';
+import Auth from '@react-native-firebase/auth';
+import Firestore from '@react-native-firebase/firestore';
 
 const LoginPage = ({componentId}) => {
   const [email, setEmail] = useState(null);
@@ -55,38 +56,37 @@ const LoginPage = ({componentId}) => {
     </ScrollView>
   );
 
-  function createUser() {
-    auth()
-      .signInWithEmailAndPassword(email, password)
-      .then(() => {
-        // .then(({ user }) => {
-        // firestore().collection('Users').where('user_id', '==', user.uid).get()
-        // .then(userData => {
-        //   if userData.type === "sitter" {
+  async function createUser() {
+    try {
+      const { user } = await Auth().signInWithEmailAndPassword(email, password);
+      const userDocs = await Firestore().collection('users').where('user_id', '==', user.uid).get();
+      const userType = userDocs.docs[0].data().type;
 
-        //   }
-        // });
-
+      if(userType === "sitter") {
+        Navigation.push(componentId, {
+          component: {
+            name: 'SitterBookingPage',
+          },
+        });
+      } else if(userType === "client") {
         Navigation.push(componentId, {
           component: {
             name: 'MapPage',
           },
         });
-      })
-      .catch(error => {
-        if (error) {
-          Alert.alert(
-            'Oops! Login failed',
-            'There has been an issue with your login details. Please contact Josie Emch for further details.',
-            [
-              {
-                text: 'Cancel',
-              },
-              {text: 'OK'},
-            ],
-          );
-        }
-      });
+      }
+    } catch (e) {
+      Alert.alert(
+        'Oops! Login failed',
+        'There has been an issue with your login details. Please contact Josie Emch for further details.',
+        [
+          {
+            text: 'Cancel',
+          },
+          {text: 'OK'},
+        ],
+      );
+    }
   }
 
   function onOpenOverlay() {

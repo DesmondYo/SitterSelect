@@ -672,7 +672,7 @@ PODS:
   - RNFBApp (12.0.0):
     - Firebase/CoreOnly (= 8.0.0)
     - React-Core
-  - RNFBAuth (11.5.0):
+  - RNFBAuth (12.0.0):
     - Firebase/Auth (= 8.0.0)
     - React-Core
     - RNFBApp
@@ -835,7 +835,7 @@ SPEC CHECKSUMS:
   BoringSSL-GRPC: 8edf627ee524575e2f8d19d56f068b448eea3879
   DoubleConversion: cf9b38bf0b2d048436d9a82ad2abe1404f11e7de
   FBLazyVector: 49cbe4b43e445b06bf29199b6ad2057649e4c8f5
-  FBReactNativeSpec: e3f3b4896c0a735e102fb9bf9b900ad8ccb97fcc
+  FBReactNativeSpec: b593e2c737be19f6dec1fba5ec3436f5187409a7
   Firebase: 73c3e3b216ec1ecbc54d2ffdd4670c65c749edb1
   FirebaseAnalytics: dcb92c7c9ef4fa7ffac276e8f87bd4fc8c97f1b8
   FirebaseAuth: b8cd992fca5b53dc6eec09e873a3f375f000c5a1
@@ -843,7 +843,7 @@ SPEC CHECKSUMS:
   FirebaseCoreDiagnostics: a31d987ba0fe16d59886a5dbadc2f1de871f88c8
   FirebaseFirestore: 7f6576eaca9f821e864c3e917d68aa99f4e6b613
   FirebaseInstallations: c4aab1005d6547b00a7529777fe52f5d4d45165b
-  glog: 7a8788d88d2a384c05df45e95c5e763e4d81f3ad
+  glog: 73c2498ac6884b13ede40eda8228cb1eee9d9d62
   Google-Maps-iOS-Utils: c32891ff472eaaa1fca032beedafa1a013af7875
   GoogleAppMeasurement: c6bbc9753d046b5456dd4f940057fbad2c28419e
   GoogleDataTransport: 11e3a5f2c190327df1a4a5d7e7ae3d4d5b9c9e4c
@@ -855,7 +855,7 @@ SPEC CHECKSUMS:
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
-  RCT-Folly: 1af344185a2506dec1e584dd5edaaa8fb6bcda5e
+  RCT-Folly: ec7a233ccc97cc556cf7237f0db1ff65b986f27c
   RCTRequired: 2f8cb5b7533219bf4218a045f92768129cf7050a
   RCTTypeSafety: 512728b73549e72ad7330b92f3d42936f2a4de5b
   React: 98eac01574128a790f0bbbafe2d1a8607291ac24
@@ -883,10 +883,10 @@ SPEC CHECKSUMS:
   React-runtimeexecutor: cad74a1eaa53ee6e7a3620231939d8fe2c6afcf0
   ReactCommon: cfe2b7fd20e0dbd2d1185cd7d8f99633fbc5ff05
   ReactNativeNavigation: 53ba485fbb370aeed7057020f351b814e51c18ef
-  RNCCheckbox: d1749e6a92178ce5dbc31e63becd1f34f0c76bbd
-  RNDateTimePicker: d943800c936fb01c352fcfb70439550d2cb57092
+  RNCCheckbox: 500919ac122273ea8eef93dae01431091968c14a
+  RNDateTimePicker: e1c24487ab8aa0850403bd90dba75eff8a4e9b84
   RNFBApp: cc2ff3f925840c53f0117d92e0f5e269b356d0f7
-  RNFBAuth: 106b52a2c04be7ea1b0cb88ab31ad414c2507181
+  RNFBAuth: 6853dd2d92ed8635831679b695a6690151ae6b77
   RNFBFirestore: a709273bc1c35525a18a6e60b3893866754c194b
   Yoga: 8c8436d4171c87504c648ae23b1d81242bdf3bbf
 

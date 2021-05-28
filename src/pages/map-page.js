@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, TouchableOpacity, Image, Text} from 'react-native';
 import {styles} from './styles/map-page-style';
 import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
@@ -6,9 +6,13 @@ import {Navigation} from 'react-native-navigation';
 import {SitterMapMarker} from '../components/sitter-map-marker';
 import {BackButton} from '../components/back-button';
 import {Marker} from 'react-native-maps';
+import Firestore from '@react-native-firebase/firestore';
 
 const MapPage = ({componentId}) => {
   const [setcurrentlocation] = useState(null);
+  const [mapMarkers, setMapMarkers] = useState([]);
+  /** Effects */
+  useEffect(onSyncMarkers, []);
 
   return (
     <View style={styles.container}>
@@ -26,12 +30,12 @@ const MapPage = ({componentId}) => {
           icon={require('../img/CurrentLocationPin.png')}
           style={styles.CurrentLocationPin}
         />
-        <SitterMapMarker
-          latitude={33.650800}
-          longitude={-112.0216586}
-          onPress={SitterDetailsPage}
-          icon={require('../img/LadyInPic.png')}
-        />
+        {mapMarkers.map((item) => (
+          <SitterMapMarker
+            item={item}
+            onPress={SitterDetailsPage}
+          />
+        ))}
       </MapView>
       <BackButton
         onPress={onPress}
@@ -54,6 +58,19 @@ const MapPage = ({componentId}) => {
     </View>
   );
 
+  function onSyncMarkers() {
+    const unsubscribe = Firestore()
+      .collection('users')
+      .onSnapshot({
+        next: (collection) => {
+          const collectionDocuments = collection.docs;
+          setMapMarkers(collectionDocuments);
+        },
+      });
+
+      return unsubscribe;
+  }
+
   function onPress() {
     Navigation.push(componentId, {
       component: {
@@ -70,10 +87,13 @@ const MapPage = ({componentId}) => {
     });
   }
 
-  function SitterDetailsPage() {
+  function SitterDetailsPage(id) {
     Navigation.push(componentId, {
       component: {
         name: 'SitterDetails',
+        passProps: {
+          id,
+        }
       },
     });
   }

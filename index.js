@@ -20,6 +20,7 @@ import {SitterBookingDetailsPage} from './src/pages/sitter-booking-details-page'
 import {SitterClockInClockOutSubmitTimePage} from './src/pages/sitter-clock-in-clock-out-submit-time-page';
 import {ContactJosieOverlay} from './src/components/contact-josie-overlay';
 import {SitterSubmitTimeSuccessPage} from './src/pages/sitter-submit-time-success-page';
+import Auth from '@react-native-firebase/auth';
 
 SplashScreen.hide();
 
@@ -53,17 +54,35 @@ Navigation.registerComponent(
 );
 
 Navigation.events().registerAppLaunchedListener(() => {
-  Navigation.setRoot({
-    root: {
-      stack: {
-        children: [
-          {
-            component: {
-              name: 'LoginPage',
+  const userId = Auth().currentUser.uid;
+
+  if(userId) {
+    Navigation.setRoot({
+      root: {
+        stack: {
+          children: [
+            {
+              component: {
+                name: 'SitterClockInClockOutSubmitTimePage',
+              },
             },
-          },
-        ],
+          ],
+        },
       },
-    },
-  });
+    });
+  } else {
+    Navigation.setRoot({
+      root: {
+        stack: {
+          children: [
+            {
+              component: {
+                name: 'LoginPage',
+              },
+            },
+          ],
+        },
+      },
+    });
+  }
 });

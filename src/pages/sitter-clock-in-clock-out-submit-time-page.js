@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {View, ScrollView, Text, Image, Platform, Linking} from 'react-native';
 import {Navigation} from 'react-native-navigation';
 import {BackButton} from '../components/back-button.js';
@@ -8,6 +8,7 @@ import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import dayjs from 'dayjs';
 import ActionSheet from '@alessiocancian/react-native-actionsheet';
 import {BookingProperty} from '../components/booking-property.js';
+import Firestore from '@react-native-firebase/firestore';
 const phoneNumber = '(602) 803-4851';
 
 export function SitterClockInClockOutSubmitTimePage({componentId}) {
@@ -16,6 +17,17 @@ export function SitterClockInClockOutSubmitTimePage({componentId}) {
   const actionSheetRef = useRef(null);
   const awesomeModalRef = useRef(null);
   const isActionSheetOpen = useRef(false);
+  const formattedStartTime = dayjs(startTime).format();
+
+  useEffect(() => {
+    Firestore()
+    .collection('bookings')
+    .doc('qxNnNzLh41M8327OZAM7')
+    .update({
+      start_time: formattedStartTime,
+    })
+  }, [formattedStartTime]);
+
   return (
     <>
       <ScrollView
