@@ -16,19 +16,19 @@ const MapPage = ({componentId}) => {
         provider={PROVIDER_GOOGLE} // remove if not using Google Maps
         style={styles.map}
         region={{
-          latitude: 37.78825,
-          longitude: -122.4324,
+          latitude: 33.648776,
+          longitude: -112.0216586,
           latitudeDelta: 0.015,
           longitudeDelta: 0.0121,
         }}>
         <Marker
-          coordinate={{latitude: 37.79825, longitude: -122.4424}}
+          coordinate={{latitude: 33.648776, longitude: -112.0216586}}
           icon={require('../img/CurrentLocationPin.png')}
           style={styles.CurrentLocationPin}
         />
         <SitterMapMarker
-          latitude={37.78825}
-          longitude={-122.4324}
+          latitude={33.650800}
+          longitude={-112.0216586}
           onPress={SitterDetailsPage}
           icon={require('../img/LadyInPic.png')}
         />

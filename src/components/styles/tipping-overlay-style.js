@@ -2,6 +2,7 @@ import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
   containerStyle: {
+    height: '70%',
     width: '100%',
     borderTopRightRadius: 20,
     borderTopLeftRadius: 20,
@@ -11,11 +12,11 @@ export const styles = StyleSheet.create({
   },
 
   inputText: {
-    fontSize: 16,
+    alignSelf: 'center',
+    fontSize: 20,
     color: '#92465a',
     fontFamily: 'arial',
     fontWeight: 'bold',
-    textAlign: 'center',
   },
   close: {
     fontSize: 16,

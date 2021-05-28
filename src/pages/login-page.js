@@ -22,7 +22,12 @@ const LoginPage = ({componentId}) => {
 
       <View>
         <Text style={styles.Text}> Hi There!</Text>
-        <Login value={email} label="Email"  onChangeText={setEmail} hideLabel={true} />
+        <Login
+          value={email}
+          label="Email"
+          onChangeText={setEmail}
+          hideLabel={true}
+        />
         <Login
           value={password}
           label="Password"
