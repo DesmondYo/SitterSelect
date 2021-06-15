@@ -4,8 +4,6 @@
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
 
-#import <GoogleMaps/GoogleMaps.h>
-#import "SplashScreen.h"
 #import <Firebase.h>
 
 @implementation AppDelegate
@@ -16,14 +14,9 @@
   if ([FIRApp defaultApp] == nil) {
     [FIRApp configure];
   }
-  // Add me --- /\
-  // ...
-
-  [GMSServices provideAPIKey:@"AIzaSyC6BC94M7S_AU8imqx1aq2U7LN2s436riU"]; // add this line using the api key obtained from Google Console
   
   [ReactNativeNavigation bootstrapWithDelegate:self launchOptions:launchOptions];
   
-  [SplashScreen show];
   return YES;
 }
 

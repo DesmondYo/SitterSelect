@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@alessiocancian/react-native-actionsheet": "^2.4.11",
+    "@react-native-community/checkbox": "^0.5.8",
     "@react-native-community/datetimepicker": "^3.4.3",
     "@react-native-firebase/app": "^12.0.0",
     "@react-native-firebase/auth": "^12.0.0",
@@ -24,8 +25,7 @@
     "react-native-material-tabs": "^4.2.0",
     "react-native-modal-datetime-picker": "^9.2.1",
     "react-native-navigation": "^7.12.0",
-    "react-native-safe-area": "^0.5.1",
-    "react-native-splash-screen": "3.0.6"
+    "react-native-safe-area": "^0.5.1"
   },
   "devDependencies": {
     "@babel/core": "^7.13.10",

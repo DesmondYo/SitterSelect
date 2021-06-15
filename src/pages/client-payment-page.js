@@ -3,7 +3,6 @@ import {View, ScrollView, Text} from 'react-native';
 import {styles} from './styles/client-payment-page-style.js';
 import {BackButton} from '../components/back-button';
 import {Navigation} from 'react-native-navigation';
-import {AirbnbRating} from 'react-native-ratings';
 import {TipButton} from '../components/tip-button.js';
 import {PrimaryButton} from '../components/primary-button.js';
 import {SitterProfile} from '../components/sitter-profile';
@@ -67,17 +66,6 @@ export function CheckoutPaymentPage({componentId}) {
             onPress={() => setSelectedTip(7)}
           />
           <TipButton label="Other" onPress={TippingOverlay} />
-        </View>
-        <View style={styles.LineSeperator} />
-        <View style={styles.RateYourSitterStyle}>
-          <Text style={styles.BookingInfoText}> Rate your sitter </Text>
-          <AirbnbRating
-            count={5}
-            defaultRating={4}
-            size={25}
-            reviews={[]}
-            starContainerStyle={styles.starContainerStyle}
-          />
         </View>
         <View style={[styles.LineSeperator, styles.NameMarginStyle]} />
         <View style={styles.ViewStyleBookingInfo}>

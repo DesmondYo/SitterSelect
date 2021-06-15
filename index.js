@@ -4,7 +4,6 @@
 
 import {LoginPage} from './src/pages/login-page';
 import {Navigation} from 'react-native-navigation';
-import SplashScreen from 'react-native-splash-screen';
 import {SignUpOverlay} from './src/components/sign-up-overlay';
 import {SitterDetailsPage} from './src/pages/sitter-detail-page';
 import {ServiceOverlay} from './src/components/service-overlay';
@@ -20,8 +19,6 @@ import {SitterClockInClockOutSubmitTimePage} from './src/pages/sitter-clock-in-c
 import {ContactJosieOverlay} from './src/components/contact-josie-overlay';
 import {SitterSubmitTimeSuccessPage} from './src/pages/sitter-submit-time-success-page';
 import Auth from '@react-native-firebase/auth';
-
-SplashScreen.hide();
 
 Navigation.registerComponent('LoginPage', () => LoginPage);
 Navigation.registerComponent('SignUpOverlay', () => SignUpOverlay);
@@ -50,6 +47,14 @@ Navigation.registerComponent(
   'SitterSubmitTimeSuccessPage',
   () => SitterSubmitTimeSuccessPage,
 );
+
+Navigation.setDefaultOptions({
+  animations: {
+    setRoot: {
+      waitForRender: true,
+    },
+  },
+});
 
 Navigation.events().registerAppLaunchedListener(() => {
   const userId = Auth().currentUser.uid;
