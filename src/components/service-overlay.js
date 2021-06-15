@@ -35,6 +35,7 @@ export function ServiceOverlay({componentId}) {
       <ServiceButton
         image={require('../img/OvernightHouseSitting.png')}
         label="Overnight House Sitting"
+        onPress={onPressEventSitting}
       />
       <ServiceButton
         image={require('../img/Drop-inForHouseSitting.png')}

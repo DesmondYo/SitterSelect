@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
   backgroundStyleColor: {
-    backgroundColor: '#fcf0f2',
+    backgroundColor: '#f9ede1',
     flex: 1,
   },
   CheckoutPaymentPageContainer: {
@@ -10,23 +10,21 @@ export const styles = StyleSheet.create({
     paddingTop: 15,
   },
   SitterSelectLogo: {
-    marginTop: 90,
-    marginBottom: 60,
-    height: 120,
-    width: '60%',
+    marginTop: 20,
+    height: 180,
     resizeMode: 'contain',
     alignItems: 'center',
   },
   Text: {
     fontSize: 27,
     textAlign: 'center',
-    color: '#92465a',
+    color: '#e09095',
     fontFamily: 'arial',
     fontWeight: 'bold',
     marginBottom: 20,
   },
   password: {
-    color: '#5e4386',
+    color: '#e09095',
     fontFamily: 'arial',
     fontWeight: 'bold',
     fontSize: 14,
@@ -35,7 +33,7 @@ export const styles = StyleSheet.create({
   button: {
     marginTop: 40,
     alignItems: 'center',
-    backgroundColor: '#5e4386',
+    backgroundColor: '#e09095',
     borderRadius: 26,
   },
   buttonText: {

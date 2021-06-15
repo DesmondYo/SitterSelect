@@ -989,11 +989,6 @@
     "@types/yargs" "^15.0.0"
     "chalk" "^4.0.0"
 
-"@react-native-community/checkbox@^0.5.7":
-  "integrity" "sha512-CiHBAMWy5fsFIHLd1pf8frlWrLT8DnCXUSxdlGKazHm7srQSReKH4R5absShjmYOHRo9raWEnKZO/cm7MUDHZg=="
-  "resolved" "https://registry.npmjs.org/@react-native-community/checkbox/-/checkbox-0.5.7.tgz"
-  "version" "0.5.7"
-
 "@react-native-community/cli-debugger-ui@^5.0.1-alpha.1":
   "integrity" "sha512-o6msDywXU7q0dPKhCTo8IrpmJ+7o+kVghyHlrAndnb30p6vnm4pID5Yi7lHXGfs6bQXorKUWX8oD5xYwWkN8qw=="
   "resolved" "https://registry.yarnpkg.com/@react-native-community/cli-debugger-ui/-/cli-debugger-ui-5.0.1-alpha.1.tgz"
@@ -1149,7 +1144,7 @@
   "resolved" "https://registry.yarnpkg.com/@react-native-community/eslint-plugin/-/eslint-plugin-1.1.0.tgz"
   "version" "1.1.0"
 
-"@react-native-firebase/app@^12.0.0", "@react-native-firebase/app@12.0.0":
+"@react-native-firebase/app@^12.0.0":
   "integrity" "sha512-ONIQUOiApnCwN/Xxnl6o9305hsuUsQaCWOp8JdlIniNM7QkkIlGqYgnvPowjEXEJVhMVME/B6NSNSidnOd/hHw=="
   "resolved" "https://registry.npmjs.org/@react-native-firebase/app/-/app-12.0.0.tgz"
   "version" "12.0.0"
@@ -1158,8 +1153,8 @@
     "superstruct" "^0.6.2"
 
 "@react-native-firebase/auth@^12.0.0":
-  "integrity" "sha512-kdO+dbGqZluX1zkxGXI+DNn1PU83WcY9jdXSGtKjiHkoduB4lBmfGvewDlIiYtJNmXly/Jf3FrLEwa77ZDuArQ=="
-  "resolved" "https://registry.npmjs.org/@react-native-firebase/auth/-/auth-11.5.0.tgz"
+  "integrity" "sha512-+tudhzegmLOfVKVAD+wgSUXMc5Hc0J3F7cqr8yxYa3vjJEsRTf+F0HsxQOMtJZ7TNIFWyVIoZqzmD4Tb04caCw=="
+  "resolved" "https://registry.npmjs.org/@react-native-firebase/auth/-/auth-12.0.0.tgz"
   "version" "12.0.0"
 
 "@react-native-firebase/firestore@^12.0.0":
@@ -5589,11 +5584,6 @@
     "jscodeshift" "^0.11.0"
     "nullthrows" "^1.1.1"
 
-"react-native-maps@0.27.1":
-  "integrity" "sha512-HygBkZBecTnIVRYrSiLRAvu4OmXOYso/A7c6Cy73HkOh9CgGV8Ap5eBea24tvmFGptjj5Hg8AJ94/YbmWK1Okw=="
-  "resolved" "https://registry.npmjs.org/react-native-maps/-/react-native-maps-0.27.1.tgz"
-  "version" "0.27.1"
-
 "react-native-material-tabs@^4.2.0":
   "integrity" "sha512-2B3E9KC3/CYFaH5XWT1DtLGS+JwOCR3ccF62UDCjghPkPGzaUC60P5K4WDqS9J7I79EtaSwuwqPORoVAJoeb6g=="
   "resolved" "https://registry.npmjs.org/react-native-material-tabs/-/react-native-material-tabs-4.2.0.tgz"
@@ -5619,14 +5609,6 @@
     "react-lifecycles-compat" "2.0.0"
     "tslib" "1.9.3"
 
-"react-native-ratings@^8.0.3":
-  "integrity" "sha512-4ZZYmgOCQ0LA9mp8u2rrH5wnh0woEcgsGYic5YPI9xqsmm/tcvY2Q9fvYzXstrCzaCRzvkHE20fJUHtnJfRuVA=="
-  "resolved" "https://registry.npmjs.org/react-native-ratings/-/react-native-ratings-8.0.3.tgz"
-  "version" "8.0.3"
-  dependencies:
-    "lodash" "^4.17.15"
-    "prop-types" "^15.7.2"
-
 "react-native-safe-area@^0.5.1":
   "integrity" "sha512-gBLv93P90sM6hk5HzUwTXzFuSDazTpg2ONi5iL9pnUsUfwdw2L9SKgjgVroxX10leGB9+0zz6/ycV+mItqr8OQ=="
   "resolved" "https://registry.npmjs.org/react-native-safe-area/-/react-native-safe-area-0.5.1.tgz"
@@ -5644,7 +5626,7 @@
   "resolved" "https://registry.npmjs.org/react-native-swipe-gestures/-/react-native-swipe-gestures-1.0.5.tgz"
   "version" "1.0.5"
 
-"react-native@*", "react-native@0.64.0":
+"react-native@0.64.0":
   "integrity" "sha512-8dhSHBthgGwAjU+OjqUEA49229ThPMQH7URH0u8L0xoQFCnZO2sZ9Wc6KcbxI0x9KSmjCMFFZqRe3w3QsRv64g=="
   "resolved" "https://registry.yarnpkg.com/react-native/-/react-native-0.64.0.tgz"
   "version" "0.64.0"
@@ -5705,7 +5687,7 @@
     "react-shallow-renderer" "^16.13.1"
     "scheduler" "^0.20.1"
 
-"react@*", "react@17.0.1":
+"react@17.0.1":
   "integrity" "sha512-lG9c9UuMHdcAexXtigOZLX8exLWkW0Ku29qPRU8uhF2R9BN96dLCt0psvzPLlHc5OWkgymP3qwTRgbnw5BKx3w=="
   "resolved" "https://registry.yarnpkg.com/react/-/react-17.0.1.tgz"
   "version" "17.0.1"

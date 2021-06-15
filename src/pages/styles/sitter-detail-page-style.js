@@ -57,7 +57,7 @@ export const styles = StyleSheet.create({
   TypeOfService: {
     fontWeight: 'bold',
     marginLeft: 20,
-    marginTop: 24,
+    marginTop: 40,
     color: '#92465a',
     fontSize: 16,
   },
@@ -73,7 +73,7 @@ export const styles = StyleSheet.create({
     marginTop: -25,
   },
   ChangeText: {
-    color: '#5e4386',
+    color: '#92465a',
     marginLeft: 300,
     marginTop: -17,
     fontSize: 14,
@@ -113,7 +113,7 @@ export const styles = StyleSheet.create({
   BookNowButton: {
     width: 159,
     height: 41,
-    backgroundColor: '#5e4386',
+    backgroundColor: '#e09095',
     borderRadius: 35,
   },
   BookNowButtonText: {

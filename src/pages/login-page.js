@@ -17,12 +17,12 @@ const LoginPage = ({componentId}) => {
       contentContainerStyle={styles.CheckoutPaymentPageContainer}
       contentInset={{top: 0, bottom: 150}}>
       <Image
-        source={require('../img/SitterSelectLogo.png')}
+        source={require('../img/icon3x.png')}
         style={styles.SitterSelectLogo}
       />
 
       <View>
-        <Text style={styles.Text}> Hi There!</Text>
+        <Text style={styles.Text}> Welcome!</Text>
         <Login
           value={email}
           label="Email"
@@ -38,14 +38,8 @@ const LoginPage = ({componentId}) => {
         />
         <Text style={styles.password}> I forgot my password</Text>
         <PrimaryButton
-          label="Client Login"
+          label="Login"
           onPress={createUser}
-          style={styles.button}
-          TextStyle={styles.buttonText}
-        />
-        <PrimaryButton
-          label=" Sitter Login"
-          onPress={onSitterLogin}
           style={styles.button}
           TextStyle={styles.buttonText}
         />
@@ -58,20 +52,23 @@ const LoginPage = ({componentId}) => {
 
   async function createUser() {
     try {
-      const { user } = await Auth().signInWithEmailAndPassword(email, password);
-      const userDocs = await Firestore().collection('users').where('user_id', '==', user.uid).get();
+      const {user} = await Auth().signInWithEmailAndPassword(email, password);
+      const userDocs = await Firestore()
+        .collection('users')
+        .where('user_id', '==', user.uid)
+        .get();
       const userType = userDocs.docs[0].data().type;
 
-      if(userType === "sitter") {
+      if (userType === 'sitter') {
         Navigation.push(componentId, {
           component: {
             name: 'SitterBookingPage',
           },
         });
-      } else if(userType === "client") {
+      } else if (userType === 'client') {
         Navigation.push(componentId, {
           component: {
-            name: 'MapPage',
+            name: 'SitterDetails',
           },
         });
       }
@@ -99,14 +96,6 @@ const LoginPage = ({componentId}) => {
             componentBackgroundColor: 'transparent',
           },
         },
-      },
-    });
-  }
-
-  function onSitterLogin() {
-    Navigation.push(componentId, {
-      component: {
-        name: 'SitterBookingPage',
       },
     });
   }

@@ -9,7 +9,7 @@ export function BookingSuccessPage({componentId}) {
   return (
     <SafeAreaView style={styles.PageContainer}>
       <Image
-        source={require('../img/CheckmarkLogo.png')}
+        source={require('../img/WaitIcon.png')}
         style={styles.CheckmarkLogo}
       />
       <Text style={styles.Text}>Your booking request was succesfull!</Text>

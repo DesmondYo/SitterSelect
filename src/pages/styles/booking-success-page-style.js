@@ -22,8 +22,6 @@ export const styles = StyleSheet.create({
     fontSize: 16,
   },
   CheckmarkLogo: {
-    height: 164,
-    width: 164,
     alignSelf: 'center',
   },
   Text: {

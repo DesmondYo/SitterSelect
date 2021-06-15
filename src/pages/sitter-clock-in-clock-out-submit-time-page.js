@@ -20,12 +20,9 @@ export function SitterClockInClockOutSubmitTimePage({componentId}) {
   const formattedStartTime = dayjs(startTime).format();
 
   useEffect(() => {
-    Firestore()
-    .collection('bookings')
-    .doc('qxNnNzLh41M8327OZAM7')
-    .update({
+    Firestore().collection('bookings').doc('qxNnNzLh41M8327OZAM7').update({
       start_time: formattedStartTime,
-    })
+    });
   }, [formattedStartTime]);
 
   return (
