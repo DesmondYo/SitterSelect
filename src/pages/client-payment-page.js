@@ -7,11 +7,9 @@ import {TipButton} from '../components/tip-button.js';
 import {PrimaryButton} from '../components/primary-button.js';
 import {SitterProfile} from '../components/sitter-profile';
 import {BookingDetailRow} from '../components/booking-detail-row';
-import CheckBox from '@react-native-community/checkbox';
 
 export function CheckoutPaymentPage({componentId}) {
   const [selectedTip, setSelectedTip] = useState(null);
-  const [toggleCheckBox, setToggleCheckBox] = useState(false);
   return (
     <>
       <ScrollView
@@ -67,6 +65,13 @@ export function CheckoutPaymentPage({componentId}) {
           />
           <TipButton label="Other" onPress={TippingOverlay} />
         </View>
+<<<<<<< Updated upstream
+=======
+        <View style={styles.LineSeperator} />
+        <View style={styles.RateYourSitterStyle}>
+          <Text style={styles.BookingInfoText}> Rate your sitter </Text>
+        </View>
+>>>>>>> Stashed changes
         <View style={[styles.LineSeperator, styles.NameMarginStyle]} />
         <View style={styles.ViewStyleBookingInfo}>
           <Text style={styles.BookingInfoText}> Price details </Text>
@@ -82,12 +87,6 @@ export function CheckoutPaymentPage({componentId}) {
           </View>
         </View>
         <View style={styles.TermsStyle}>
-          <CheckBox
-            style={styles.checkbox}
-            disabled={false}
-            value={toggleCheckBox}
-            onValueChange={newValue => setToggleCheckBox(newValue)}
-          />
           <Text style={styles.CheckMarkText}>
             I agree to cancellation policy, terms & conditions{'\n'}and privacy
             policy
