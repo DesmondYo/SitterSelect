@@ -22,7 +22,7 @@ import Auth from '@react-native-firebase/auth';
 
 Navigation.registerComponent('LoginPage', () => LoginPage);
 Navigation.registerComponent('SignUpOverlay', () => SignUpOverlay);
-Navigation.registerComponent('SitterDetails', () => SitterDetailsPage);
+Navigation.registerComponent('SitterDetailsPage', () => SitterDetailsPage);
 Navigation.registerComponent('ServiceOverlay', () => ServiceOverlay);
 Navigation.registerComponent('BookingSuccessPage', () => BookingSuccessPage);
 Navigation.registerComponent('ClientBookingPage', () => ClientBookingPage);
@@ -57,7 +57,7 @@ Navigation.setDefaultOptions({
 });
 
 Navigation.events().registerAppLaunchedListener(() => {
-  const userId = Auth().currentUser.uid;
+  const userId = Auth().onAuthStateChanged.uid;
 
   if (userId) {
     Navigation.setRoot({

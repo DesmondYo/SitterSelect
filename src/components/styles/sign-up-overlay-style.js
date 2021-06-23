@@ -8,13 +8,13 @@ export const styles = StyleSheet.create({
     borderTopLeftRadius: 20,
     borderBottomLeftRadius: 0,
     borderBottomRightRadius: 0,
-    backgroundColor: '#fcf0f2',
+    backgroundColor: '#f9ede1',
   },
 
   buttonTextStyle: {
     textAlign: 'left',
     padding: 15,
-    color: '#92465a',
+    color: '#ffffff',
     fontSize: 16,
     fontFamily: 'arial',
   },
@@ -30,18 +30,18 @@ export const styles = StyleSheet.create({
   rectangle: {
     borderRadius: 12,
     height: 51,
-    backgroundColor: '#FFC5C4',
+    backgroundColor: '#e09095',
     marginBottom: 12,
   },
   rectangletwo: {
     height: 51,
-    backgroundColor: '#FFC5C4',
+    backgroundColor: '#e09095',
     borderRadius: 12,
   },
   modalOverlayStyle: {
     backgroundColor: 'black',
   },
   modalInnerContainerStyle: {
-    backgroundColor: '#fcf0f2',
+    backgroundColor: '#f9ede1',
   },
 });

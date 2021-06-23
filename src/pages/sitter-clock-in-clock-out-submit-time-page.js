@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {View, ScrollView, Text, Image, Platform, Linking} from 'react-native';
+import {View, ScrollView, Text, Platform, Linking} from 'react-native';
 import {Navigation} from 'react-native-navigation';
 import {BackButton} from '../components/back-button.js';
 import {PrimaryButton} from '../components/primary-button.js';
@@ -39,7 +39,7 @@ export function SitterClockInClockOutSubmitTimePage({componentId}) {
           backButtonImage={require('../img/backarrow.png')}
           imageWidth={30}
           imageHeight={30}
-          top={42}
+          top={17}
         />
         <View style={styles.ViewFlex}>
           <Text style={styles.Text}> Booking Details </Text>
@@ -53,11 +53,7 @@ export function SitterClockInClockOutSubmitTimePage({componentId}) {
           <Text style={styles.BookingInfoText}> Booking Info </Text>
         </View>
         <View style={styles.BookingInfoStats}>
-          <Image
-            source={require('../img/LadyInPic.png')}
-            style={styles.ImageStyle}
-          />
-          <View style={styles.ViewStyle}>
+          <View>
             <Text style={[styles.NameText, styles.TextMargin]}>Josie Emch</Text>
             <Text style={styles.Address}>
               4172 W. Tierra Buena Dr.{'\n'}
@@ -66,6 +62,9 @@ export function SitterClockInClockOutSubmitTimePage({componentId}) {
           </View>
         </View>
         <View style={styles.LineSeperator} />
+        <View style={styles.BookingInfoView}>
+          <Text style={styles.BookingInfoText}> 15 Oct 2021 - 16 Oct 2021 </Text>
+        </View>
         <View style={styles.ViewStyleInformation}>
           <BookingProperty
             image={require('../img/CalenderImage.png')}
@@ -81,13 +80,20 @@ export function SitterClockInClockOutSubmitTimePage({componentId}) {
 
         <View style={styles.ViewStyleInformation}>
           <BookingProperty
+            image={require('../img/PhoneIcon.png')}
+            name={'Call time'}
+            bookedLength={'8 am - 5 pm'}
+          />
+          <BookingProperty
             image={require('../img/Clock.png')}
             name={'Shift Length'}
             bookedLength={'9 hours'}
           />
         </View>
         <View style={styles.LineSeperator} />
-
+        <View style={styles.BookingInfoView}>
+          <Text style={styles.BookingInfoText}> Clocked Hours</Text>
+        </View>
         <View style={styles.ViewStyleInformation}>
           <BookingProperty
             image={require('../img/CalenderImage.png')}

@@ -33,15 +33,15 @@ export function ClientBookingDetails({componentId}) {
         <BookingDetailRow label={'Invoice'} value={'#GF20190928125'} />
         <BookingDetailRow label={'Booking Date'} value={'Wed, 12 Oct 2021'} />
         <View style={styles.LineSeperator} />
-        <View style={styles.ViewStatus}>
-          <Text style={styles.BookingInfoText}> Booking Info </Text>
-        </View>
         <View style={styles.BookingInfoView}>
           <SitterProfile
             image={require('../img/LadyInPic.png')}
             name={'Josie Emch'}
             serviceImage={require('../img/DropInForSittersNoPinkBackground.png')}
             service={'Drop-In For Pets'}
+            SitterDescription={
+              'Education major and Sitters Select founder who is passionate about working with kids. She also loves all animals & spending time with toddlers! In her spare time, she offers tutoring services. If you book after my service, we will be friends for life.'
+            }
           />
         </View>
         <View style={styles.LineSeperatorBelowBookingInfo} />
@@ -63,6 +63,11 @@ export function ClientBookingDetails({componentId}) {
             name={'Shift Length'}
             bookedLength={'9 hours'}
           />
+          <BookingProperty
+            image={require('../img/PhoneIcon.png')}
+            name={'Call time'}
+            bookedLength={'8 am - 5 pm'}
+          />
         </View>
 
         <ActionSheet
@@ -81,7 +86,7 @@ export function ClientBookingDetails({componentId}) {
           onPress={CheckoutPayment}
         />
         <PrimaryButton
-          label="Contact Josie"
+          label="Contact Admin"
           style={styles.ContactJosieButton}
           TextStyle={styles.ContactJosieButtonText}
           onPress={onPressCallJosie}

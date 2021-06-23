@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
   PageContainer: {
-    backgroundColor: '#fcf0f2',
+    backgroundColor: '#f9ede1',
     justifyContent: 'center',
     flex: 1,
   },
@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
     width: 343,
     height: 46,
     alignSelf: 'center',
-    backgroundColor: '#5e4386',
+    backgroundColor: '#e09095',
     borderRadius: 35,
     position: 'absolute',
     bottom: 40,

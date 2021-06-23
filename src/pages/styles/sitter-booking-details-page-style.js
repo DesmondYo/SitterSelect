@@ -21,7 +21,6 @@ export const styles = StyleSheet.create({
     fontSize: 14,
     textAlign: 'center',
     color: '#92465a',
-    marginRight: 16,
     fontWeight: 'bold',
   },
   LineSeperator: {
@@ -30,23 +29,11 @@ export const styles = StyleSheet.create({
     marginTop: 21,
     width: '100%',
   },
-  BookingInfo: {
-    fontSize: 16,
-    color: '#92465a',
-    fontFamily: 'arial',
-    fontWeight: 'bold',
-    alignSelf: 'flex-start',
-    marginTop: 20,
-    marginLeft: 20,
-  },
   NameText: {
     fontSize: 16,
     color: '#92465a',
     fontFamily: 'arial',
     fontWeight: 'bold',
-  },
-  TextMargin: {
-    marginTop: 5,
   },
   DropInForPets: {
     fontSize: 14,
@@ -61,7 +48,7 @@ export const styles = StyleSheet.create({
   },
   MakeFinalPaymentButton: {
     width: 343,
-    backgroundColor: '#5e4386',
+    backgroundColor: '#e09095',
     borderRadius: 35,
   },
   MakeFinalPaymentButtonText: {
@@ -73,42 +60,36 @@ export const styles = StyleSheet.create({
   ContactJosieButton: {
     width: 343,
     marginTop: 13,
-    backgroundColor: '#fcf0f2',
+    backgroundColor: '#f9ede1',
     borderWidth: 1,
     borderTopLeftRadius: 35,
     borderTopRightRadius: 35,
     borderBottomRightRadius: 35,
     borderBottomLeftRadius: 35,
-    borderColor: '#5e4386',
+    borderColor: '#e09095',
   },
   ContactJosieButtonText: {
     textAlign: 'center',
     padding: 14,
-    color: '#5e4386',
+    color: '#e09095',
     fontSize: 14,
     fontWeight: 'bold',
   },
   BackgroundStyle: {
-    backgroundColor: '#fcf0f2',
+    backgroundColor: '#f9ede1',
   },
   BookingDateStyle: {
     flexDirection: 'row',
-    marginTop: 32,
+    marginTop: 25,
     justifyContent: 'space-between',
     alignSelf: 'stretch',
+    marginRight: 14,
   },
   BookingInfoView: {
     flexDirection: 'row',
     marginTop: 20,
     width: '100%',
     marginLeft: 50,
-  },
-  ImageStyle: {
-    width: 51,
-    height: 51,
-  },
-  ViewStyle: {
-    marginLeft: 16,
   },
   ViewStyleInformation: {
     flexDirection: 'row',

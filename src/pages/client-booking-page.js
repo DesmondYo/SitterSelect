@@ -5,6 +5,7 @@ import {Navigation} from 'react-native-navigation';
 import {BackButton} from '../components/back-button';
 import MaterialTabs from 'react-native-material-tabs';
 import {ActiveBookingItem} from '../components/active-booking-item';
+import {PendingStatus} from '../components/pending-status';
 
 export function ClientBookingPage({componentId}) {
   const [selectedTab, setSelectedTab] = useState(null);
@@ -24,7 +25,7 @@ export function ClientBookingPage({componentId}) {
         items={['Current', 'Past']}
         selectedIndex={selectedTab}
         onChange={setSelectedTab}
-        barColor="#FCF0F2"
+        barColor="#f9ede1"
         indicatorColor="#92465a"
         activeTextColor="#92465a"
         inactiveTextColor="rgba(30, 47, 68, 0.48)"
@@ -35,30 +36,17 @@ export function ClientBookingPage({componentId}) {
         text="Drop-In For Pets"
         date="12 Oct 2021"
         purpledot={require('../img/PurpleDot.png')}
-        time="07:00 - 10:00"
+        time="8am - 5pm"
         imageOfLogo={require('../img/DropInForSittersNoPinkBackground.png')}
         value={'Approved'}
         status="approved"
         ApprovedPress={ApprovedPress}
       />
-      <ActiveBookingItem
-        source={require('../img/LadyInPic.png')}
-        label="Josie Emch"
+      <PendingStatus
         text="Drop-In For Pets"
-        date="12 Oct 2021"
+        date="14 Oct 2021"
         purpledot={require('../img/PurpleDot.png')}
-        time="07:00 - 10:00"
-        imageOfLogo={require('../img/DropInForSittersNoPinkBackground.png')}
-        value={'Declined'}
-        status="declined"
-      />
-      <ActiveBookingItem
-        source={require('../img/LadyInPic.png')}
-        label="Josie Emch"
-        text="Drop-In For Pets"
-        date="12 Oct 2021"
-        purpledot={require('../img/PurpleDot.png')}
-        time="07:00 - 10:00"
+        time="8am - 2pm"
         imageOfLogo={require('../img/DropInForSittersNoPinkBackground.png')}
         value={'Pending'}
         status="pending"
@@ -69,7 +57,7 @@ export function ClientBookingPage({componentId}) {
   function onPress() {
     Navigation.push(componentId, {
       component: {
-        name: 'MapPage',
+        name: 'SitterDetailsPage',
       },
     });
   }

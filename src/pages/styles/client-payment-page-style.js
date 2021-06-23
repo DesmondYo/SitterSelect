@@ -86,7 +86,7 @@ export const styles = StyleSheet.create({
   },
   Button: {
     width: 343,
-    backgroundColor: '#5e4386',
+    backgroundColor: '#e09095',
     borderRadius: 35,
   },
   ButtonText: {
@@ -96,7 +96,7 @@ export const styles = StyleSheet.create({
     fontSize: 14,
   },
   backgroundStyleColor: {
-    backgroundColor: '#fcf0f2',
+    backgroundColor: '#f9ede1',
     flex: 1,
   },
   ViewStyleBookingInfo: {

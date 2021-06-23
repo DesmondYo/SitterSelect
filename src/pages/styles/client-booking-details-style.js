@@ -3,8 +3,8 @@ import {StyleSheet} from 'react-native';
 export const styles = StyleSheet.create({
   ClientBookingDetailsContainer: {
     flex: 1,
-    paddingTop: 50,
-    backgroundColor: '#fcf0f2',
+    paddingTop: 20,
+    backgroundColor: '#f9ede1',
   },
   Text: {
     fontSize: 16,
@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
   LineSeperator: {
     borderBottomColor: '#f2d8df',
     borderBottomWidth: 1,
-    marginTop: 39,
+    marginTop: 21,
     width: '100%',
   },
   BookingInfoText: {
@@ -28,14 +28,13 @@ export const styles = StyleSheet.create({
   LineSeperatorBelowBookingInfo: {
     borderBottomColor: '#f2d8df',
     borderBottomWidth: 1,
-    marginTop: 10,
+    marginTop: 15,
     width: '90%',
   },
   MakeFinalPaymentButton: {
     width: 343,
-    backgroundColor: '#5e4386',
+    backgroundColor: '#e09095',
     borderRadius: 35,
-    marginTop: 40,
   },
   MakeFinalPaymentButtonText: {
     textAlign: 'center',
@@ -52,12 +51,12 @@ export const styles = StyleSheet.create({
     borderTopRightRadius: 35,
     borderBottomRightRadius: 35,
     borderBottomLeftRadius: 35,
-    borderColor: '#5e4386',
+    borderColor: '#e09095',
   },
   ContactJosieButtonText: {
     textAlign: 'center',
     padding: 14,
-    color: '#5e4386',
+    color: '#e09095',
     fontSize: 14,
     fontWeight: 'bold',
   },
@@ -68,25 +67,19 @@ export const styles = StyleSheet.create({
     alignSelf: 'center',
     marginTop: 10,
   },
-  ViewStatus: {
-    flexDirection: 'row',
-    marginTop: 29,
-    justifyContent: 'space-between',
-    width: '100%',
-  },
   BookingInfoView: {
-    marginTop: 10,
+    marginTop: 23,
     marginLeft: 20,
   },
   ViewStyleInformation: {
     flexDirection: 'row',
     width: '100%',
     paddingHorizontal: 16,
-    marginTop: 26,
+    marginTop: 19,
   },
   PrimaryButtonStyle: {
     position: 'absolute',
-    bottom: 25,
+    bottom: 20,
     alignSelf: 'center',
   },
 });

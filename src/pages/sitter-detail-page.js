@@ -18,7 +18,7 @@ export function SitterDetailsPage({componentId}) {
 
   return (
     <>
-      <ScrollView style={styles.SitterDetailContainer}>
+      <ScrollView style={styles.SitterDetailsContainer}>
         <Text style={styles.TypeOfService}>Type of Service</Text>
         <Image
           source={require('../img/DropInForPets.png')}

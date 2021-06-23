@@ -1,8 +1,8 @@
 import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
-  SitterDetailContainer: {
-    backgroundColor: '#fcf0f2',
+  SitterDetailsContainer: {
+    backgroundColor: '#f9ede1',
     flex: 1,
   },
   SitterBackgroundColor: {
@@ -121,20 +121,6 @@ export const styles = StyleSheet.create({
     padding: 12,
     color: 'white',
     fontSize: 14,
-  },
-  StartTime: {
-    fontWeight: 'bold',
-    marginLeft: 50,
-    color: '#92465a',
-    fontSize: 16,
-  },
-  EndTime: {
-    fontWeight: 'bold',
-    marginRight: 50,
-    color: '#92465a',
-    fontSize: 16,
-    textAlign: 'right',
-    bottom: 20,
   },
 
   ViewStyleRow: {

@@ -17,9 +17,9 @@ export function StatusBadge({status}) {
 
   function getTextColor() {
     if (status === 'approved') {
-      return '#5E4386';
+      return '#009374';
     } else if (status === 'declined') {
-      return '#c52222';
+      return '#C52222';
     } else if (status === 'pending') {
       return '#c5b422';
     } else {
@@ -29,11 +29,11 @@ export function StatusBadge({status}) {
 
   function getBackgroundColor() {
     if (status === 'approved') {
-      return '#F5EFFF';
+      return '#bde3db';
     } else if (status === 'declined') {
       return '#fde7e7';
     } else if (status === 'pending') {
-      return '#fdfbe7';
+      return '#fbf7bb';
     } else {
       return null;
     }

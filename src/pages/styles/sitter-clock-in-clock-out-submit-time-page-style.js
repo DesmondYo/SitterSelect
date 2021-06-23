@@ -4,7 +4,7 @@ export const styles = StyleSheet.create({
   SitterClockInClockOutSubmitTimePageContainer: {
     flex: 1,
     alignItems: 'center',
-    paddingTop: 50,
+    paddingTop: 20,
   },
   Text: {
     fontSize: 16,
@@ -80,7 +80,7 @@ export const styles = StyleSheet.create({
   },
   MakeFinalPaymentButton: {
     width: 343,
-    backgroundColor: '#5e4386',
+    backgroundColor: '#e09095',
     borderRadius: 35,
   },
   MakeFinalPaymentButtonText: {
@@ -92,23 +92,23 @@ export const styles = StyleSheet.create({
   ContactJosieButton: {
     width: 343,
     marginTop: 13,
-    backgroundColor: '#fcf0f2',
+    backgroundColor: '#f9ede1',
     borderWidth: 1,
     borderTopLeftRadius: 35,
     borderTopRightRadius: 35,
     borderBottomRightRadius: 35,
     borderBottomLeftRadius: 35,
-    borderColor: '#5e4386',
+    borderColor: '#e09095',
   },
   ContactJosieButtonText: {
     textAlign: 'center',
     padding: 14,
-    color: '#5e4386',
+    color: '#e09095',
     fontSize: 14,
     fontWeight: 'bold',
   },
   BackgroundStyle: {
-    backgroundColor: '#fcf0f2',
+    backgroundColor: '#f9ede1',
   },
   ViewFlex: {
     flexDirection: 'row',
@@ -121,13 +121,13 @@ export const styles = StyleSheet.create({
   },
   BookingInfoView: {
     flexDirection: 'row',
-    marginTop: 20,
+    marginTop: 10,
     justifyContent: 'space-between',
     alignSelf: 'stretch',
   },
   BookingInfoStats: {
     flexDirection: 'row',
-    marginTop: 22,
+    marginTop: 16,
     alignSelf: 'stretch',
     marginLeft: 20,
   },
@@ -163,12 +163,6 @@ export const styles = StyleSheet.create({
   },
   SitterInformationStyle: {
     marginTop: 4,
-  },
-  ImageServiceStyle: {
-    width: 24,
-    height: 24,
-    marginTop: 34,
-    marginLeft: 50,
   },
   ClockedInStyle: {
     flexDirection: 'row',

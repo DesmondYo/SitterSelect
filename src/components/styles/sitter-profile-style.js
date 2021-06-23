@@ -17,7 +17,7 @@ export const styles = StyleSheet.create({
   },
   ViewStyleText: {
     flexDirection: 'row',
-    marginTop: 1,
+    marginTop: 10,
   },
   ServiceImage: {
     height: 17,
@@ -26,7 +26,7 @@ export const styles = StyleSheet.create({
   },
   ServiceView: {
     flexDirection: 'row',
-    marginTop: 5,
+    marginTop: 10,
   },
   service: {
     fontSize: 14,
@@ -54,5 +54,12 @@ export const styles = StyleSheet.create({
   },
   SitterProfileView: {
     flexDirection: 'row',
+  },
+  SitterDescription: {
+    fontSize: 14,
+    color: '#92465a',
+    fontFamily: 'arial',
+    marginTop: 17,
+    right: 55,
   },
 });

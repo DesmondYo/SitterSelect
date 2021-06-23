@@ -16,11 +16,11 @@ export function SignUpOverlay({componentId}) {
       <Text style={styles.text}>What do you need?</Text>
 
       <TouchableOpacity style={styles.rectangle}>
-        <Text style={styles.buttonTextStyle}>I’m looking for a sitter</Text>
+        <Text style={styles.buttonTextStyle}>I’m looking for a sitter.</Text>
       </TouchableOpacity>
 
       <TouchableOpacity style={(styles.buttonTextStyle, styles.rectangletwo)}>
-        <Text style={styles.buttonTextStyle}>I’d like to become a sitter</Text>
+        <Text style={styles.buttonTextStyle}>I’d like to become a sitter.</Text>
       </TouchableOpacity>
     </AwesomeModal>
   );

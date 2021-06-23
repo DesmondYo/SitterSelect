@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
   PageContainer: {
-    backgroundColor: '#fcf0f2',
+    backgroundColor: '#f9ede1',
     flex: 1,
   },
   Text: {

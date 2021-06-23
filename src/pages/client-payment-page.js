@@ -25,7 +25,7 @@ export function CheckoutPaymentPage({componentId}) {
         />
         <Text style={styles.Text}> Confirm & Pay </Text>
         <View style={styles.ViewStylePricingDetails}>
-          <Text style={styles.BookingInfoText}> Booking Info </Text>
+          <Text style={styles.BookingInfoText}> Booking Details </Text>
         </View>
         <View style={styles.ViewStyleSitterInformation}>
           <SitterProfile
@@ -65,13 +65,6 @@ export function CheckoutPaymentPage({componentId}) {
           />
           <TipButton label="Other" onPress={TippingOverlay} />
         </View>
-<<<<<<< Updated upstream
-=======
-        <View style={styles.LineSeperator} />
-        <View style={styles.RateYourSitterStyle}>
-          <Text style={styles.BookingInfoText}> Rate your sitter </Text>
-        </View>
->>>>>>> Stashed changes
         <View style={[styles.LineSeperator, styles.NameMarginStyle]} />
         <View style={styles.ViewStyleBookingInfo}>
           <Text style={styles.BookingInfoText}> Price details </Text>
@@ -85,12 +78,6 @@ export function CheckoutPaymentPage({componentId}) {
           <View style={styles.PriceDetailsStyle}>
             <Text style={styles.TotalText}>$1,500</Text>
           </View>
-        </View>
-        <View style={styles.TermsStyle}>
-          <Text style={styles.CheckMarkText}>
-            I agree to cancellation policy, terms & conditions{'\n'}and privacy
-            policy
-          </Text>
         </View>
         <View style={styles.PrimaryButtonStyle}>
           <PrimaryButton

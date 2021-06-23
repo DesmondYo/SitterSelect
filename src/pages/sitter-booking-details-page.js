@@ -5,6 +5,7 @@ import {BackButton} from '../components/back-button';
 import {Navigation} from 'react-native-navigation';
 import {PrimaryButton} from '../components/primary-button.js';
 import {BookingProperty} from '../components/booking-property';
+import {StatusBadge} from '../components/status-badge';
 
 export function SitterBookingDetailsPage({componentId}) {
   return (
@@ -22,18 +23,17 @@ export function SitterBookingDetailsPage({componentId}) {
         />
         <Text style={styles.Text}> Booking Details </Text>
         <View style={styles.BookingDateStyle}>
+          <Text style={styles.Booking}> Status</Text>
+          <StatusBadge value={'Pending'} status="pending" />
+        </View>
+        <View style={styles.BookingDateStyle}>
           <Text style={styles.Booking}> Booking date </Text>
           <Text style={styles.BookingDate}>Wed, 12 Oct 2021</Text>
         </View>
         <View style={styles.LineSeperator} />
-        <Text style={styles.BookingInfo}> Booking Info </Text>
         <View style={styles.BookingInfoView}>
-          <Image
-            source={require('../img/LadyInPic.png')}
-            style={styles.ImageStyle}
-          />
-          <View style={styles.ViewStyle}>
-            <Text style={[styles.NameText, styles.TextMargin]}>Josie Emch</Text>
+          <View>
+            <Text style={styles.NameText}>Josie Emch</Text>
             <Text style={styles.DropInForPets}>
               4172 W. Tierra Buena Dr.{'\n'}
               Phoenix, AZ 85394
@@ -58,6 +58,11 @@ export function SitterBookingDetailsPage({componentId}) {
             image={require('../img/Clock.png')}
             name={'Shift Length'}
             bookedLength={'9 hours'}
+          />
+          <BookingProperty
+            image={require('../img/PhoneIcon.png')}
+            name={'Call time'}
+            bookedLength={'8 am - 5 pms'}
           />
         </View>
       </ScrollView>

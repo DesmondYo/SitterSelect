@@ -20,12 +20,11 @@ export function ContactJosieOverlay({componentId}) {
       modalOverlayStyle={styles.ModalOverlayStyle}
       modalInnerContainerStyle={styles.modalInnerContainerStyle}>
       <Text style={styles.text}>
-        Please call SitterSelect’s owner, Josie Emch, for more details on this
-        matter
+        Please call Sitter's Avenue's admin, for more details on this matter.
       </Text>
 
       <TouchableOpacity style={styles.rectangle} onPress={onPressContactJosie}>
-        <Text style={styles.buttonTextStyle}>Contact Josie Emch</Text>
+        <Text style={styles.buttonTextStyle}>Contact Admin</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={() => awesomeModalRef.current.close()} />
       <ActionSheet

@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
     borderTopLeftRadius: 20,
     borderBottomLeftRadius: 0,
     borderBottomRightRadius: 0,
-    backgroundColor: '#fcf0f2',
+    backgroundColor: '#f9ede1',
   },
 
   inputText: {
@@ -35,7 +35,7 @@ export const styles = StyleSheet.create({
   TipButton: {
     width: '50%',
     height: 41,
-    backgroundColor: '#5e4386',
+    backgroundColor: '#e09095',
     borderRadius: 35,
     alignSelf: 'center',
   },
@@ -49,6 +49,6 @@ export const styles = StyleSheet.create({
     backgroundColor: 'black',
   },
   modalInnerContainerStyle: {
-    backgroundColor: '#fcf0f2',
+    backgroundColor: '#f9ede1',
   },
 });

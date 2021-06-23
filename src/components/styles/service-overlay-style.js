@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
     borderTopLeftRadius: 20,
     borderBottomLeftRadius: 0,
     borderBottomRightRadius: 0,
-    backgroundColor: '#fcf0f2',
+    backgroundColor: '#f9ede1',
     height: 580,
   },
   close: {
@@ -21,6 +21,6 @@ export const styles = StyleSheet.create({
     backgroundColor: 'black',
   },
   modalInnerContainerStyle: {
-    backgroundColor: '#fcf0f2',
+    backgroundColor: '#f9ede1',
   },
 });

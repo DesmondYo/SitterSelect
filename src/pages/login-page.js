@@ -68,7 +68,7 @@ const LoginPage = ({componentId}) => {
       } else if (userType === 'client') {
         Navigation.push(componentId, {
           component: {
-            name: 'SitterDetails',
+            name: 'SitterDetailsPage',
           },
         });
       }

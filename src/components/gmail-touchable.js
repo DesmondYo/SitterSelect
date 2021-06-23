@@ -43,7 +43,7 @@ export class GmailTouchable extends Component {
       zIndex: !isFocused ? 0 : 9,
       paddingLeft: !isFocused ? 0 : 5,
       paddingRight: !isFocused ? 0 : 5,
-      backgroundColor: !isFocused ? null : '#fcf0f2',
+      backgroundColor: !isFocused ? null : '#f9ede1',
     };
 
     const inputContainer = {

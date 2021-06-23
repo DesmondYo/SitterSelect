@@ -9,6 +9,7 @@ export function SitterProfile({
   serviceImage,
   date,
   time,
+  SitterDescription,
 }) {
   return (
     <View style={styles.SitterProfileView}>
@@ -20,7 +21,9 @@ export function SitterProfile({
           <Image style={styles.ServiceImage} source={serviceImage} />
           <Text style={styles.service}>{service}</Text>
         </View>
-
+        {SitterDescription ? (
+          <Text style={styles.SitterDescription}>{SitterDescription}</Text>
+        ) : null}
         {date && time ? (
           <View style={styles.ServiceView}>
             <Text style={styles.date}>{date}</Text>

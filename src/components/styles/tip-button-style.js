@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
     borderTopRightRadius: 10,
     borderBottomRightRadius: 10,
     borderBottomLeftRadius: 10,
-    borderColor: '#5e4386',
+    borderColor: '#e09095',
     marginLeft: 4,
   },
   TipText: {
