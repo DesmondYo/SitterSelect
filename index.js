@@ -19,6 +19,7 @@ import {SitterClockInClockOutSubmitTimePage} from './src/pages/sitter-clock-in-c
 import {ContactJosieOverlay} from './src/components/contact-josie-overlay';
 import {SitterSubmitTimeSuccessPage} from './src/pages/sitter-submit-time-success-page';
 import Auth from '@react-native-firebase/auth';
+import Firestore from '@react-native-firebase/firestore';
 
 Navigation.registerComponent('LoginPage', () => LoginPage);
 Navigation.registerComponent('SignUpOverlay', () => SignUpOverlay);
@@ -56,17 +57,25 @@ Navigation.setDefaultOptions({
   },
 });
 
-Navigation.events().registerAppLaunchedListener(() => {
-  const userId = Auth().onAuthStateChanged.uid;
+Navigation.events().registerAppLaunchedListener(async () => {
+  const userId = Auth().currentUser?.uid;
 
   if (userId) {
+    // Gets a collection of users (will only ever be one in the collection)
+    const userQuery = await Firestore().collection('users').where('user_id', '==', userId).get();
+    // [Documents] -> Document
+    const userDoc = userQuery.docs[0];
+    // Returns the data associated with a user
+    const userData = userDoc.data();
+    const initialRoute = userData?.type  === "client" ? 'SitterDetailsPage' : 'SitterBookingPage'
+
     Navigation.setRoot({
       root: {
         stack: {
           children: [
             {
               component: {
-                name: 'LoginPage',
+                name: initialRoute,
               },
             },
           ],

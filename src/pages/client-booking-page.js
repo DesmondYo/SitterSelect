@@ -54,6 +54,15 @@ export function ClientBookingPage({componentId}) {
     </ScrollView>
   );
 
+  // function onFetchBookings() {
+  //   Firestore()
+  //     .collection('bookings')
+  //     .where("user_id", "==", Auth().currentUser.uid)
+  //     .onSnapshot(documentSnapshot => {
+  //       console.log('User data: ', documentSnapshot.data());
+  //     });
+  // }
+
   function onPress() {
     Navigation.push(componentId, {
       component: {

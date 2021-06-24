@@ -118,28 +118,35 @@ export function SitterDetailsPage({componentId}) {
     </>
   );
 
-  function BookingSuccessPage() {
+  async function BookingSuccessPage() {
+    // TODO: Test code
+    // await Firestore().collection('bookings').add({
+    //    "name": "Luke",
+    // });
+
     Navigation.push(componentId, {
       component: {
         name: 'BookingSuccessPage',
       },
     });
   }
-}
 
-function onOpenOverlay() {
-  Navigation.showOverlay({
-    component: {
-      name: 'ServiceOverlay',
-      options: {
-        layout: {
-          backgroundColor: 'transparent',
-          componentBackgroundColor: 'transparent',
+  function onOpenOverlay() {
+    Navigation.showOverlay({
+      component: {
+        name: 'ServiceOverlay',
+        options: {
+          layout: {
+            backgroundColor: 'transparent',
+            componentBackgroundColor: 'transparent',
+          },
         },
       },
-    },
-  });
+    });
+  }
 }
+
+
 
 SitterDetailsPage.options = {
   topBar: {
