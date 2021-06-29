@@ -7,7 +7,7 @@ import ActionSheet from '@alessiocancian/react-native-actionsheet';
 import {ServiceButton} from './service-button';
 const phoneNumber = '(602) 803-4851';
 
-export function ServiceOverlay({componentId}) {
+export function ServiceOverlay({componentId, onChange}) {
   const actionSheetRef = useRef(null);
   const awesomeModalRef = useRef(null);
   const isActionSheetOpen = useRef(false);
@@ -23,14 +23,17 @@ export function ServiceOverlay({componentId}) {
       <ServiceButton
         image={require('../img/DropInForPets.png')}
         label="Drop-In For Pets"
+        onPress={() => onChange('Drop-In For Pets')}
       />
       <ServiceButton
         image={require('../img/Kids-Portation.png')}
         label="Kids-Portation"
+        onPress={() => onChange('Kids-Portation')}
       />
       <ServiceButton
         image={require('../img/PetSitting.png')}
         label="Pet Sitting"
+        onPress={() => onChange('Pet Sitting')}
       />
       <ServiceButton
         image={require('../img/OvernightHouseSitting.png')}
@@ -40,10 +43,12 @@ export function ServiceOverlay({componentId}) {
       <ServiceButton
         image={require('../img/Drop-inForHouseSitting.png')}
         label="Drop-in for House Sitting"
+        onPress={() => onChange('Drop-in for House Sitting')}
       />
       <ServiceButton
         image={require('../img/BabySitting.png')}
         label="Babysitting"
+        onPress={() => onChange('Babysitting')}
       />
       <ServiceButton
         image={require('../img/EventSitting.png')}
@@ -75,7 +80,6 @@ export function ServiceOverlay({componentId}) {
       Navigation.dismissOverlay(componentId);
     }
   }
-
   /**
    * This closes the modal with an animation,
    * then it shows the action sheet and

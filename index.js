@@ -62,12 +62,16 @@ Navigation.events().registerAppLaunchedListener(async () => {
 
   if (userId) {
     // Gets a collection of users (will only ever be one in the collection)
-    const userQuery = await Firestore().collection('users').where('user_id', '==', userId).get();
+    const userQuery = await Firestore()
+      .collection('users')
+      .where('user_id', '==', userId)
+      .get();
     // [Documents] -> Document
     const userDoc = userQuery.docs[0];
     // Returns the data associated with a user
     const userData = userDoc.data();
-    const initialRoute = userData?.type  === "client" ? 'SitterDetailsPage' : 'SitterBookingPage'
+    const initialRoute =
+      userData?.type === 'client' ? 'SitterBookingPage' : 'SitterDetailsPage';
 
     Navigation.setRoot({
       root: {

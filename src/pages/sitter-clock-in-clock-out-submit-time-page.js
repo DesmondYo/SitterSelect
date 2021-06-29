@@ -63,7 +63,10 @@ export function SitterClockInClockOutSubmitTimePage({componentId}) {
         </View>
         <View style={styles.LineSeperator} />
         <View style={styles.BookingInfoView}>
-          <Text style={styles.BookingInfoText}> 15 Oct 2021 - 16 Oct 2021 </Text>
+          <Text style={styles.BookingInfoText}>
+            {' '}
+            15 Oct 2021 - 16 Oct 2021{' '}
+          </Text>
         </View>
         <View style={styles.ViewStyleInformation}>
           <BookingProperty

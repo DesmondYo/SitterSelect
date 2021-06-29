@@ -61,17 +61,6 @@ export const styles = StyleSheet.create({
     color: '#92465a',
     fontSize: 16,
   },
-  DropInForPetsIcon: {
-    height: 32,
-    width: 32,
-    marginLeft: 20,
-    marginTop: 16,
-  },
-  DropInForPetsText: {
-    color: '#92465a',
-    marginLeft: 60,
-    marginTop: -25,
-  },
   ChangeText: {
     color: '#92465a',
     marginLeft: 300,
@@ -128,11 +117,48 @@ export const styles = StyleSheet.create({
   },
 
   TimePicker: {
-    flex: 1,
     flexDirection: 'row',
     paddingHorizontal: 32,
+    marginTop: 12,
+    paddingBottom: 10,
   },
   GmailStartTimeStyle: {
-    marginRight: 12,
+    marginRight: 15,
+  },
+  SquareView: {
+    flexDirection: 'row',
+    paddingHorizontal: 32,
+    left: 50,
+  },
+  SquareShapeView: {
+    width: 25,
+    height: 25,
+    backgroundColor: '#8cf2ce',
+    marginTop: 21,
+  },
+  SquareShapeViewBooked: {
+    width: 25,
+    height: 25,
+    backgroundColor: '#bdbdbd',
+    marginTop: 21,
+  },
+  Avalible: {
+    paddingHorizontal: 7,
+    flex: 1,
+    paddingTop: 25,
+    color: '#92465a',
+  },
+  Booked: {
+    paddingHorizontal: 7,
+    flex: 1,
+    paddingTop: 25,
+    color: '#92465a',
+  },
+  BookingDate: {
+    fontWeight: 'bold',
+    paddingHorizontal: 32,
+    marginTop: 21,
+    color: '#92465a',
+    fontSize: 16,
   },
 });

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Image, ScrollView, Text} from 'react-native';
+import {View, ScrollView, Text} from 'react-native';
 import {GmailTouchable} from '../components/gmail-touchable';
 import {styles} from './styles/sitter-detail-page-style.js';
 import {Navigation} from 'react-native-navigation';
@@ -7,6 +7,7 @@ import {Calendar} from 'react-native-calendars';
 import {PrimaryButton} from '../components/primary-button';
 import dayjs from 'dayjs';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
+import {ServiceItem} from '../components/service-item';
 
 export function SitterDetailsPage({componentId}) {
   const [startTime, setStartTime] = useState(dayjs().toDate());
@@ -15,16 +16,12 @@ export function SitterDetailsPage({componentId}) {
   const [showEndTimePicker, setShowEndTimePicker] = useState(false);
   const formattedStartTime = dayjs(startTime).format('h:mm A');
   const formattedEndTime = dayjs(endTime).format('h:mm A');
-
+  const [type, settype] = useState('Drop-In For Pets');
   return (
     <>
       <ScrollView style={styles.SitterDetailsContainer}>
         <Text style={styles.TypeOfService}>Type of Service</Text>
-        <Image
-          source={require('../img/DropInForPets.png')}
-          style={styles.DropInForPetsIcon}
-        />
-        <Text style={styles.DropInForPetsText}> Drop-In for Pets </Text>
+        <ServiceItem type={type} />
         <Text onPress={onOpenOverlay} style={styles.ChangeText}>
           Change
         </Text>
@@ -34,22 +31,239 @@ export function SitterDetailsPage({componentId}) {
           Add your booking date to see the price.
         </Text>
         <Calendar
+          markingType={'custom'}
+          markedDates={{
+            '2021-06-09': {
+              customStyles: {
+                container: {
+                  width: 40,
+                  height: 40,
+                  backgroundColor: '#c4c4c4',
+                  paddingTop: 5,
+                },
+              },
+            },
+            '2021-06-10': {
+              customStyles: {
+                container: {
+                  width: 40,
+                  height: 40,
+                  backgroundColor: '#c4c4c4',
+                  paddingTop: 5,
+                },
+              },
+            },
+            '2021-06-11': {
+              customStyles: {
+                container: {
+                  width: 40,
+                  height: 40,
+                  backgroundColor: '#c4c4c4',
+                  paddingTop: 5,
+                },
+              },
+            },
+            '2021-06-12': {
+              customStyles: {
+                container: {
+                  width: 40,
+                  height: 40,
+                  backgroundColor: '#c4c4c4',
+                  paddingTop: 5,
+                },
+              },
+            },
+            '2021-06-13': {
+              customStyles: {
+                container: {
+                  width: 40,
+                  height: 40,
+                  backgroundColor: '#8cf2ce',
+                  paddingTop: 5,
+                },
+              },
+            },
+            '2021-06-14': {
+              customStyles: {
+                container: {
+                  width: 40,
+                  height: 40,
+                  backgroundColor: '#c4c4c4',
+                  paddingTop: 5,
+                },
+              },
+            },
+            '2021-06-15': {
+              customStyles: {
+                container: {
+                  width: 40,
+                  height: 40,
+                  backgroundColor: '#8cf2ce',
+                  paddingTop: 5,
+                },
+              },
+            },
+            '2021-06-16': {
+              customStyles: {
+                container: {
+                  width: 40,
+                  height: 40,
+                  backgroundColor: '#8cf2ce',
+                  paddingTop: 5,
+                },
+              },
+            },
+            '2021-06-17': {
+              customStyles: {
+                container: {
+                  width: 40,
+                  height: 40,
+                  backgroundColor: '#c4c4c4',
+                  paddingTop: 5,
+                },
+              },
+            },
+            '2021-06-18': {
+              customStyles: {
+                container: {
+                  width: 40,
+                  height: 40,
+                  backgroundColor: '#c4c4c4',
+                  paddingTop: 5,
+                },
+              },
+            },
+            '2021-06-19': {
+              customStyles: {
+                container: {
+                  width: 40,
+                  height: 40,
+                  backgroundColor: '#c4c4c4',
+                  paddingTop: 5,
+                },
+              },
+            },
+            '2021-06-20': {
+              customStyles: {
+                container: {
+                  width: 40,
+                  height: 40,
+                  backgroundColor: '#c4c4c4',
+                  paddingTop: 5,
+                },
+              },
+            },
+            '2021-06-21': {
+              customStyles: {
+                container: {
+                  width: 40,
+                  height: 40,
+                  backgroundColor: '#c4c4c4',
+                  paddingTop: 5,
+                },
+              },
+            },
+            '2021-06-22': {
+              customStyles: {
+                container: {
+                  width: 40,
+                  height: 40,
+                  backgroundColor: '#c4c4c4',
+                  paddingTop: 5,
+                },
+              },
+            },
+            '2021-06-23': {
+              customStyles: {
+                container: {
+                  width: 40,
+                  height: 40,
+                  backgroundColor: '#8cf2ce',
+                  paddingTop: 5,
+                },
+              },
+            },
+            '2021-06-24': {
+              customStyles: {
+                container: {
+                  width: 40,
+                  height: 40,
+                  backgroundColor: '#8cf2ce',
+                  paddingTop: 5,
+                },
+              },
+            },
+            '2021-06-25': {
+              customStyles: {
+                container: {
+                  width: 40,
+                  height: 40,
+                  backgroundColor: '#8cf2ce',
+                  paddingTop: 5,
+                },
+              },
+            },
+            '2021-06-26': {
+              customStyles: {
+                container: {
+                  width: 40,
+                  height: 40,
+                  backgroundColor: '#8cf2ce',
+                  paddingTop: 5,
+                },
+              },
+            },
+            '2021-06-27': {
+              customStyles: {
+                container: {
+                  width: 40,
+                  height: 40,
+                  backgroundColor: '#8cf2ce',
+                  paddingTop: 5,
+                },
+              },
+            },
+            '2021-06-28': {
+              customStyles: {
+                container: {
+                  width: 40,
+                  height: 40,
+                  backgroundColor: '#e09095',
+                  paddingTop: 5,
+                },
+              },
+            },
+            '2021-06-29': {
+              customStyles: {
+                container: {
+                  width: 40,
+                  height: 40,
+                  backgroundColor: '#8cf2ce',
+                  paddingTop: 5,
+                },
+              },
+            },
+            '2021-06-30': {
+              customStyles: {
+                container: {
+                  width: 40,
+                  height: 40,
+                  backgroundColor: '#c4c4c4',
+                  paddingTop: 5,
+                },
+              },
+            },
+          }}
           theme={{
             backgroundColor: 'transparent',
             calendarBackground: 'transparent',
             textSectionTitleColor: '#92465a',
-            textSectionTitleDisabledColor: '#92465a',
-            selectedDayBackgroundColor: '#5e4386',
-            selectedDayTextColor: '#5e4386',
-            todayTextColor: '#5e4386',
+            todayTextColor: '#ffffff',
             dayTextColor: '#92465a',
             textDisabledColor: '#848a90',
-            dotColor: '#5e4386',
-            selectedDotColor: '#ffffff',
             arrowColor: '#5e4386',
             disabledArrowColor: '#d9e1e8',
             monthTextColor: '#92465a',
-            indicatorColor: '#92465a',
             textDayFontWeight: '300',
             textMonthFontWeight: 'bold',
             textDayHeaderFontWeight: '300',
@@ -58,7 +272,13 @@ export function SitterDetailsPage({componentId}) {
             textDayHeaderFontSize: 14,
           }}
         />
-
+        <View style={styles.SquareView}>
+          <View style={styles.SquareShapeView} />
+          <Text style={styles.Avalible}>Avalible</Text>
+          <View style={styles.SquareShapeViewBooked} />
+          <Text style={styles.Booked}>Booked</Text>
+        </View>
+        <Text style={styles.BookingDate}>Selected: 28 June 2021</Text>
         <View style={styles.TimePicker}>
           <GmailTouchable
             label="Start Time"
@@ -135,6 +355,9 @@ export function SitterDetailsPage({componentId}) {
     Navigation.showOverlay({
       component: {
         name: 'ServiceOverlay',
+        passProps: {
+          onChange: settype,
+        },
         options: {
           layout: {
             backgroundColor: 'transparent',
@@ -145,8 +368,6 @@ export function SitterDetailsPage({componentId}) {
     });
   }
 }
-
-
 
 SitterDetailsPage.options = {
   topBar: {
