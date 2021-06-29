@@ -91,11 +91,7 @@ export function SitterBookingDetailsPage({componentId}) {
     });
   }
   function onPress() {
-    Navigation.push(componentId, {
-      component: {
-        name: 'SitterBookingPage',
-      },
-    });
+    Navigation.pop(componentId);
   }
 }
 SitterBookingDetailsPage.options = {

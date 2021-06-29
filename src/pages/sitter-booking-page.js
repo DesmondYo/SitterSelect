@@ -26,7 +26,6 @@ export function SitterBookingPage({componentId}) {
         purpledot={require('../img/PurpleDot.png')}
         time="07:00 - 10:00"
         imageOfLogo={require('../img/DropInForSittersNoPinkBackground.png')}
-        value={'Approved'}
         status="approved"
         ApprovedPress={SitterBookingDetails}
       />
@@ -37,7 +36,6 @@ export function SitterBookingPage({componentId}) {
         purpledot={require('../img/PurpleDot.png')}
         time="07:00 - 10:00"
         imageOfLogo={require('../img/DropInForSittersNoPinkBackground.png')}
-        value={'Approved'}
         status="approved"
         ApprovedPress={SitterBookingDetails}
       />
@@ -51,7 +49,6 @@ export function SitterBookingPage({componentId}) {
         time="07:00 - 10:00"
         ApprovedPress={SitterBookingDetails}
         imageOfLogo={require('../img/DropInForSittersNoPinkBackground.png')}
-        value={'Pending'}
         status="pending"
       />
     </ScrollView>

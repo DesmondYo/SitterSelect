@@ -23,17 +23,17 @@ export function ServiceOverlay({componentId, onChange}) {
       <ServiceButton
         image={require('../img/DropInForPets.png')}
         label="Drop-In For Pets"
-        onPress={() => onChange('Drop-In For Pets')}
+        onPress={() => onChangeService('Drop-In For Pets')}
       />
       <ServiceButton
         image={require('../img/Kids-Portation.png')}
         label="Kids-Portation"
-        onPress={() => onChange('Kids-Portation')}
+        onPress={() => onChangeService('Kids-Portation')}
       />
       <ServiceButton
         image={require('../img/PetSitting.png')}
         label="Pet Sitting"
-        onPress={() => onChange('Pet Sitting')}
+        onPress={() => onChangeService('Pet Sitting')}
       />
       <ServiceButton
         image={require('../img/OvernightHouseSitting.png')}
@@ -43,12 +43,12 @@ export function ServiceOverlay({componentId, onChange}) {
       <ServiceButton
         image={require('../img/Drop-inForHouseSitting.png')}
         label="Drop-in for House Sitting"
-        onPress={() => onChange('Drop-in for House Sitting')}
+        onPress={() => onChangeService('Drop-in for House Sitting')}
       />
       <ServiceButton
         image={require('../img/BabySitting.png')}
         label="Babysitting"
-        onPress={() => onChange('Babysitting')}
+        onPress={() => onChangeService('Babysitting')}
       />
       <ServiceButton
         image={require('../img/EventSitting.png')}
@@ -68,6 +68,16 @@ export function ServiceOverlay({componentId, onChange}) {
       />
     </AwesomeModal>
   );
+
+  /**
+   * Calls the onChnage callback and dismisses the overlay
+   * 
+   * @param service - type of service
+   */
+  function onChangeService(service) {
+    Navigation.dismissOverlay(componentId);
+    if(onChange) onChange(service);
+  }
 
   /**
    * Dismisses the overlay when the actionsheet

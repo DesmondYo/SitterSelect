@@ -30,7 +30,21 @@ export function ClientBookingPage({componentId}) {
         activeTextColor="#92465a"
         inactiveTextColor="rgba(30, 47, 68, 0.48)"
       />
-      <ActiveBookingItem
+
+      {/* 
+          <ClientSitterBookings
+            label="Josie Emch"
+            text="Drop-In For Pets"
+            date="12 Oct 2021"
+            purpledot={require('../img/PurpleDot.png')}
+            time="07:00 - 10:00"
+            imageOfLogo={require('../img/DropInForSittersNoPinkBackground.png')}
+            status="approved"
+            ApprovedPress={SitterBookingDetails}
+          /> 
+      */}
+      {/* Delete these components */}
+      {/* <ActiveBookingItem
         source={require('../img/LadyInPic.png')}
         label="Josie Emch"
         text="Drop-In For Pets"
@@ -50,7 +64,7 @@ export function ClientBookingPage({componentId}) {
         imageOfLogo={require('../img/DropInForSittersNoPinkBackground.png')}
         value={'Pending'}
         status="pending"
-      />
+      /> */}
     </ScrollView>
   );
 

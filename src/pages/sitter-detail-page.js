@@ -12,16 +12,42 @@ import {ServiceItem} from '../components/service-item';
 export function SitterDetailsPage({componentId}) {
   const [startTime, setStartTime] = useState(dayjs().toDate());
   const [endTime, setEndTime] = useState(dayjs().add(2, 'hour').toDate());
+  const [selectedDate, setSelectedDate] = useState(null);
   const [showStartTimePicker, setShowStartTimePicker] = useState(false);
   const [showEndTimePicker, setShowEndTimePicker] = useState(false);
   const formattedStartTime = dayjs(startTime).format('h:mm A');
   const formattedEndTime = dayjs(endTime).format('h:mm A');
-  const [type, settype] = useState('Drop-In For Pets');
+  const [serviceType, setServiceType] = useState('Drop-In For Pets');
+  const markedDates = {
+    // Current Date
+    [`${dayjs().format("YYYY-MM-DD")}`]: {
+      customStyles: {
+        container: {
+          width: 40,
+          height: 40,
+          backgroundColor: '#000000',
+          paddingTop: 5,
+        },
+      },
+    },
+    // Selected Date
+    [`${dayjs(selectedDate).format("YYYY-MM-DD")}`]: {
+      customStyles: {
+        container: {
+          width: 40,
+          height: 40,
+          backgroundColor: '#c4c4c4',
+          paddingTop: 5,
+        },
+      },
+    },
+  };
+  
   return (
     <>
       <ScrollView style={styles.SitterDetailsContainer}>
         <Text style={styles.TypeOfService}>Type of Service</Text>
-        <ServiceItem type={type} />
+        <ServiceItem type={serviceType} />
         <Text onPress={onOpenOverlay} style={styles.ChangeText}>
           Change
         </Text>
@@ -31,229 +57,9 @@ export function SitterDetailsPage({componentId}) {
           Add your booking date to see the price.
         </Text>
         <Calendar
-          markingType={'custom'}
-          markedDates={{
-            '2021-06-09': {
-              customStyles: {
-                container: {
-                  width: 40,
-                  height: 40,
-                  backgroundColor: '#c4c4c4',
-                  paddingTop: 5,
-                },
-              },
-            },
-            '2021-06-10': {
-              customStyles: {
-                container: {
-                  width: 40,
-                  height: 40,
-                  backgroundColor: '#c4c4c4',
-                  paddingTop: 5,
-                },
-              },
-            },
-            '2021-06-11': {
-              customStyles: {
-                container: {
-                  width: 40,
-                  height: 40,
-                  backgroundColor: '#c4c4c4',
-                  paddingTop: 5,
-                },
-              },
-            },
-            '2021-06-12': {
-              customStyles: {
-                container: {
-                  width: 40,
-                  height: 40,
-                  backgroundColor: '#c4c4c4',
-                  paddingTop: 5,
-                },
-              },
-            },
-            '2021-06-13': {
-              customStyles: {
-                container: {
-                  width: 40,
-                  height: 40,
-                  backgroundColor: '#8cf2ce',
-                  paddingTop: 5,
-                },
-              },
-            },
-            '2021-06-14': {
-              customStyles: {
-                container: {
-                  width: 40,
-                  height: 40,
-                  backgroundColor: '#c4c4c4',
-                  paddingTop: 5,
-                },
-              },
-            },
-            '2021-06-15': {
-              customStyles: {
-                container: {
-                  width: 40,
-                  height: 40,
-                  backgroundColor: '#8cf2ce',
-                  paddingTop: 5,
-                },
-              },
-            },
-            '2021-06-16': {
-              customStyles: {
-                container: {
-                  width: 40,
-                  height: 40,
-                  backgroundColor: '#8cf2ce',
-                  paddingTop: 5,
-                },
-              },
-            },
-            '2021-06-17': {
-              customStyles: {
-                container: {
-                  width: 40,
-                  height: 40,
-                  backgroundColor: '#c4c4c4',
-                  paddingTop: 5,
-                },
-              },
-            },
-            '2021-06-18': {
-              customStyles: {
-                container: {
-                  width: 40,
-                  height: 40,
-                  backgroundColor: '#c4c4c4',
-                  paddingTop: 5,
-                },
-              },
-            },
-            '2021-06-19': {
-              customStyles: {
-                container: {
-                  width: 40,
-                  height: 40,
-                  backgroundColor: '#c4c4c4',
-                  paddingTop: 5,
-                },
-              },
-            },
-            '2021-06-20': {
-              customStyles: {
-                container: {
-                  width: 40,
-                  height: 40,
-                  backgroundColor: '#c4c4c4',
-                  paddingTop: 5,
-                },
-              },
-            },
-            '2021-06-21': {
-              customStyles: {
-                container: {
-                  width: 40,
-                  height: 40,
-                  backgroundColor: '#c4c4c4',
-                  paddingTop: 5,
-                },
-              },
-            },
-            '2021-06-22': {
-              customStyles: {
-                container: {
-                  width: 40,
-                  height: 40,
-                  backgroundColor: '#c4c4c4',
-                  paddingTop: 5,
-                },
-              },
-            },
-            '2021-06-23': {
-              customStyles: {
-                container: {
-                  width: 40,
-                  height: 40,
-                  backgroundColor: '#8cf2ce',
-                  paddingTop: 5,
-                },
-              },
-            },
-            '2021-06-24': {
-              customStyles: {
-                container: {
-                  width: 40,
-                  height: 40,
-                  backgroundColor: '#8cf2ce',
-                  paddingTop: 5,
-                },
-              },
-            },
-            '2021-06-25': {
-              customStyles: {
-                container: {
-                  width: 40,
-                  height: 40,
-                  backgroundColor: '#8cf2ce',
-                  paddingTop: 5,
-                },
-              },
-            },
-            '2021-06-26': {
-              customStyles: {
-                container: {
-                  width: 40,
-                  height: 40,
-                  backgroundColor: '#8cf2ce',
-                  paddingTop: 5,
-                },
-              },
-            },
-            '2021-06-27': {
-              customStyles: {
-                container: {
-                  width: 40,
-                  height: 40,
-                  backgroundColor: '#8cf2ce',
-                  paddingTop: 5,
-                },
-              },
-            },
-            '2021-06-28': {
-              customStyles: {
-                container: {
-                  width: 40,
-                  height: 40,
-                  backgroundColor: '#e09095',
-                  paddingTop: 5,
-                },
-              },
-            },
-            '2021-06-29': {
-              customStyles: {
-                container: {
-                  width: 40,
-                  height: 40,
-                  backgroundColor: '#8cf2ce',
-                  paddingTop: 5,
-                },
-              },
-            },
-            '2021-06-30': {
-              customStyles: {
-                container: {
-                  width: 40,
-                  height: 40,
-                  backgroundColor: '#c4c4c4',
-                  paddingTop: 5,
-                },
-              },
-            },
-          }}
+          markingType="custom"
+          markedDates={markedDates}
+          onDayPress={({ dateString }) => setSelectedDate(dateString)}
           theme={{
             backgroundColor: 'transparent',
             calendarBackground: 'transparent',
@@ -270,6 +76,8 @@ export function SitterDetailsPage({componentId}) {
             textDayFontSize: 14,
             textMonthFontSize: 14,
             textDayHeaderFontSize: 14,
+            selectedDayBackgroundColor: '#000000',
+            selectedDayTextColor: '#000000',
           }}
         />
         <View style={styles.SquareView}>
@@ -339,9 +147,17 @@ export function SitterDetailsPage({componentId}) {
   );
 
   async function BookingSuccessPage() {
+    // "start_date": startDate
+    // "end_date" endDate
+    // "booking_date": selectedDate
+    // "service_ type" serviceType
+    // "client_id" Auth().currentUser.uid
+    // "created_at": dayjs().format()
+    // "status": "pending"
+
     // TODO: Test code
     // await Firestore().collection('bookings').add({
-    //    "name": "Luke",
+    //    "date": selectedDate,
     // });
 
     Navigation.push(componentId, {
@@ -356,7 +172,7 @@ export function SitterDetailsPage({componentId}) {
       component: {
         name: 'ServiceOverlay',
         passProps: {
-          onChange: settype,
+          onChange: setServiceType,
         },
         options: {
           layout: {
