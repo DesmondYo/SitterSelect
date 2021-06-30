@@ -1,69 +1,75 @@
-import React, {useState} from 'react';
-import {Text, ScrollView} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {Text, FlatList} from 'react-native';
 import {styles} from './styles/client-booking-page-style.js';
 import {Navigation} from 'react-native-navigation';
 import {BackButton} from '../components/back-button';
 import MaterialTabs from 'react-native-material-tabs';
-import {ActiveBookingItem} from '../components/active-booking-item';
-import {PendingStatus} from '../components/pending-status';
 import {ClientSitterBookings} from '../components/client-sitter-bookings';
 import {SitterBookingDetails} from './sitter-booking-details-page';
-
+import Auth from '@react-native-firebase/auth';
+import Firestore from '@react-native-firebase/firestore';
 export function ClientBookingPage({componentId}) {
   const [selectedTab, setSelectedTab] = useState(null);
+  const [bookingsDocs, setBookingsDocs] = useState([]);
+  useEffect(onFetchBookings, []);
 
   return (
-    <ScrollView style={styles.PageContainer}>
-      <BackButton
-        onPress={onPress}
-        backButtonImage={require('../img/backarrow.png')}
-        imageWidth={30}
-        imageHeight={30}
-        top={45}
-      />
-      <Text style={styles.Text}> My Bookings </Text>
+    <FlatList
+      data={bookingsDocs}
+      style={styles.PageContainer}
+      renderItem={({ item }) => {
+        const booking = item.data();
+        console.log(booking); 
 
-      <MaterialTabs
-        items={['Current', 'Past']}
-        selectedIndex={selectedTab}
-        onChange={setSelectedTab}
-        barColor="#f9ede1"
-        indicatorColor="#92465a"
-        activeTextColor="#92465a"
-        inactiveTextColor="rgba(30, 47, 68, 0.48)"
-      />
+        // source, label, date, type, time
+        return (
+          <ClientSitterBookings
+            source={require('../img/LadyInPic.png')}
+            label={booking.first_name}
+            serviceType="Drop-In For Pets"
+            date="12 Oct 2021"
+            time="07:00 - 10:00"
+            status={booking.status}
+            onPress={SitterBookingDetails}
+          />
+        );
+      }}
+      ListHeaderComponent={
+        <>
+        <BackButton
+          onPress={onPress}
+          backButtonImage={require('../img/backarrow.png')}
+          imageWidth={30}
+          imageHeight={30}
+          top={45}
+        />
+        <Text style={styles.Text}> My Bookings </Text>
 
-      <ClientSitterBookings
-        source={require('../img/LadyInPic.png')}
-        label="Josie Emch"
-        text="Drop-In For Pets"
-        date="12 Oct 2021"
-        purpledot={require('../img/PurpleDot.png')}
-        time="07:00 - 10:00"
-        imageOfLogo={require('../img/DropInForSittersNoPinkBackground.png')}
-        status="approved"
-        ApprovedPress={SitterBookingDetails}
-      />
-      <PendingStatus
-        text="Drop-In For Pets"
-        date="14 Oct 2021"
-        purpledot={require('../img/PurpleDot.png')}
-        time="8am - 2pm"
-        imageOfLogo={require('../img/DropInForSittersNoPinkBackground.png')}
-        value={'Pending'}
-        status="pending"
-      />
-    </ScrollView>
+        <MaterialTabs
+          items={['Current', 'Past']}
+          selectedIndex={selectedTab}
+          onChange={setSelectedTab}
+          barColor="#f9ede1"
+          indicatorColor="#92465a"
+          activeTextColor="#92465a"
+          inactiveTextColor="rgba(30, 47, 68, 0.48)"
+        />
+        </>
+      }
+    />
   );
 
-  // function onFetchBookings() {
-  //   Firestore()
-  //     .collection('bookings')
-  //     .where("user_id", "==", Auth().currentUser.uid)
-  //     .onSnapshot(documentSnapshot => {
-  //       console.log('User data: ', documentSnapshot.data());
-  //     });
-  // }
+  /**
+   * Fetches all the client bookings
+   */
+  function onFetchBookings() {
+    Firestore()
+      .collection('bookings')
+      .where("client_id", "==", Auth().currentUser.uid)
+      .onSnapshot(snapshot => {
+        setBookingsDocs(snapshot.docs);
+      });
+  }
 
   function onPress() {
     Navigation.push(componentId, {

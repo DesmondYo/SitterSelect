@@ -19,15 +19,14 @@ export function SitterBookingPage({componentId}) {
         activeTextColor="#92465a"
         inactiveTextColor="rgba(30, 47, 68, 0.48)"
       />
+      {/* Example */}
       <ClientSitterBookings
         label="Josie Emch"
-        text="Drop-In For Pets"
+        serviceType="Drop-In For Pets"
         date="12 Oct 2021"
-        purpledot={require('../img/PurpleDot.png')}
         time="07:00 - 10:00"
-        imageOfLogo={require('../img/DropInForSittersNoPinkBackground.png')}
         status="approved"
-        ApprovedPress={SitterBookingDetails}
+        onPress={SitterBookingDetails}
       />
       <ClientSitterBookings
         label="Josie Emch"

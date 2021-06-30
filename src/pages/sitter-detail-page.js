@@ -8,7 +8,7 @@ import {PrimaryButton} from '../components/primary-button';
 import dayjs from 'dayjs';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import {ServiceItem} from '../components/service-item';
-
+import { useCurrentUser } from '../utils/use-current-user';
 export function SitterDetailsPage({componentId}) {
   const [startTime, setStartTime] = useState(dayjs().toDate());
   const [endTime, setEndTime] = useState(dayjs().add(2, 'hour').toDate());
@@ -18,6 +18,7 @@ export function SitterDetailsPage({componentId}) {
   const formattedStartTime = dayjs(startTime).format('h:mm A');
   const formattedEndTime = dayjs(endTime).format('h:mm A');
   const [serviceType, setServiceType] = useState('Drop-In For Pets');
+  const user = useCurrentUser();
   const markedDates = {
     // Current Date
     [`${dayjs().format('YYYY-MM-DD')}`]: {
@@ -42,6 +43,7 @@ export function SitterDetailsPage({componentId}) {
       },
     },
   };
+  console.log(user);
   return (
     <>
       <ScrollView style={styles.SitterDetailsContainer}>
@@ -143,10 +145,11 @@ export function SitterDetailsPage({componentId}) {
     // "start_date": startDate
     // "end_date" endDate
     // "booking_date": selectedDate
-    // "service_ type" serviceType
-    // "client_id" Auth().currentUser.uid
+    // "service_type" serviceType
+    // "client_id": Auth().currentUser.uid
     // "created_at": dayjs().format()
     // "status": "pending"
+    // "first_name": user.name
 
     // TODO: Test code
     // await Firestore().collection('bookings').add({
