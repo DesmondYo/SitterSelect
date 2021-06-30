@@ -4,6 +4,7 @@ import {styles} from './styles/client-booking-page-style.js';
 import {Navigation} from 'react-native-navigation';
 import {BackButton} from '../components/back-button';
 import MaterialTabs from 'react-native-material-tabs';
+import {PendingStatus} from '../components/pending-status';
 import {ClientSitterBookings} from '../components/client-sitter-bookings';
 import {SitterBookingDetails} from './sitter-booking-details-page';
 import Auth from '@react-native-firebase/auth';
