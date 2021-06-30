@@ -20,18 +20,7 @@ export function SitterDetailsPage({componentId}) {
   const [serviceType, setServiceType] = useState('Drop-In For Pets');
   const markedDates = {
     // Current Date
-    [`${dayjs().format("YYYY-MM-DD")}`]: {
-      customStyles: {
-        container: {
-          width: 40,
-          height: 40,
-          backgroundColor: '#000000',
-          paddingTop: 5,
-        },
-      },
-    },
-    // Selected Date
-    [`${dayjs(selectedDate).format("YYYY-MM-DD")}`]: {
+    [`${dayjs().format('YYYY-MM-DD')}`]: {
       customStyles: {
         container: {
           width: 40,
@@ -41,8 +30,18 @@ export function SitterDetailsPage({componentId}) {
         },
       },
     },
+    // Selected Date
+    [`${dayjs(selectedDate).format('YYYY-MM-DD')}`]: {
+      customStyles: {
+        container: {
+          width: 40,
+          height: 40,
+          backgroundColor: '#e09095',
+          paddingTop: 5,
+        },
+      },
+    },
   };
-  
   return (
     <>
       <ScrollView style={styles.SitterDetailsContainer}>
@@ -59,7 +58,7 @@ export function SitterDetailsPage({componentId}) {
         <Calendar
           markingType="custom"
           markedDates={markedDates}
-          onDayPress={({ dateString }) => setSelectedDate(dateString)}
+          onDayPress={({dateString}) => setSelectedDate(dateString)}
           theme={{
             backgroundColor: 'transparent',
             calendarBackground: 'transparent',
@@ -80,12 +79,6 @@ export function SitterDetailsPage({componentId}) {
             selectedDayTextColor: '#000000',
           }}
         />
-        <View style={styles.SquareView}>
-          <View style={styles.SquareShapeView} />
-          <Text style={styles.Avalible}>Avalible</Text>
-          <View style={styles.SquareShapeViewBooked} />
-          <Text style={styles.Booked}>Booked</Text>
-        </View>
         <Text style={styles.BookingDate}>Selected: 28 June 2021</Text>
         <View style={styles.TimePicker}>
           <GmailTouchable

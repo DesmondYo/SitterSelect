@@ -6,6 +6,8 @@ import {BackButton} from '../components/back-button';
 import MaterialTabs from 'react-native-material-tabs';
 import {ActiveBookingItem} from '../components/active-booking-item';
 import {PendingStatus} from '../components/pending-status';
+import {ClientSitterBookings} from '../components/client-sitter-bookings';
+import {SitterBookingDetails} from './sitter-booking-details-page';
 
 export function ClientBookingPage({componentId}) {
   const [selectedTab, setSelectedTab] = useState(null);
@@ -31,30 +33,16 @@ export function ClientBookingPage({componentId}) {
         inactiveTextColor="rgba(30, 47, 68, 0.48)"
       />
 
-      {/* 
-          <ClientSitterBookings
-            label="Josie Emch"
-            text="Drop-In For Pets"
-            date="12 Oct 2021"
-            purpledot={require('../img/PurpleDot.png')}
-            time="07:00 - 10:00"
-            imageOfLogo={require('../img/DropInForSittersNoPinkBackground.png')}
-            status="approved"
-            ApprovedPress={SitterBookingDetails}
-          /> 
-      */}
-      {/* Delete these components */}
-      {/* <ActiveBookingItem
+      <ClientSitterBookings
         source={require('../img/LadyInPic.png')}
         label="Josie Emch"
         text="Drop-In For Pets"
         date="12 Oct 2021"
         purpledot={require('../img/PurpleDot.png')}
-        time="8am - 5pm"
+        time="07:00 - 10:00"
         imageOfLogo={require('../img/DropInForSittersNoPinkBackground.png')}
-        value={'Approved'}
         status="approved"
-        ApprovedPress={ApprovedPress}
+        ApprovedPress={SitterBookingDetails}
       />
       <PendingStatus
         text="Drop-In For Pets"
@@ -64,7 +52,7 @@ export function ClientBookingPage({componentId}) {
         imageOfLogo={require('../img/DropInForSittersNoPinkBackground.png')}
         value={'Pending'}
         status="pending"
-      /> */}
+      />
     </ScrollView>
   );
 

@@ -14,12 +14,13 @@ export const styles = StyleSheet.create({
   },
   PhotoAndDetailsContainer: {
     flexDirection: 'row',
-    direction: 'rtl',
+  },
+  DetailsContainer: {
+    marginLeft: 12,
   },
   ServiceRow: {
     flexDirection: 'row',
     marginTop: 5,
-    direction: 'ltr',
   },
   ServiceImage: {
     height: 17,

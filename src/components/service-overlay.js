@@ -71,12 +71,12 @@ export function ServiceOverlay({componentId, onChange}) {
 
   /**
    * Calls the onChnage callback and dismisses the overlay
-   * 
+   *
    * @param service - type of service
    */
   function onChangeService(service) {
     Navigation.dismissOverlay(componentId);
-    if(onChange) onChange(service);
+    if (onChange) onChange(service);
   }
 
   /**
