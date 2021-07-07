@@ -9,29 +9,34 @@ export function ClientSitterBookings({
   date,
   time,
   status,
-  onPress,
+  approvedPress,
+  showLabel,
 }) {
   const image = getServiceImage();
-  
+
   return (
-    <TouchableOpacity onPress={onPress} style={styles.OutsideContainer}>
+    <TouchableOpacity onPress={approvedPress} style={styles.OutsideContainer}>
       <View style={styles.InnerContainer}>
         <View style={styles.PhotoAndDetailsContainer}>
-          {source && <Image source={source} style={styles.ImageStyling} />}
+          {source && status === 'approved' && (
+            <Image source={source} style={styles.ImageStyling} />
+          )}
 
           <View style={styles.DetailsContainer}>
-            {label && <Text style={styles.NameText}>{label}</Text>}
+            {label && status === 'pending' && showLabel && (
+              <Text style={styles.NameText}>{label}</Text>
+            )}
             <View style={styles.ServiceRow}>
-              <Image
-                style={styles.ServiceImage}
-                source={image}
-              />
+              <Image style={styles.ServiceImage} source={image} />
               <Text style={styles.ServiceText}>{serviceType}</Text>
             </View>
 
             <View style={styles.DateContainer}>
               <Text style={styles.Date}>{date}</Text>
-              <Image style={styles.PurpleDot} source={require('../img/PurpleDot.png')} />
+              <Image
+                style={styles.PurpleDot}
+                source={require('../img/PurpleDot.png')}
+              />
               <Text style={styles.Time}>{time}</Text>
             </View>
           </View>
@@ -50,17 +55,19 @@ export function ClientSitterBookings({
   function getServiceImage() {
     switch (serviceType) {
       case 'Kids-Portation':
-        return require('../img/Kids-Portation.png');
+        return require('../img/Kids-PortationNoBackground.png');
       case 'Drop-In For Pets':
         return require('../img/DropInForSittersNoPinkBackground.png');
       case 'Pet Sitting':
-        return require('../img/PetSitting.png');
+        return require('../img/PetSittingNoBackground.png');
       case 'Drop-in for House Sitting':
-        return require('../img/Drop-inForHouseSitting.png');
+        return require('../img/DropinForHouseSittingNoBackground.png');
       case 'Babysitting':
-        return require('../img/BabySitting.png');
+        return require('../img/BabysittingNoBackground.png');
+      case 'Child Tutoring':
+        return require('../img/ChildTutoringNoBackground.png');
       default:
-        return require('../img/Drop-inForHouseSitting.png');
+        return require('../img/DropInForSittersNoPinkBackground.png');
     }
   }
 }

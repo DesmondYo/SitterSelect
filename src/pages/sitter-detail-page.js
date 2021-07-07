@@ -8,16 +8,19 @@ import {PrimaryButton} from '../components/primary-button';
 import dayjs from 'dayjs';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import {ServiceItem} from '../components/service-item';
-import { useCurrentUser } from '../utils/use-current-user';
+import {useCurrentUser} from '../utils/use-current-user';
+import Auth from '@react-native-firebase/auth';
+import Firestore from '@react-native-firebase/firestore';
+
 export function SitterDetailsPage({componentId}) {
-  const [startTime, setStartTime] = useState(dayjs().toDate());
-  const [endTime, setEndTime] = useState(dayjs().add(2, 'hour').toDate());
+  const [startTime, setStartTime] = useState(dayjs());
+  const [endTime, setEndTime] = useState(dayjs().add(2, 'hour'));
   const [selectedDate, setSelectedDate] = useState(null);
   const [showStartTimePicker, setShowStartTimePicker] = useState(false);
   const [showEndTimePicker, setShowEndTimePicker] = useState(false);
   const formattedStartTime = dayjs(startTime).format('h:mm A');
   const formattedEndTime = dayjs(endTime).format('h:mm A');
-  const [serviceType, setServiceType] = useState('Drop-In For Pets');
+  const [serviceType, setServiceType] = useState('Kids-Portation');
   const user = useCurrentUser();
   const markedDates = {
     // Current Date
@@ -43,7 +46,6 @@ export function SitterDetailsPage({componentId}) {
       },
     },
   };
-  console.log(user);
   return (
     <>
       <ScrollView style={styles.SitterDetailsContainer}>
@@ -103,7 +105,7 @@ export function SitterDetailsPage({componentId}) {
           <DateTimePickerModal
             isVisible={showStartTimePicker}
             mode="time"
-            date={startTime}
+            Date={startTime}
             onConfirm={val => {
               setStartTime(val);
               setShowStartTimePicker(false);
@@ -115,7 +117,7 @@ export function SitterDetailsPage({componentId}) {
           <DateTimePickerModal
             isVisible={showEndTimePicker}
             mode="time"
-            date={startTime}
+            Date={startTime}
             onConfirm={val => {
               setEndTime(val);
               setShowEndTimePicker(false);
@@ -142,19 +144,17 @@ export function SitterDetailsPage({componentId}) {
   );
 
   async function BookingSuccessPage() {
-    // "start_date": startDate
-    // "end_date" endDate
-    // "booking_date": selectedDate
-    // "service_type" serviceType
-    // "client_id": Auth().currentUser.uid
-    // "created_at": dayjs().format()
-    // "status": "pending"
-    // "first_name": user.name
-
-    // TODO: Test code
-    // await Firestore().collection('bookings').add({
-    //    "date": selectedDate,
-    // });
+    await Firestore().collection('bookings').add({
+      date: selectedDate,
+      start_date: formattedStartTime,
+      end_date: formattedEndTime,
+      booking_date: selectedDate,
+      service_type: serviceType,
+      client_id: Auth().currentUser.uid,
+      created_at: dayjs().format(),
+      status: 'pending',
+      first_name: user.name,
+    });
 
     Navigation.push(componentId, {
       component: {

@@ -9,6 +9,7 @@ import {BookingDetailRow} from '../components/booking-detail-row';
 import {SitterProfile} from '../components/sitter-profile';
 import {BookingProperty} from '../components/booking-property';
 import {BookingDetailStatus} from '../components/booking-detail-status.js';
+import firestore from '@react-native-firebase/firestore';
 const phoneNumber = '(602) 803-4851';
 
 export function ClientBookingDetails({componentId}) {
@@ -96,7 +97,7 @@ export function ClientBookingDetails({componentId}) {
   );
 
   function onPress() {
-    Navigation.push(componentId, {
+    Navigation.popToRoot(componentId, {
       component: {
         name: 'ClientBookingPage',
       },

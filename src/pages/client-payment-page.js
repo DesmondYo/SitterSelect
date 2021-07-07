@@ -91,7 +91,7 @@ export function CheckoutPaymentPage({componentId}) {
     </>
   );
   function onPress() {
-    Navigation.push(componentId, {
+    Navigation.popToRoot(componentId, {
       component: {
         name: 'ClientBookingPage',
       },

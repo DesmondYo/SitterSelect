@@ -1,5 +1,5 @@
 import React, {useRef} from 'react';
-import {Text, TouchableOpacity, Image, Platform, Linking} from 'react-native';
+import {Text, TouchableOpacity, Platform, Linking} from 'react-native';
 import {styles} from './styles/service-overlay-style.js';
 import {AwesomeModal} from 'react-native-awesome-modal';
 import {Navigation} from 'react-native-navigation';
@@ -20,6 +20,11 @@ export function ServiceOverlay({componentId, onChange}) {
       modalContainerStyle={styles.containerStyle}
       modalOverlayStyle={styles.modalOverlayStyle}
       modalInnerContainerStyle={styles.modalInnerContainerStyle}>
+      <ServiceButton
+        image={require('../img/ChildTutoring.png')}
+        label="Child Tutoring"
+        onPress={() => onChangeService('Child Tutoring')}
+      />
       <ServiceButton
         image={require('../img/DropInForPets.png')}
         label="Drop-In For Pets"

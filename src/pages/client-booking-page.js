@@ -4,83 +4,85 @@ import {styles} from './styles/client-booking-page-style.js';
 import {Navigation} from 'react-native-navigation';
 import {BackButton} from '../components/back-button';
 import MaterialTabs from 'react-native-material-tabs';
-import {PendingStatus} from '../components/pending-status';
 import {ClientSitterBookings} from '../components/client-sitter-bookings';
-import {SitterBookingDetails} from './sitter-booking-details-page';
 import Auth from '@react-native-firebase/auth';
 import Firestore from '@react-native-firebase/firestore';
+
 export function ClientBookingPage({componentId}) {
   const [selectedTab, setSelectedTab] = useState(null);
   const [bookingsDocs, setBookingsDocs] = useState([]);
   useEffect(onFetchBookings, []);
-
+  console.log(Auth().currentUser.uid);
   return (
     <FlatList
       data={bookingsDocs}
       style={styles.PageContainer}
-      renderItem={({ item }) => {
+      renderItem={({item}) => {
         const booking = item.data();
-        console.log(booking); 
 
         // source, label, date, type, time
         return (
           <ClientSitterBookings
             source={require('../img/LadyInPic.png')}
             label={booking.first_name}
-            serviceType="Drop-In For Pets"
-            date="12 Oct 2021"
-            time="07:00 - 10:00"
+            serviceType={booking.service_type}
+            date={booking.date}
+            time={[booking.start_date, ' - ', booking.end_date]}
             status={booking.status}
-            onPress={SitterBookingDetails}
+            approvedPress={approvedPress}
           />
         );
       }}
       ListHeaderComponent={
         <>
-        <BackButton
-          onPress={onPress}
-          backButtonImage={require('../img/backarrow.png')}
-          imageWidth={30}
-          imageHeight={30}
-          top={45}
-        />
-        <Text style={styles.Text}> My Bookings </Text>
+          <BackButton
+            onPress={onPress}
+            backButtonImage={require('../img/backarrow.png')}
+            imageWidth={30}
+            imageHeight={30}
+            top={45}
+          />
+          <Text style={styles.Text}> My Bookings </Text>
 
-        <MaterialTabs
-          items={['Current', 'Past']}
-          selectedIndex={selectedTab}
-          onChange={setSelectedTab}
-          barColor="#f9ede1"
-          indicatorColor="#92465a"
-          activeTextColor="#92465a"
-          inactiveTextColor="rgba(30, 47, 68, 0.48)"
-        />
+          <MaterialTabs
+            items={['Current', 'Past']}
+            selectedIndex={selectedTab}
+            onChange={setSelectedTab}
+            barColor="#f9ede1"
+            indicatorColor="#92465a"
+            activeTextColor="#92465a"
+            inactiveTextColor="rgba(30, 47, 68, 0.48)"
+          />
         </>
       }
     />
   );
-
   /**
    * Fetches all the client bookings
    */
   function onFetchBookings() {
     Firestore()
       .collection('bookings')
-      .where("client_id", "==", Auth().currentUser.uid)
+      .where('client_id', '==', Auth().currentUser.uid)
       .onSnapshot(snapshot => {
         setBookingsDocs(snapshot.docs);
       });
   }
 
-  function onPress() {
+  // async function approvedPress() {
+  //   await Firestore().collection('bookings').add({
+  //   });
+
+  function approvedPress() {
     Navigation.push(componentId, {
       component: {
-        name: 'SitterDetailsPage',
+        name: 'ClientBookingDetails',
       },
     });
   }
-  function ApprovedPress() {
-    Navigation.push(componentId, {
+
+  function onPress() {
+    Navigation.popToRoot(componentId, {
       component: {
         name: 'ClientBookingDetails',
       },

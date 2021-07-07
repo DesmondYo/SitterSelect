@@ -75,7 +75,7 @@ const LoginPage = ({componentId}) => {
     } catch (e) {
       Alert.alert(
         'Oops! Login failed',
-        'There has been an issue with your login details. Please contact Josie Emch for further details.',
+        'There has been an issue with your login details. Please contact Sitters Avenues admin for further details.',
         [
           {
             text: 'Cancel',

@@ -69,9 +69,9 @@ Navigation.events().registerAppLaunchedListener(async () => {
     // [Documents] -> Document
     const userDoc = userQuery.docs[0];
     // Returns the data associated with a user
-    const userData = userDoc.data();
+    const userData = userDoc?.data();
     const initialRoute =
-      userData?.type === 'client' ? 'SitterDetailsPage' : 'SitterDetailsPage';
+      userData?.type === 'client' ? 'SitterBookingPage' : 'SitterDetailsPage';
 
     Navigation.setRoot({
       root: {

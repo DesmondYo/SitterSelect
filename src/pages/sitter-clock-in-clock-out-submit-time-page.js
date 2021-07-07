@@ -176,7 +176,7 @@ export function SitterClockInClockOutSubmitTimePage({componentId}) {
     }
   }
   function onPress() {
-    Navigation.push(componentId, {
+    Navigation.popToRoot(componentId, {
       component: {
         name: 'SitterBookingDetailsPage',
       },

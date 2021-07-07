@@ -91,7 +91,7 @@ export function SitterBookingDetailsPage({componentId}) {
     });
   }
   function onPress() {
-    Navigation.pop(componentId);
+    Navigation.popToRoot(componentId);
   }
 }
 SitterBookingDetailsPage.options = {

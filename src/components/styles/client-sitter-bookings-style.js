@@ -16,7 +16,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   DetailsContainer: {
-    marginLeft: 12,
+    marginLeft: 8,
   },
   ServiceRow: {
     flexDirection: 'row',
