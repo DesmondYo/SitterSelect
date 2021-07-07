@@ -7,37 +7,44 @@ import {ClientSitterBookings} from '../components/client-sitter-bookings';
 import Firestore from '@react-native-firebase/firestore';
 import Auth from '@react-native-firebase/auth';
 
-export function SitterBookingPage({componentId}) {
+export function SitterBookingPage({ componentId }) {
   const [selectedTab, setSelectedTab] = useState(null);
-  const [bookingsDocs, setBookingsDocs] = useState([]);
+  const [newRequestsDocs, setNewRequestsDocs] = useState([]);
+  const [sitterBookingDocs, setSitterBookingDocs] = useState([]);
   useEffect(onFetchBookings, []);
   return (
     <SafeAreaView style={styles.PageContainer}>
       <SectionList
-        sections={[{title: 'New Requests', data: bookingsDocs}]}
-        renderSectionHeader={section => (
-          <>
-            <Text style={styles.NewRequests}> {section.bookingsDocs} </Text>
-          </>
-        )}
+        sections={[
+          {title: 'New Requests', data: newRequestsDocs},
+          {title: null, data: sitterBookingDocs},
+        ]}
+        renderSectionHeader={({ section }) => {
+          if (section.title !== null) {
+            return (
+              <Text style={styles.NewRequests}>{section.title}</Text>
+            );
+          }
+        }}
+        renderSectionFooter={({ section }) => {
+          if (section.title !== null) {
+            return (
+              <View style={styles.LineSeperator} />
+            );
+          }
+        }}
         renderItem={({item}) => {
           const booking = item.data();
-
           // source, label, date, type, time
           return (
-            <>
-              <View style={styles.LineSeperator} />
-              <Text style={styles.NewRequests}> New Requests </Text>
-              <ClientSitterBookings
-                showLabel={true}
-                label={booking.first_name}
-                serviceType={booking.service_type}
-                date={booking.date}
-                time={[booking.start_date, ' - ', booking.end_date]}
-                status={booking.status}
-                approvedPress={approvedPress}
-              />
-            </>
+            <ClientSitterBookings
+              label={booking.client_first_name}
+              serviceType={booking.service_type}
+              date={booking.date}
+              time={[booking.start_date, ' - ', booking.end_date]}
+              status={booking.status}
+              approvedPress={() => navigateToBookingDetailsPage(item.id)}
+            />
           );
         }}
         ListHeaderComponent={
@@ -61,17 +68,31 @@ export function SitterBookingPage({componentId}) {
    * Fetches all the client bookings
    */
   function onFetchBookings() {
-    Firestore()
+    const unsubscibeNewRequests = Firestore()
       .collection('bookings')
       .where('status', '==', 'pending')
-      .onSnapshot(snapshot => {
-        setBookingsDocs(snapshot.docs);
-      });
+      .onSnapshot(snapshot => setNewRequestsDocs(snapshot.docs));
+    const unsubscibeSitterBookings = Firestore()
+      .collection('bookings')
+      .where('sitter_id', '==', Auth().currentUser.uid)
+      .onSnapshot(snapshot => setSitterBookingDocs(snapshot.docs));
+
+    return () => {
+      unsubscibeNewRequests();
+      unsubscibeSitterBookings();
+    };
   }
-  function approvedPress() {
+
+  /**
+   * Navigates to sitter booking details page
+   */
+  function navigateToBookingDetailsPage(id) {
     Navigation.push(componentId, {
       component: {
         name: 'SitterBookingDetailsPage',
+        passProps: {
+          id
+        }
       },
     });
   }

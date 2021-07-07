@@ -46,6 +46,14 @@ export function SitterDetailsPage({componentId}) {
       },
     },
   };
+  console.log({startTime, endTime});
+  // Calculation to work out price 
+  const hoursBetweenStartAndEndDate = Math.abs(
+    dayjs(startTime).diff(endTime, 'hour')
+  );
+  // hoursBetweenStartAndEndDate * 14 (14 dollars per hour)
+  const price = hoursBetweenStartAndEndDate * 14;
+  
   return (
     <>
       <ScrollView style={styles.SitterDetailsContainer}>
@@ -105,7 +113,7 @@ export function SitterDetailsPage({componentId}) {
           <DateTimePickerModal
             isVisible={showStartTimePicker}
             mode="time"
-            Date={startTime}
+            date={startTime}
             onConfirm={val => {
               setStartTime(val);
               setShowStartTimePicker(false);
@@ -117,7 +125,7 @@ export function SitterDetailsPage({componentId}) {
           <DateTimePickerModal
             isVisible={showEndTimePicker}
             mode="time"
-            Date={startTime}
+            date={endTime}
             onConfirm={val => {
               setEndTime(val);
               setShowEndTimePicker(false);
@@ -130,8 +138,8 @@ export function SitterDetailsPage({componentId}) {
 
       <View style={styles.BookNowBackground}>
         <View>
-          <Text style={styles.Money}>$1,000</Text>
-          <Text style={styles.Rates}>Rate for 3 hours</Text>
+          <Text style={styles.Money}>${price}</Text>
+          <Text style={styles.Rates}>Rate for {hoursBetweenStartAndEndDate} hours</Text>
         </View>
         <PrimaryButton
           label="Book Now"
@@ -153,7 +161,8 @@ export function SitterDetailsPage({componentId}) {
       client_id: Auth().currentUser.uid,
       created_at: dayjs().format(),
       status: 'pending',
-      first_name: user.name,
+      client_first_name: user.name,
+      sitter_id: null,
     });
 
     Navigation.push(componentId, {

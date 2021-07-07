@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {ScrollView, View, Text, Image} from 'react-native';
 import {styles} from './styles/sitter-booking-details-page-style.js';
 import {BackButton} from '../components/back-button';
@@ -6,8 +6,19 @@ import {Navigation} from 'react-native-navigation';
 import {PrimaryButton} from '../components/primary-button.js';
 import {BookingProperty} from '../components/booking-property';
 import {StatusBadge} from '../components/status-badge';
+import Firestore from '@react-native-firebase/firestore';
+import Auth from "@react-native-firebase/auth";
+import { useCurrentUser } from '../utils/use-current-user.js';
+import dayjs from 'dayjs';
 
-export function SitterBookingDetailsPage({componentId}) {
+export function SitterBookingDetailsPage({componentId, id}) {
+  const user = useCurrentUser();
+  const [bookingData, setBookingData] = useState(null);
+  const formattedDate = dayjs(bookingData?.booking_date).format("ddd, D MMM YYYY")
+  useEffect(onLoadData, []);
+
+  // Add rest of data from {bookingData}
+
   return (
     <>
       <ScrollView
@@ -24,11 +35,11 @@ export function SitterBookingDetailsPage({componentId}) {
         <Text style={styles.Text}> Booking Details </Text>
         <View style={styles.BookingDateStyle}>
           <Text style={styles.Booking}> Status</Text>
-          <StatusBadge value={'Pending'} status="pending" />
+          <StatusBadge status={bookingData?.status} />
         </View>
         <View style={styles.BookingDateStyle}>
           <Text style={styles.Booking}> Booking date </Text>
-          <Text style={styles.BookingDate}>Wed, 12 Oct 2021</Text>
+          <Text style={styles.BookingDate}>{formattedDate}</Text>
         </View>
         <View style={styles.LineSeperator} />
         <View style={styles.BookingInfoView}>
@@ -83,15 +94,23 @@ export function SitterBookingDetailsPage({componentId}) {
       </View>
     </>
   );
-  function AcceptPress() {
-    Navigation.push(componentId, {
-      component: {
-        name: 'SitterClockInClockOutSubmitTimePage',
-      },
+
+  function onLoadData() {
+    const unsubscribe = Firestore().collection('bookings').doc(id).onSnapshot(document => setBookingData(document.data()));
+    return () => unsubscribe();
+  }
+
+  async function AcceptPress() {
+    await Firestore().collection('bookings').doc(id).update({
+      status: "approved",
+      sitter_id: Auth().currentUser.uid,
+      sitter_first_name: user.name,
     });
+
+    Navigation.pop(componentId);
   }
   function onPress() {
-    Navigation.popToRoot(componentId);
+    Navigation.pop(componentId);
   }
 }
 SitterBookingDetailsPage.options = {

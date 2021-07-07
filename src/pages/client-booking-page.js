@@ -12,19 +12,17 @@ export function ClientBookingPage({componentId}) {
   const [selectedTab, setSelectedTab] = useState(null);
   const [bookingsDocs, setBookingsDocs] = useState([]);
   useEffect(onFetchBookings, []);
-  console.log(Auth().currentUser.uid);
+
   return (
     <FlatList
       data={bookingsDocs}
       style={styles.PageContainer}
       renderItem={({item}) => {
         const booking = item.data();
-
-        // source, label, date, type, time
         return (
           <ClientSitterBookings
             source={require('../img/LadyInPic.png')}
-            label={booking.first_name}
+            label={booking.sitter_first_name}
             serviceType={booking.service_type}
             date={booking.date}
             time={[booking.start_date, ' - ', booking.end_date]}

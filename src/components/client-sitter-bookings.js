@@ -10,7 +10,6 @@ export function ClientSitterBookings({
   time,
   status,
   approvedPress,
-  showLabel,
 }) {
   const image = getServiceImage();
 
@@ -23,7 +22,7 @@ export function ClientSitterBookings({
           )}
 
           <View style={styles.DetailsContainer}>
-            {label && status === 'pending' && showLabel && (
+            {label && (
               <Text style={styles.NameText}>{label}</Text>
             )}
             <View style={styles.ServiceRow}>
