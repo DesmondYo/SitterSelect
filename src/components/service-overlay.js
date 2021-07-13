@@ -5,6 +5,7 @@ import {AwesomeModal} from 'react-native-awesome-modal';
 import {Navigation} from 'react-native-navigation';
 import ActionSheet from '@alessiocancian/react-native-actionsheet';
 import {ServiceButton} from './service-button';
+import { ServiceTypes } from '../config/sitter-types.js';
 const phoneNumber = '(602) 803-4851';
 
 export function ServiceOverlay({componentId, onChange}) {
@@ -23,22 +24,22 @@ export function ServiceOverlay({componentId, onChange}) {
       <ServiceButton
         image={require('../img/ChildTutoring.png')}
         label="Child Tutoring"
-        onPress={() => onChangeService('Child Tutoring')}
+        onPress={() => onChangeService(ServiceTypes.ChildTutoring)}
       />
       <ServiceButton
         image={require('../img/DropInForPets.png')}
         label="Drop-In For Pets"
-        onPress={() => onChangeService('Drop-In For Pets')}
+        onPress={() => onChangeService(ServiceTypes.DropInForPets)}
       />
       <ServiceButton
         image={require('../img/Kids-Portation.png')}
         label="Kids-Portation"
-        onPress={() => onChangeService('Kids-Portation')}
+        onPress={() => onChangeService(ServiceTypes.KidsPortation)}
       />
       <ServiceButton
         image={require('../img/PetSitting.png')}
         label="Pet Sitting"
-        onPress={() => onChangeService('Pet Sitting')}
+        onPress={() => onChangeService(ServiceTypes.PetSitting)}
       />
       <ServiceButton
         image={require('../img/OvernightHouseSitting.png')}
@@ -48,12 +49,12 @@ export function ServiceOverlay({componentId, onChange}) {
       <ServiceButton
         image={require('../img/Drop-inForHouseSitting.png')}
         label="Drop-in for House Sitting"
-        onPress={() => onChangeService('Drop-in for House Sitting')}
+        onPress={() => onChangeService(ServiceTypes.DropinforHouseSitting)}
       />
       <ServiceButton
         image={require('../img/BabySitting.png')}
         label="Babysitting"
-        onPress={() => onChangeService('Babysitting')}
+        onPress={() => onChangeService(ServiceTypes.Babysitting)}
       />
       <ServiceButton
         image={require('../img/EventSitting.png')}

@@ -5,8 +5,8 @@ import {AwesomeModal} from 'react-native-awesome-modal';
 import {Navigation} from 'react-native-navigation';
 import {PrimaryButton} from './primary-button.js';
 
-export function TippingOverlay({componentId}) {
-  const [number] = useState(null);
+export function TippingOverlay({componentId, onChange}) {
+  const [number, setNumber] = useState(0);
   const awesomeModalRef = useRef(null);
   return (
     <AwesomeModal
@@ -22,11 +22,16 @@ export function TippingOverlay({componentId}) {
         style={styles.input}
         placeholder="Tip Amount"
         value={number}
+        onChangeText={setNumber}
         keyboardType="number-pad"
       />
       <PrimaryButton
         label="Confirm"
         style={styles.TipButton}
+        onPress={() => {
+          Navigation.dismissOverlay(componentId)
+          onChange(number);
+        }}
         TextStyle={styles.TipButtonText}
       />
       <TouchableOpacity onPress={() => awesomeModalRef.current.close()}>

@@ -21,11 +21,7 @@ export function SitterSubmitTimeSuccessPage({componentId}) {
     </SafeAreaView>
   );
   function onLogin() {
-    Navigation.push(componentId, {
-      component: {
-        name: 'SitterBookingPage',
-      },
-    });
+    Navigation.popToRoot(componentId);
   }
 }
 

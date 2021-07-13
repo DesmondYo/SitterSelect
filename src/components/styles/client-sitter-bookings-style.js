@@ -64,5 +64,6 @@ export const styles = StyleSheet.create({
   ImageStyling: {
     width: 51,
     height: 51,
+    borderRadius: 25,
   },
 });

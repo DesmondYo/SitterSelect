@@ -11,19 +11,16 @@ import {BookingProperty} from '../components/booking-property.js';
 import Firestore from '@react-native-firebase/firestore';
 const phoneNumber = '(602) 803-4851';
 
-export function SitterClockInClockOutSubmitTimePage({componentId}) {
-  const [showStartTimePicker, setShowStartTimePicker] = useState(false);
-  const [startTime, setStartTime] = useState(dayjs().toDate());
+export function SitterClockInClockOutSubmitTimePage({componentId, id}) {
+  const [showTimePicker, setShowTimePicker] = useState(false);
+  const [startTime, setStartTime] = useState(null);
+  const [endTime, setEndTime] = useState(null);
+  const [buttonState, setButtonState] = useState("Clock In");
   const actionSheetRef = useRef(null);
   const awesomeModalRef = useRef(null);
   const isActionSheetOpen = useRef(false);
-  const formattedStartTime = dayjs(startTime).format();
-
-  useEffect(() => {
-    Firestore().collection('bookings').doc('qxNnNzLh41M8327OZAM7').update({
-      start_time: formattedStartTime,
-    });
-  }, [formattedStartTime]);
+  const formattedStartTime = startTime ? dayjs(startTime).format() : "NA";
+  const formattedEndTime = endTime ? dayjs(endTime).format() : "NA";
 
   return (
     <>
@@ -96,13 +93,13 @@ export function SitterClockInClockOutSubmitTimePage({componentId}) {
           <BookingProperty
             image={require('../img/CalenderImage.png')}
             name={'Clock In'}
-            bookedLength={'NA'}
+            bookedLength={formattedStartTime}
           />
 
           <BookingProperty
             image={require('../img/Clock.png')}
             name={'Clock Out'}
-            bookedLength={'NA'}
+            bookedLength={formattedEndTime}
           />
         </View>
 
@@ -114,23 +111,20 @@ export function SitterClockInClockOutSubmitTimePage({componentId}) {
           onPress={onSelectOption}
         />
         <DateTimePickerModal
-          isVisible={showStartTimePicker}
+          isVisible={showTimePicker}
           mode="time"
-          date={startTime}
-          onConfirm={val => {
-            setStartTime(val);
-            setShowStartTimePicker(false);
-          }}
-          onCancel={() => setShowStartTimePicker(false)}
-          headerTextIOS={'Clock In'}
+          value={startTime}
+          onConfirm={onSetClockInTime}
+          onCancel={() => setShowTimePicker(false)}
+          headerTextIOS={buttonState}
         />
       </ScrollView>
       <View style={styles.PrimaryButtonStyle}>
         <PrimaryButton
-          label="Clock In"
+          label={buttonState}
           style={styles.MakeFinalPaymentButton}
           TextStyle={styles.MakeFinalPaymentButtonText}
-          onPress={() => setShowStartTimePicker(true)}
+          onPress={onSubmitTime}
         />
         <PrimaryButton
           label="Contact Josie"
@@ -141,6 +135,34 @@ export function SitterClockInClockOutSubmitTimePage({componentId}) {
       </View>
     </>
   );
+
+  async function onSubmitTime() {
+    if (!startTime || !endTime) {
+      setShowTimePicker(true);
+    } else {
+      await Firestore().collection('bookings').doc(id).update({
+        start_time: formattedStartTime,
+        end_time: formattedEndTime,
+        status: 'awaiting_payment',
+      });
+
+      Navigation.push(componentId, { component: {
+        name: "SitterSubmitTimeSuccessPage",
+      }});
+    }
+  }
+
+  function onSetClockInTime(val) {
+    if (!startTime) {
+      setStartTime(val);
+      setButtonState("Clock Out")
+    } else {
+      setEndTime(val);
+      setButtonState("Submit Time")
+    }
+
+    setShowTimePicker(false);
+  }
 
   /**
    * This closes the modal with an animation,

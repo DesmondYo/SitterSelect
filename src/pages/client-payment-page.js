@@ -8,8 +8,13 @@ import {PrimaryButton} from '../components/primary-button.js';
 import {SitterProfile} from '../components/sitter-profile';
 import {BookingDetailRow} from '../components/booking-detail-row';
 
-export function CheckoutPaymentPage({componentId}) {
+export function CheckoutPaymentPage({componentId, id}) {
   const [selectedTip, setSelectedTip] = useState(null);
+
+  // const hoursBetweenStartAndEndDate = Math.abs(
+  //   dayjs(startTime).diff(endTime, 'hours'),
+  // );
+
   return (
     <>
       <ScrollView
@@ -75,7 +80,7 @@ export function CheckoutPaymentPage({componentId}) {
         <View style={styles.ViewStyleBookingInfo}>
           <Text style={styles.Total}>Total</Text>
           <View style={styles.PriceDetailsStyle}>
-            <Text style={styles.TotalText}>$1,500</Text>
+            <Text style={styles.TotalText}>{`$${1500 + parseFloat(selectedTip)}`}</Text>
           </View>
         </View>
         <View style={styles.PrimaryButtonStyle}>
@@ -116,6 +121,9 @@ export function CheckoutPaymentPage({componentId}) {
     Navigation.showOverlay({
       component: {
         name: 'TippingOverlay',
+        passProps: {
+          onChange: setSelectedTip,
+        },
         options: {
           layout: {
             backgroundColor: 'transparent',

@@ -27,6 +27,7 @@ export function SitterBookingPage({componentId}) {
             return <View style={styles.LineSeperator} />;
           }
         }}
+        contentInset={{ bottom: 40 }}
         data={sitterBookingDocs}
         renderItem={({item}) => {
           const booking = item.data();
@@ -62,6 +63,7 @@ export function SitterBookingPage({componentId}) {
     const unsubscibeNewRequests = Firestore()
       .collection('bookings')
       .where('status', '==', 'pending')
+      .where('status', "!=", "completed")
       .onSnapshot(snapshot => setNewRequestsDocs(snapshot.docs));
     const unsubscibeSitterBookings = Firestore()
       .collection('bookings')

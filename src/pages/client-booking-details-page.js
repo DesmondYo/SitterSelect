@@ -19,6 +19,8 @@ export function ClientBookingDetails({componentId, id}) {
   const formattedDate = dayjs(bookingData?.booking_date).format(
     'ddd, D MMM YYYY',
   );
+  const isPending = bookingData?.status === "pending";
+  const isAwaitingPayment = bookingData?.status === "awaiting_payment";
 
   console.log(bookingData);
   useEffect(FetchClientBooking, []);
@@ -41,20 +43,27 @@ export function ClientBookingDetails({componentId, id}) {
         />
         <BookingDetailRow label={'Booking Date'} value={formattedDate} />
         <View style={styles.LineSeperator} />
-        <View style={styles.BookingInfoView}>
-          <SitterProfile
-            source={bookingData?.sitter_image}
-            name={bookingData?.sitter_first_name}
-            serviceType={bookingData?.serviceType}
-            SitterDescription={bookingData?.description}
-          />
-        </View>
-        <View style={styles.LineSeperatorBelowBookingInfo} />
+        {
+           !isPending ? (
+            <>
+            <View style={styles.BookingInfoView}>
+              <SitterProfile
+                source={{ uri: bookingData?.sitter_image }}
+                name={bookingData?.sitter_first_name}
+                serviceType={bookingData?.service_type}
+                SitterDescription={bookingData?.sitter_description}
+              />
+            </View>
+            <View style={styles.LineSeperatorBelowBookingInfo} />
+            </>
+          ) : null
+        }
+        
         <View style={styles.ViewStyleInformation}>
           <BookingProperty
             image={require('../img/Clock.png')}
             name={'Shift Length'}
-            bookedLength={bookingData?.booked_length}
+            bookedLength={`${bookingData?.booked_length} hours`}
           />
           <BookingProperty
             image={require('../img/Service.png')}
@@ -88,6 +97,7 @@ export function ClientBookingDetails({componentId, id}) {
           style={styles.MakeFinalPaymentButton}
           TextStyle={styles.MakeFinalPaymentButtonText}
           onPress={CheckoutPayment}
+          disabled={!isAwaitingPayment}
         />
         <PrimaryButton
           label="Contact Admin"
@@ -119,6 +129,9 @@ export function ClientBookingDetails({componentId, id}) {
     Navigation.push(componentId, {
       component: {
         name: 'CheckoutPaymentPage',
+        passProps: {
+          id,
+        }
       },
     });
   }

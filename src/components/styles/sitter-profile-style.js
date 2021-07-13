@@ -4,6 +4,7 @@ export const styles = StyleSheet.create({
   ImageStyle: {
     width: 51,
     height: 51,
+    borderRadius: 25,
   },
   NameText: {
     fontSize: 16,
@@ -23,6 +24,7 @@ export const styles = StyleSheet.create({
     height: 17,
     width: 17,
     marginLeft: 16,
+    tintColor: "#92465a"
   },
   ServiceView: {
     flexDirection: 'row',

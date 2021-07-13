@@ -52,7 +52,7 @@ export function SitterBookingDetailsPage({componentId, id}) {
             </Text>
             <Text style={styles.DropInForPets}>
               {'\n'}
-              {bookingData?.address}
+              {bookingData?.client_address}
             </Text>
           </View>
         </View>
@@ -112,6 +112,8 @@ export function SitterBookingDetailsPage({componentId, id}) {
       status: 'approved',
       sitter_id: Auth().currentUser.uid,
       sitter_first_name: user.name,
+      sitter_image: user.image_url,
+      sitter_description: user.description,
     });
 
     Navigation.pop(componentId);
