@@ -71,7 +71,7 @@ Navigation.events().registerAppLaunchedListener(async () => {
     // Returns the data associated with a user
     const userData = userDoc?.data();
     const initialRoute =
-      userData?.type === 'client' ? 'SitterBookingPage' : 'SitterDetailsPage';
+      userData?.type === 'client' ? 'SitterDetailsPage' : 'SitterBookingPage';
 
     Navigation.setRoot({
       root: {

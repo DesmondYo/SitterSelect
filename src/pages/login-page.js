@@ -4,7 +4,7 @@ import {View, Image, Text, ScrollView, Alert} from 'react-native';
 import {Login} from '../components/login';
 import {styles} from './styles/login-page-style';
 import {PrimaryButton} from '../components/primary-button';
-import Auth from '@react-native-firebase/auth';
+import Auth, {firebase} from '@react-native-firebase/auth';
 import Firestore from '@react-native-firebase/firestore';
 
 const LoginPage = ({componentId}) => {
@@ -37,6 +37,7 @@ const LoginPage = ({componentId}) => {
           secureTextEntry={setPassword}
         />
         <Text style={styles.password}> I forgot my password</Text>
+
         <PrimaryButton
           label="Login"
           onPress={createUser}

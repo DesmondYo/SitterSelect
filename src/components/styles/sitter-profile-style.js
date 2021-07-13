@@ -60,6 +60,5 @@ export const styles = StyleSheet.create({
     color: '#92465a',
     fontFamily: 'arial',
     marginTop: 17,
-    right: 55,
   },
 });

@@ -29,10 +29,9 @@ export function CheckoutPaymentPage({componentId}) {
         </View>
         <View style={styles.ViewStyleSitterInformation}>
           <SitterProfile
-            image={require('../img/LadyInPic.png')}
+            source={require('../img/LadyInPic.png')}
             name={'Josie Emch'}
-            serviceImage={require('../img/DropInForSittersNoPinkBackground.png')}
-            service={'Drop-In For Pets'}
+            serviceType={'Kids-Portation'}
             date={'12 Oct 2021'}
             time={'07:00 - 10:00'}
           />

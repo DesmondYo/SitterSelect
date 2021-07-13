@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import {ScrollView, View, Text, Image} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {ScrollView, View, Text} from 'react-native';
 import {styles} from './styles/sitter-booking-details-page-style.js';
 import {BackButton} from '../components/back-button';
 import {Navigation} from 'react-native-navigation';
@@ -7,14 +7,17 @@ import {PrimaryButton} from '../components/primary-button.js';
 import {BookingProperty} from '../components/booking-property';
 import {StatusBadge} from '../components/status-badge';
 import Firestore from '@react-native-firebase/firestore';
-import Auth from "@react-native-firebase/auth";
-import { useCurrentUser } from '../utils/use-current-user.js';
+import Auth from '@react-native-firebase/auth';
+import {useCurrentUser} from '../utils/use-current-user.js';
 import dayjs from 'dayjs';
 
 export function SitterBookingDetailsPage({componentId, id}) {
   const user = useCurrentUser();
   const [bookingData, setBookingData] = useState(null);
-  const formattedDate = dayjs(bookingData?.booking_date).format("ddd, D MMM YYYY")
+  const formattedDate = dayjs(bookingData?.booking_date).format(
+    'ddd, D MMM YYYY',
+  );
+  console.log(bookingData);
   useEffect(onLoadData, []);
 
   // Add rest of data from {bookingData}
@@ -44,26 +47,16 @@ export function SitterBookingDetailsPage({componentId, id}) {
         <View style={styles.LineSeperator} />
         <View style={styles.BookingInfoView}>
           <View>
-            <Text style={styles.NameText}>Josie Emch</Text>
+            <Text style={styles.NameText}>
+              {bookingData?.client_first_name}
+            </Text>
             <Text style={styles.DropInForPets}>
-              4172 W. Tierra Buena Dr.{'\n'}
-              Phoenix, AZ 85394
+              {'\n'}
+              {bookingData?.address}
             </Text>
           </View>
         </View>
         <View style={styles.LineSeperatorBelowBookingInfo} />
-        <View style={styles.ViewStyleInformation}>
-          <BookingProperty
-            image={require('../img/CalenderImage.png')}
-            name={'Booked Length'}
-            bookedLength={'2 days'}
-          />
-          <BookingProperty
-            image={require('../img/Service.png')}
-            name={'Service'}
-            bookedLength={'Drop-In for Pets'}
-          />
-        </View>
         <View style={styles.ViewStyleInformation}>
           <BookingProperty
             image={require('../img/Clock.png')}
@@ -71,9 +64,20 @@ export function SitterBookingDetailsPage({componentId, id}) {
             bookedLength={'9 hours'}
           />
           <BookingProperty
+            image={require('../img/Service.png')}
+            name={'Service'}
+            bookedLength={bookingData?.service_type}
+          />
+        </View>
+        <View style={styles.ViewStyleInformation}>
+          <BookingProperty
             image={require('../img/PhoneIcon.png')}
             name={'Call time'}
-            bookedLength={'8 am - 5 pms'}
+            bookedLength={[
+              bookingData?.start_date,
+              ' - ',
+              bookingData?.end_date,
+            ]}
           />
         </View>
       </ScrollView>
@@ -86,7 +90,7 @@ export function SitterBookingDetailsPage({componentId, id}) {
           onPress={AcceptPress}
         />
         <PrimaryButton
-          label="Decline"
+          label="Back to my bookings"
           style={styles.ContactJosieButton}
           TextStyle={styles.ContactJosieButtonText}
           onPress={onPress}
@@ -96,13 +100,16 @@ export function SitterBookingDetailsPage({componentId, id}) {
   );
 
   function onLoadData() {
-    const unsubscribe = Firestore().collection('bookings').doc(id).onSnapshot(document => setBookingData(document.data()));
+    const unsubscribe = Firestore()
+      .collection('bookings')
+      .doc(id)
+      .onSnapshot(document => setBookingData(document.data()));
     return () => unsubscribe();
   }
 
   async function AcceptPress() {
     await Firestore().collection('bookings').doc(id).update({
-      status: "approved",
+      status: 'approved',
       sitter_id: Auth().currentUser.uid,
       sitter_first_name: user.name,
     });

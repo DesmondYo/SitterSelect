@@ -22,9 +22,7 @@ export function ClientSitterBookings({
           )}
 
           <View style={styles.DetailsContainer}>
-            {label && (
-              <Text style={styles.NameText}>{label}</Text>
-            )}
+            {label && <Text style={styles.NameText}>{label}</Text>}
             <View style={styles.ServiceRow}>
               <Image style={styles.ServiceImage} source={image} />
               <Text style={styles.ServiceText}>{serviceType}</Text>

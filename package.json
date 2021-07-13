@@ -24,7 +24,8 @@
     "react-native-material-tabs": "^4.2.0",
     "react-native-modal-datetime-picker": "^9.2.1",
     "react-native-navigation": "^7.12.0",
-    "react-native-safe-area": "^0.5.1"
+    "react-native-safe-area": "^0.5.1",
+    "react-native-uuid": "^2.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.13.10",

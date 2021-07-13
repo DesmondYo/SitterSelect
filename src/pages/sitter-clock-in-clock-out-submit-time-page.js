@@ -70,9 +70,9 @@ export function SitterClockInClockOutSubmitTimePage({componentId}) {
         </View>
         <View style={styles.ViewStyleInformation}>
           <BookingProperty
-            image={require('../img/CalenderImage.png')}
-            name={'Booked Length'}
-            bookedLength={'2 days'}
+            image={require('../img/Clock.png')}
+            name={'Shift Length'}
+            bookedLength={'9 hours'}
           />
           <BookingProperty
             image={require('../img/Service.png')}
@@ -86,11 +86,6 @@ export function SitterClockInClockOutSubmitTimePage({componentId}) {
             image={require('../img/PhoneIcon.png')}
             name={'Call time'}
             bookedLength={'8 am - 5 pm'}
-          />
-          <BookingProperty
-            image={require('../img/Clock.png')}
-            name={'Shift Length'}
-            bookedLength={'9 hours'}
           />
         </View>
         <View style={styles.LineSeperator} />

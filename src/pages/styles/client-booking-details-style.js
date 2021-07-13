@@ -12,6 +12,11 @@ export const styles = StyleSheet.create({
     fontFamily: 'arial',
     fontWeight: 'bold',
   },
+  Booking: {
+    fontSize: 14,
+    color: '#b59ea4',
+    marginLeft: 16,
+  },
   LineSeperator: {
     borderBottomColor: '#f2d8df',
     borderBottomWidth: 1,

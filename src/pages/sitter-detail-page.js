@@ -11,6 +11,7 @@ import {ServiceItem} from '../components/service-item';
 import {useCurrentUser} from '../utils/use-current-user';
 import Auth from '@react-native-firebase/auth';
 import Firestore from '@react-native-firebase/firestore';
+import uuid from 'react-native-uuid';
 
 export function SitterDetailsPage({componentId}) {
   const [startTime, setStartTime] = useState(dayjs());
@@ -22,6 +23,7 @@ export function SitterDetailsPage({componentId}) {
   const formattedEndTime = dayjs(endTime).format('h:mm A');
   const [serviceType, setServiceType] = useState('Kids-Portation');
   const user = useCurrentUser();
+  const formattedDate = dayjs(selectedDate).format('D MMM YYYY');
   const markedDates = {
     // Current Date
     [`${dayjs().format('YYYY-MM-DD')}`]: {
@@ -46,14 +48,13 @@ export function SitterDetailsPage({componentId}) {
       },
     },
   };
-  console.log({startTime, endTime});
-  // Calculation to work out price 
+  // Calculation to work out price
   const hoursBetweenStartAndEndDate = Math.abs(
-    dayjs(startTime).diff(endTime, 'hour')
+    dayjs(startTime).diff(endTime, 'hours'),
   );
   // hoursBetweenStartAndEndDate * 14 (14 dollars per hour)
   const price = hoursBetweenStartAndEndDate * 14;
-  
+
   return (
     <>
       <ScrollView style={styles.SitterDetailsContainer}>
@@ -91,7 +92,7 @@ export function SitterDetailsPage({componentId}) {
             selectedDayTextColor: '#000000',
           }}
         />
-        <Text style={styles.BookingDate}>Selected: 28 June 2021</Text>
+        <Text style={styles.BookingDate}>Selected: {formattedDate}</Text>
         <View style={styles.TimePicker}>
           <GmailTouchable
             label="Start Time"
@@ -139,7 +140,9 @@ export function SitterDetailsPage({componentId}) {
       <View style={styles.BookNowBackground}>
         <View>
           <Text style={styles.Money}>${price}</Text>
-          <Text style={styles.Rates}>Rate for {hoursBetweenStartAndEndDate} hours</Text>
+          <Text style={styles.Rates}>
+            Rate for {hoursBetweenStartAndEndDate} hours
+          </Text>
         </View>
         <PrimaryButton
           label="Book Now"
@@ -163,6 +166,12 @@ export function SitterDetailsPage({componentId}) {
       status: 'pending',
       client_first_name: user.name,
       sitter_id: null,
+      booked_length: hoursBetweenStartAndEndDate,
+      client_address: user.client_address,
+      invoice_number: uuid.DNS,
+      phone_number: user.phone_number,
+      sitter_image: user.image_url,
+      description: user.description,
     });
 
     Navigation.push(componentId, {

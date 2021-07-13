@@ -1,25 +1,29 @@
 import React from 'react';
 import {View, Image, Text} from 'react-native';
 import {styles} from './styles/sitter-profile-style.js';
+import {StatusBadge} from './status-badge';
 
 export function SitterProfile({
-  image,
+  source,
   name,
-  service,
-  serviceImage,
+  serviceType,
   date,
   time,
+  status,
   SitterDescription,
 }) {
+  const image = getServiceImage();
   return (
     <View style={styles.SitterProfileView}>
-      <Image source={image} style={styles.ImageStyle} />
+      {source && <Image source={source} style={styles.ImageStyle} />}
       <View style={styles.ViewStyle}>
-        <Text style={[styles.NameText, styles.TextMargin]}>{name}</Text>
+        {name && (
+          <Text style={[styles.NameText, styles.TextMargin]}>{name}</Text>
+        )}
 
         <View style={styles.ViewStyleText}>
-          <Image style={styles.ServiceImage} source={serviceImage} />
-          <Text style={styles.service}>{service}</Text>
+          <Image style={styles.ServiceImage} source={image} />
+          <Text style={styles.service}>{serviceType}</Text>
         </View>
         {SitterDescription ? (
           <Text style={styles.SitterDescription}>{SitterDescription}</Text>
@@ -35,6 +39,30 @@ export function SitterProfile({
           </View>
         ) : null}
       </View>
+      <StatusBadge status={status} />
     </View>
   );
+  /**
+   * Gets the image of the service type
+   *
+   * @returns image of service type
+   */
+  function getServiceImage() {
+    switch (serviceType) {
+      case 'Kids-Portation':
+        return require('../img/Kids-PortationNoBackground.png');
+      case 'Drop-In For Pets':
+        return require('../img/DropInForSittersNoPinkBackground.png');
+      case 'Pet Sitting':
+        return require('../img/PetSittingNoBackground.png');
+      case 'Drop-in for House Sitting':
+        return require('../img/DropinForHouseSittingNoBackground.png');
+      case 'Babysitting':
+        return require('../img/BabysittingNoBackground.png');
+      case 'Child Tutoring':
+        return require('../img/ChildTutoringNoBackground.png');
+      default:
+        return require('../img/DropInForSittersNoPinkBackground.png');
+    }
+  }
 }
