@@ -12,18 +12,19 @@ import {useCurrentUser} from '../utils/use-current-user';
 import Auth from '@react-native-firebase/auth';
 import Firestore from '@react-native-firebase/firestore';
 import uuid from 'react-native-uuid';
-
 export function SitterDetailsPage({componentId}) {
   const [startTime, setStartTime] = useState(dayjs());
   const [endTime, setEndTime] = useState(dayjs().add(2, 'hour'));
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [startSelectedDate, setStartSelectedDate] = useState(null);
+  const [endSelectedDate, setEndSelectedDate] = useState(null);
   const [showStartTimePicker, setShowStartTimePicker] = useState(false);
   const [showEndTimePicker, setShowEndTimePicker] = useState(false);
   const formattedStartTime = dayjs(startTime).format('h:mm A');
   const formattedEndTime = dayjs(endTime).format('h:mm A');
   const [serviceType, setServiceType] = useState('Kids-Portation');
   const user = useCurrentUser();
-  const formattedDate = dayjs(selectedDate).format('D MMM YYYY');
+  const formattedStartDate = dayjs(startSelectedDate).format('D MMM YYYY');
+  const formattedEndDate = dayjs(endSelectedDate).format('D MMM YYYY');
   const markedDates = {
     // Current Date
     [`${dayjs().format('YYYY-MM-DD')}`]: {
@@ -37,7 +38,17 @@ export function SitterDetailsPage({componentId}) {
       },
     },
     // Selected Date
-    [`${dayjs(selectedDate).format('YYYY-MM-DD')}`]: {
+    [`${dayjs(startSelectedDate).format('YYYY-MM-DD')}`]: {
+      customStyles: {
+        container: {
+          width: 40,
+          height: 40,
+          backgroundColor: '#e09095',
+          paddingTop: 5,
+        },
+      },
+    },
+    [`${dayjs(endSelectedDate).format('YYYY-MM-DD')}`]: {
       customStyles: {
         container: {
           width: 40,
@@ -71,7 +82,7 @@ export function SitterDetailsPage({componentId}) {
         <Calendar
           markingType="custom"
           markedDates={markedDates}
-          onDayPress={({dateString}) => setSelectedDate(dateString)}
+          onDayPress={onDatePress}
           theme={{
             backgroundColor: 'transparent',
             calendarBackground: 'transparent',
@@ -92,7 +103,7 @@ export function SitterDetailsPage({componentId}) {
             selectedDayTextColor: '#000000',
           }}
         />
-        <Text style={styles.BookingDate}>Selected: {formattedDate}</Text>
+        <Text style={styles.BookingDate}>Selected: {formattedStartDate} - {formattedEndDate}</Text>
         <View style={styles.TimePicker}>
           <GmailTouchable
             label="Start Time"
@@ -154,12 +165,20 @@ export function SitterDetailsPage({componentId}) {
     </>
   );
 
+  function onDatePress({ dateString }) {
+    if(!startSelectedDate) {
+      setStartSelectedDate(dateString);
+    } else {
+      setEndSelectedDate(dateString);
+    }
+  }
+
   async function BookingSuccessPage() {
     await Firestore().collection('bookings').add({
-      date: selectedDate,
+      date: startSelectedDate,
       start_date: formattedStartTime,
       end_date: formattedEndTime,
-      booking_date: selectedDate,
+      booking_date: startSelectedDate,
       service_type: serviceType,
       client_id: Auth().currentUser.uid,
       created_at: dayjs().format(),
