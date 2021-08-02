@@ -1,8 +1,6 @@
 export const ServiceTypes = {
-    KidsPortation: 'Kids-Portation',
-    DropInForPets: 'Drop-In For Pets',
-    PetSitting: 'Pet Sitting',
-    DropinforHouseSitting: "Drop-in for House Sitting",
-    Babysitting: "Babysitting",
-    ChildTutoring: "Child Tutoring",
+  ChildTutoring: 'Child Tutoring',
+  PetsHouseSittingDropin: 'Pets/House Sitting Drop-in',
+  Babysitting: 'Babysitting',
+  PetHouseSittingOvernight: 'Pet / House Sitting Overnight',
 };

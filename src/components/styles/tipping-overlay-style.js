@@ -32,19 +32,6 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     alignSelf: 'center',
   },
-  TipButton: {
-    width: '50%',
-    height: 41,
-    backgroundColor: '#e09095',
-    borderRadius: 35,
-    alignSelf: 'center',
-  },
-  TipButtonText: {
-    textAlign: 'center',
-    padding: 12,
-    color: 'white',
-    fontSize: 14,
-  },
   modalOverlayStyle: {
     backgroundColor: 'black',
   },

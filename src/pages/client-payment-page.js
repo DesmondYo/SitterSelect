@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, ScrollView, Text} from 'react-native';
 import {styles} from './styles/client-payment-page-style.js';
 import {BackButton} from '../components/back-button';
@@ -7,13 +7,27 @@ import {TipButton} from '../components/tip-button.js';
 import {PrimaryButton} from '../components/primary-button.js';
 import {SitterProfile} from '../components/sitter-profile';
 import {BookingDetailRow} from '../components/booking-detail-row';
+import Firestore from '@react-native-firebase/firestore';
+import dayjs from 'dayjs';
+import {getServicePrice} from '../utils/get-service-price';
 
 export function CheckoutPaymentPage({componentId, id}) {
-  const [selectedTip, setSelectedTip] = useState(null);
+  const [selectedTip, setSelectedTip] = useState(0);
+  const [bookingData, setBookingData] = useState(null);
 
-  // const hoursBetweenStartAndEndDate = Math.abs(
-  //   dayjs(startTime).diff(endTime, 'hours'),
-  // );
+  const hoursBetweenStartAndEndTime = Math.abs(
+    dayjs(bookingData?.start_time, 'h:m A').diff(
+      dayjs(bookingData?.end_time, 'h:m A'),
+      'h',
+    ),
+  );
+
+  var customParseFormat = require('dayjs/plugin/customParseFormat');
+  dayjs.extend(customParseFormat);
+  dayjs('4:15 PM', 'h:m A').isValid();
+
+  console.log(bookingData);
+  useEffect(FetchClientBooking, []);
 
   return (
     <>
@@ -34,16 +48,17 @@ export function CheckoutPaymentPage({componentId, id}) {
         </View>
         <View style={styles.ViewStyleSitterInformation}>
           <SitterProfile
-            source={require('../img/LadyInPic.png')}
-            name={'Josie Emch'}
-            serviceType={'Kids-Portation'}
-            date={'12 Oct 2021'}
-            time={'07:00 - 10:00'}
+            source={{uri: bookingData?.sitter_image}}
+            name={bookingData?.sitter_first_name}
+            serviceType={bookingData?.service_type}
+            date={bookingData?.date}
+            time={[bookingData?.start_time, ' - ', bookingData?.end_time]}
           />
         </View>
         <View style={styles.MainRectangle}>
           <Text style={styles.TotalHoursWorked}>
-            Total hours Josie Emch worked : 9 hours
+            Total hours {bookingData?.sitter_first_name} worked :{' '}
+            {hoursBetweenStartAndEndTime} hours
           </Text>
         </View>
         <View style={styles.LineSeperator} />
@@ -74,30 +89,53 @@ export function CheckoutPaymentPage({componentId, id}) {
           <Text style={styles.BookingInfoText}> Price details </Text>
         </View>
         <BookingDetailRow label={'Booking fee'} value={'$8/day'} />
-        <BookingDetailRow label={'Booking price'} value={'$500/hour'} />
-        <BookingDetailRow label={'Duration'} value={'3 hours'} />
-        <BookingDetailRow label={'Tax'} value={'0'} />
+        <BookingDetailRow
+          label={'Booking price'}
+          value={`$${getServicePrice(
+            bookingData?.service_type,
+            hoursBetweenStartAndEndTime,
+          )}`}
+        />
         <View style={styles.ViewStyleBookingInfo}>
           <Text style={styles.Total}>Total</Text>
           <View style={styles.PriceDetailsStyle}>
-            <Text style={styles.TotalText}>{`$${1500 + parseFloat(selectedTip)}`}</Text>
+            <Text style={styles.TotalText}>{`$${
+              getServicePrice(
+                bookingData?.service_type,
+                hoursBetweenStartAndEndTime,
+              ) +
+              8 +
+              parseFloat(selectedTip)
+            }`}</Text>
           </View>
         </View>
         <View style={styles.PrimaryButtonStyle}>
           <PrimaryButton
             label="Confirm & Pay"
-            style={styles.Button}
-            TextStyle={styles.ButtonText}
+            fill={true}
+            containerStyle={{width: 343}}
             onPress={onOpenOverlay}
           />
         </View>
       </ScrollView>
     </>
   );
+
+  function FetchClientBooking() {
+    const unsubscribe = Firestore()
+      .collection('bookings')
+      .doc(id)
+      .onSnapshot(document => setBookingData(document.data()));
+    return () => unsubscribe();
+  }
+
   function onPress() {
-    Navigation.popToRoot(componentId, {
+    Navigation.pop(componentId, {
       component: {
         name: 'ClientBookingPage',
+        passProps: {
+          id,
+        },
       },
     });
   }
@@ -107,6 +145,7 @@ export function CheckoutPaymentPage({componentId, id}) {
         name: 'FinalPaymentOverlay',
         passProps: {
           parentComponentId: componentId,
+          id,
         },
         options: {
           layout: {

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, TouchableOpacity} from 'react-native';
+import {Linking, Text, TouchableOpacity} from 'react-native';
 import {styles} from './styles/sign-up-overlay-style.js';
 import {AwesomeModal} from 'react-native-awesome-modal';
 import {Navigation} from 'react-native-navigation';
@@ -16,11 +16,19 @@ export function SignUpOverlay({componentId}) {
       <Text style={styles.text}>What do you need?</Text>
 
       <TouchableOpacity style={styles.rectangle}>
-        <Text style={styles.buttonTextStyle}>I’m looking for a sitter.</Text>
+        <Text
+          style={styles.buttonTextStyle}
+          onPress={() => Linking.openURL('https://google.com')}>
+          I’m looking for a sitter.
+        </Text>
       </TouchableOpacity>
 
       <TouchableOpacity style={(styles.buttonTextStyle, styles.rectangletwo)}>
-        <Text style={styles.buttonTextStyle}>I’d like to become a sitter.</Text>
+        <Text
+          style={styles.buttonTextStyle}
+          onPress={() => Linking.openURL('https://google.com')}>
+          I’d like to become a sitter.
+        </Text>
       </TouchableOpacity>
     </AwesomeModal>
   );

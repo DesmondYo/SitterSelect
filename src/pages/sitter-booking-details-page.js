@@ -61,7 +61,7 @@ export function SitterBookingDetailsPage({componentId, id}) {
           <BookingProperty
             image={require('../img/Clock.png')}
             name={'Shift Length'}
-            bookedLength={'9 hours'}
+            bookedLength={`${bookingData?.booked_length} hours`}
           />
           <BookingProperty
             image={require('../img/Service.png')}
@@ -85,15 +85,15 @@ export function SitterBookingDetailsPage({componentId, id}) {
       <View style={styles.PrimaryButtonStyle}>
         <PrimaryButton
           label="Accept"
-          style={styles.MakeFinalPaymentButton}
-          TextStyle={styles.MakeFinalPaymentButtonText}
+          fill={true}
+          containerStyle={{width: 343}}
           onPress={AcceptPress}
         />
         <PrimaryButton
           label="Back to my bookings"
-          style={styles.ContactJosieButton}
-          TextStyle={styles.ContactJosieButtonText}
           onPress={onPress}
+          fill={false}
+          containerStyle={{width: 343}}
         />
       </View>
     </>

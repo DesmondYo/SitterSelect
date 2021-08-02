@@ -15,12 +15,21 @@ export function SitterClockInClockOutSubmitTimePage({componentId, id}) {
   const [showTimePicker, setShowTimePicker] = useState(false);
   const [startTime, setStartTime] = useState(null);
   const [endTime, setEndTime] = useState(null);
-  const [buttonState, setButtonState] = useState("Clock In");
+  const [buttonState, setButtonState] = useState('Clock In');
   const actionSheetRef = useRef(null);
   const awesomeModalRef = useRef(null);
   const isActionSheetOpen = useRef(false);
-  const formattedStartTime = startTime ? dayjs(startTime).format() : "NA";
-  const formattedEndTime = endTime ? dayjs(endTime).format() : "NA";
+  const formattedStartTime = startTime
+    ? dayjs(startTime).format('h:mm A')
+    : 'NA';
+  const formattedEndTime = endTime ? dayjs(endTime).format('h:mm A') : 'NA';
+  const [bookingData, setBookingData] = useState(null);
+  const formattedDate = dayjs(bookingData?.booking_date).format(
+    'ddd, D MMM YYYY',
+  );
+
+  console.log(bookingData);
+  useEffect(onFetchClientBooking, []);
 
   return (
     <>
@@ -43,7 +52,7 @@ export function SitterClockInClockOutSubmitTimePage({componentId, id}) {
         </View>
         <View style={styles.BookingDateStyle}>
           <Text style={styles.Accepted}> Accepted date </Text>
-          <Text style={styles.BookingDate}>Wed, 12 Oct 2021</Text>
+          <Text style={styles.BookingDate}>{formattedDate}</Text>
         </View>
         <View style={styles.LineSeperatorBelowBookingInfo} />
         <View style={styles.BookingInfoView}>
@@ -51,30 +60,23 @@ export function SitterClockInClockOutSubmitTimePage({componentId, id}) {
         </View>
         <View style={styles.BookingInfoStats}>
           <View>
-            <Text style={[styles.NameText, styles.TextMargin]}>Josie Emch</Text>
-            <Text style={styles.Address}>
-              4172 W. Tierra Buena Dr.{'\n'}
-              Phoenix, AZ 85394
+            <Text style={[styles.NameText, styles.TextMargin]}>
+              {bookingData?.client_first_name}
             </Text>
+            <Text style={styles.Address}>{bookingData?.client_address}</Text>
           </View>
         </View>
         <View style={styles.LineSeperator} />
-        <View style={styles.BookingInfoView}>
-          <Text style={styles.BookingInfoText}>
-            {' '}
-            15 Oct 2021 - 16 Oct 2021{' '}
-          </Text>
-        </View>
         <View style={styles.ViewStyleInformation}>
           <BookingProperty
             image={require('../img/Clock.png')}
             name={'Shift Length'}
-            bookedLength={'9 hours'}
+            bookedLength={`${bookingData?.booked_length} hours`}
           />
           <BookingProperty
             image={require('../img/Service.png')}
             name={'Service'}
-            bookedLength={'Drop-In for Pets'}
+            bookedLength={bookingData?.service_type}
           />
         </View>
 
@@ -82,7 +84,11 @@ export function SitterClockInClockOutSubmitTimePage({componentId, id}) {
           <BookingProperty
             image={require('../img/PhoneIcon.png')}
             name={'Call time'}
-            bookedLength={'8 am - 5 pm'}
+            bookedLength={[
+              bookingData?.start_date,
+              ' - ',
+              bookingData?.end_date,
+            ]}
           />
         </View>
         <View style={styles.LineSeperator} />
@@ -122,14 +128,14 @@ export function SitterClockInClockOutSubmitTimePage({componentId, id}) {
       <View style={styles.PrimaryButtonStyle}>
         <PrimaryButton
           label={buttonState}
-          style={styles.MakeFinalPaymentButton}
-          TextStyle={styles.MakeFinalPaymentButtonText}
+          fill={true}
+          containerStyle={{width: 343}}
           onPress={onSubmitTime}
         />
         <PrimaryButton
           label="Contact Josie"
-          style={styles.ContactJosieButton}
-          TextStyle={styles.ContactJosieButtonText}
+          fill={false}
+          containerStyle={{width: 343}}
           onPress={onPressContactJosie}
         />
       </View>
@@ -143,22 +149,32 @@ export function SitterClockInClockOutSubmitTimePage({componentId, id}) {
       await Firestore().collection('bookings').doc(id).update({
         start_time: formattedStartTime,
         end_time: formattedEndTime,
-        status: 'awaiting_payment',
+        status: 'awaiting payment',
       });
 
-      Navigation.push(componentId, { component: {
-        name: "SitterSubmitTimeSuccessPage",
-      }});
+      Navigation.push(componentId, {
+        component: {
+          name: 'SitterSubmitTimeSuccessPage',
+        },
+      });
     }
+  }
+
+  function onFetchClientBooking() {
+    const unsubscribe = Firestore()
+      .collection('bookings')
+      .doc(id)
+      .onSnapshot(document => setBookingData(document.data()));
+    return () => unsubscribe();
   }
 
   function onSetClockInTime(val) {
     if (!startTime) {
       setStartTime(val);
-      setButtonState("Clock Out")
+      setButtonState('Clock Out');
     } else {
       setEndTime(val);
-      setButtonState("Submit Time")
+      setButtonState('Submit Time');
     }
 
     setShowTimePicker(false);

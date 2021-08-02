@@ -27,9 +27,11 @@ export function TippingOverlay({componentId, onChange}) {
       />
       <PrimaryButton
         label="Confirm"
-        style={styles.TipButton}
+        fill={true}
+        containerStyle={{width: '60%'}}
+        align={{alignSelf: 'center'}}
         onPress={() => {
-          Navigation.dismissOverlay(componentId)
+          Navigation.dismissOverlay(componentId);
           onChange(number);
         }}
         TextStyle={styles.TipButtonText}

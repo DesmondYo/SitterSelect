@@ -5,7 +5,7 @@ import {AwesomeModal} from 'react-native-awesome-modal';
 import {Navigation} from 'react-native-navigation';
 import ActionSheet from '@alessiocancian/react-native-actionsheet';
 import {ServiceButton} from './service-button';
-import { ServiceTypes } from '../config/sitter-types.js';
+import {ServiceTypes} from '../config/sitter-types.js';
 const phoneNumber = '(602) 803-4851';
 
 export function ServiceOverlay({componentId, onChange}) {
@@ -28,33 +28,23 @@ export function ServiceOverlay({componentId, onChange}) {
       />
       <ServiceButton
         image={require('../img/DropInForPets.png')}
-        label="Drop-In For Pets"
-        onPress={() => onChangeService(ServiceTypes.DropInForPets)}
+        label="Pet / House Sitting Drop-in"
+        onPress={() => onChangeService(ServiceTypes.PetsHouseSittingDropin)}
       />
       <ServiceButton
         image={require('../img/Kids-Portation.png')}
         label="Kids-Portation"
-        onPress={() => onChangeService(ServiceTypes.KidsPortation)}
-      />
-      <ServiceButton
-        image={require('../img/PetSitting.png')}
-        label="Pet Sitting"
-        onPress={() => onChangeService(ServiceTypes.PetSitting)}
-      />
-      <ServiceButton
-        image={require('../img/OvernightHouseSitting.png')}
-        label="Overnight House Sitting"
         onPress={onPressEventSitting}
-      />
-      <ServiceButton
-        image={require('../img/Drop-inForHouseSitting.png')}
-        label="Drop-in for House Sitting"
-        onPress={() => onChangeService(ServiceTypes.DropinforHouseSitting)}
       />
       <ServiceButton
         image={require('../img/BabySitting.png')}
         label="Babysitting"
         onPress={() => onChangeService(ServiceTypes.Babysitting)}
+      />
+      <ServiceButton
+        image={require('../img/OvernightHouseSitting.png')}
+        label="Pet / House Sitting Overnight"
+        onPress={() => onChangeService(ServiceTypes.PetHouseSittingOvernight)}
       />
       <ServiceButton
         image={require('../img/EventSitting.png')}

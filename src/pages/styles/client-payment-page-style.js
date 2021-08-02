@@ -84,17 +84,6 @@ export const styles = StyleSheet.create({
     marginLeft: 5,
     fontWeight: 'bold',
   },
-  Button: {
-    width: 343,
-    backgroundColor: '#e09095',
-    borderRadius: 35,
-  },
-  ButtonText: {
-    textAlign: 'center',
-    padding: 12,
-    color: 'white',
-    fontSize: 14,
-  },
   backgroundStyleColor: {
     backgroundColor: '#f9ede1',
     flex: 1,

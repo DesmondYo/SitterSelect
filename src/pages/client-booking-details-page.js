@@ -8,6 +8,7 @@ import ActionSheet from '@alessiocancian/react-native-actionsheet';
 import {BookingDetailRow} from '../components/booking-detail-row';
 import {SitterProfile} from '../components/sitter-profile';
 import {BookingProperty} from '../components/booking-property';
+// import {ContactAdminButton} from '../components/contact-admin-button';
 import {BookingDetailStatus} from '../components/booking-detail-status.js';
 import Firestore from '@react-native-firebase/firestore';
 import dayjs from 'dayjs';
@@ -19,8 +20,8 @@ export function ClientBookingDetails({componentId, id}) {
   const formattedDate = dayjs(bookingData?.booking_date).format(
     'ddd, D MMM YYYY',
   );
-  const isPending = bookingData?.status === "pending";
-  const isAwaitingPayment = bookingData?.status === "awaiting_payment";
+  const isPending = bookingData?.status === 'pending';
+  const isAwaitingPayment = bookingData?.status === 'awaiting payment';
 
   console.log(bookingData);
   useEffect(FetchClientBooking, []);
@@ -43,22 +44,20 @@ export function ClientBookingDetails({componentId, id}) {
         />
         <BookingDetailRow label={'Booking Date'} value={formattedDate} />
         <View style={styles.LineSeperator} />
-        {
-           !isPending ? (
-            <>
+        {!isPending ? (
+          <>
             <View style={styles.BookingInfoView}>
               <SitterProfile
-                source={{ uri: bookingData?.sitter_image }}
+                source={{uri: bookingData?.sitter_image}}
                 name={bookingData?.sitter_first_name}
                 serviceType={bookingData?.service_type}
                 SitterDescription={bookingData?.sitter_description}
               />
             </View>
             <View style={styles.LineSeperatorBelowBookingInfo} />
-            </>
-          ) : null
-        }
-        
+          </>
+        ) : null}
+
         <View style={styles.ViewStyleInformation}>
           <BookingProperty
             image={require('../img/Clock.png')}
@@ -94,16 +93,15 @@ export function ClientBookingDetails({componentId, id}) {
       <View style={styles.PrimaryButtonStyle}>
         <PrimaryButton
           label="Make final payment"
-          style={styles.MakeFinalPaymentButton}
-          TextStyle={styles.MakeFinalPaymentButtonText}
           onPress={CheckoutPayment}
           disabled={!isAwaitingPayment}
+          fill={true}
+          containerStyle={{width: 343}}
         />
         <PrimaryButton
-          label="Contact Admin"
-          style={styles.ContactJosieButton}
-          TextStyle={styles.ContactJosieButtonText}
+          label={`Contact ${bookingData?.sitter_first_name} `}
           onPress={onPressCallJosie}
+          fill={false}
         />
       </View>
     </>
@@ -131,7 +129,7 @@ export function ClientBookingDetails({componentId, id}) {
         name: 'CheckoutPaymentPage',
         passProps: {
           id,
-        }
+        },
       },
     });
   }

@@ -24,7 +24,7 @@ export const styles = StyleSheet.create({
     height: 17,
     width: 17,
     marginLeft: 16,
-    tintColor: "#92465a"
+    tintColor: '#92465a',
   },
   ServiceView: {
     flexDirection: 'row',
@@ -62,5 +62,6 @@ export const styles = StyleSheet.create({
     color: '#92465a',
     fontFamily: 'arial',
     marginTop: 17,
+    right: 55,
   },
 });

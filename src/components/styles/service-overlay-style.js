@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
     borderBottomLeftRadius: 0,
     borderBottomRightRadius: 0,
     backgroundColor: '#f9ede1',
-    height: 630,
+    height: 520,
   },
   close: {
     fontSize: 16,

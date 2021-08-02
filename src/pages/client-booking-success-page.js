@@ -20,15 +20,14 @@ export function BookingSuccessPage({componentId}) {
         <View style={styles.PrimaryButtonStyle}>
           <PrimaryButton
             label="OK"
-            style={styles.MakeFinalPaymentButton}
-            TextStyle={styles.MakeFinalPaymentButtonText}
             onPress={onLogin}
+            fill={true}
+            containerStyle={{width: 343}}
           />
           <PrimaryButton
             label="Edit booking request"
-            style={styles.ContactJosieButton}
-            TextStyle={styles.ContactJosieButtonText}
             onPress={EditBookingRequest}
+            fill={false}
           />
         </View>
       </SafeAreaView>

@@ -1,6 +1,13 @@
 import React, {useState} from 'react';
 import {Navigation} from 'react-native-navigation';
-import {View, Image, Text, ScrollView, Alert} from 'react-native';
+import {
+  View,
+  Image,
+  Text,
+  ScrollView,
+  Alert,
+  TouchableHighlight,
+} from 'react-native';
 import {Login} from '../components/login';
 import {styles} from './styles/login-page-style';
 import {PrimaryButton} from '../components/primary-button';
@@ -20,7 +27,6 @@ const LoginPage = ({componentId}) => {
         source={require('../img/icon3x.png')}
         style={styles.SitterSelectLogo}
       />
-
       <View>
         <Text style={styles.Text}> Welcome!</Text>
         <Login
@@ -36,13 +42,17 @@ const LoginPage = ({componentId}) => {
           hideLabel={true}
           secureTextEntry={setPassword}
         />
-        <Text style={styles.password}> I forgot my password</Text>
+        <View style={styles.LineSeperator}>
+          <Text onPress={forgetPassword} style={styles.password}>
+            I forgot my password
+          </Text>
+        </View>
 
         <PrimaryButton
           label="Login"
           onPress={createUser}
-          style={styles.button}
-          TextStyle={styles.buttonText}
+          fill={true}
+          align={{marginTop: 20}}
         />
         <Text onPress={onOpenOverlay} style={styles.signUp}>
           Don't have an account? Sign Up
@@ -50,6 +60,15 @@ const LoginPage = ({componentId}) => {
       </View>
     </ScrollView>
   );
+
+  function forgetPassword() {
+    try {
+      firebase.auth().sendPasswordResetEmail(email);
+      Alert.alert('Oops!', 'Please check your email to reset your password');
+    } catch (e) {
+      console.log(alert);
+    }
+  }
 
   async function createUser() {
     try {

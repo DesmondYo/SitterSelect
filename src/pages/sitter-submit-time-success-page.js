@@ -15,8 +15,11 @@ export function SitterSubmitTimeSuccessPage({componentId}) {
       <PrimaryButton
         label="Back To My Bookings"
         onPress={onLogin}
-        style={styles.OkButton}
-        TextStyle={styles.OkButtonText}
+        fill={true}
+        containerStyle={{width: 343}}
+        align={{alignSelf: 'center'}}
+        styling={{bottom: 40}}
+        bottom={{position: 'absolute'}}
       />
     </SafeAreaView>
   );

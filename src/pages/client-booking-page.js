@@ -20,7 +20,7 @@ export function ClientBookingPage({componentId}) {
         // source, label, date, type, time
         return (
           <ClientSitterBookings
-            source={{ uri: booking.sitter_image }}
+            source={{uri: booking.sitter_image}}
             label={booking.first_name}
             serviceType={booking.service_type}
             date={booking.date}
@@ -52,7 +52,7 @@ export function ClientBookingPage({componentId}) {
     const unsubscribe = Firestore()
       .collection('bookings')
       .where('client_id', '==', Auth().currentUser.uid)
-      .where('status', "!=", "completed")
+      // .where('status', '!=', 'completed')
       .onSnapshot(snapshot => {
         setBookingsDocs(snapshot.docs);
       });

@@ -12,11 +12,6 @@ export const styles = StyleSheet.create({
     fontFamily: 'arial',
     fontWeight: 'bold',
   },
-  Booking: {
-    fontSize: 14,
-    color: '#b59ea4',
-    marginLeft: 16,
-  },
   LineSeperator: {
     borderBottomColor: '#f2d8df',
     borderBottomWidth: 1,
@@ -35,35 +30,6 @@ export const styles = StyleSheet.create({
     borderBottomWidth: 1,
     marginTop: 15,
     width: '90%',
-  },
-  MakeFinalPaymentButton: {
-    width: 343,
-    backgroundColor: '#e09095',
-    borderRadius: 35,
-  },
-  MakeFinalPaymentButtonText: {
-    textAlign: 'center',
-    padding: 14,
-    color: 'white',
-    fontSize: 14,
-  },
-  ContactJosieButton: {
-    width: 343,
-    marginTop: 13,
-    backgroundColor: 'transparent',
-    borderWidth: 1,
-    borderTopLeftRadius: 35,
-    borderTopRightRadius: 35,
-    borderBottomRightRadius: 35,
-    borderBottomLeftRadius: 35,
-    borderColor: '#e09095',
-  },
-  ContactJosieButtonText: {
-    textAlign: 'center',
-    padding: 14,
-    color: '#e09095',
-    fontSize: 14,
-    fontWeight: 'bold',
   },
   BackgroundStyle: {
     backgroundColor: '#fcf0f2',

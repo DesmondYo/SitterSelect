@@ -8,4 +8,11 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  StatusContainerWidth: {
+    borderRadius: 18,
+    width: 125,
+    height: 22,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });

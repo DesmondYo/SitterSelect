@@ -8,7 +8,6 @@ export function BackButton({
   imageHeight,
   imageWidth,
   top,
-  bottom,
 }) {
   return (
     <TouchableOpacity onPress={onPress} style={[styles.backbutton, {top}]}>

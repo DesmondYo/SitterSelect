@@ -30,22 +30,17 @@ export const styles = StyleSheet.create({
     fontSize: 14,
     marginTop: 8,
   },
-  button: {
-    marginTop: 40,
-    alignItems: 'center',
-    backgroundColor: '#e09095',
-    borderRadius: 26,
-  },
-  buttonText: {
-    textAlign: 'center',
-    padding: 20,
-    color: 'white',
-    fontSize: 16,
+  LineSeperator: {
+    borderBottomColor: '#e09095',
+    borderBottomWidth: 1,
+    width: '100%',
+    paddingBottom: 2,
   },
   signUp: {
     textAlign: 'center',
     padding: 20,
-    color: 'black',
     fontSize: 16,
+    color: '#e09095',
+    fontWeight: 'bold',
   },
 });

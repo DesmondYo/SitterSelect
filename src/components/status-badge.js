@@ -8,7 +8,13 @@ export function StatusBadge({status}) {
   const backgroundColor = getBackgroundColor();
 
   return (
-    <View style={[styles.StatusContainer, {backgroundColor}]}>
+    <View
+      style={[
+        status === 'awaiting payment'
+          ? styles.StatusContainerWidth
+          : styles.StatusContainer,
+        {backgroundColor},
+      ]}>
       <Text style={[styles.StatusText, {color: textColor}]}>
         {_.capitalize(status)}
       </Text>
@@ -18,10 +24,12 @@ export function StatusBadge({status}) {
   function getTextColor() {
     if (status === 'approved') {
       return '#009374';
-    } else if (status === 'declined') {
-      return '#C52222';
     } else if (status === 'pending') {
       return '#c5b422';
+    } else if (status === 'awaiting payment') {
+      return '#ffffff';
+    } else if (status === 'completed') {
+      return '#009374';
     } else {
       return null;
     }
@@ -30,10 +38,12 @@ export function StatusBadge({status}) {
   function getBackgroundColor() {
     if (status === 'approved') {
       return '#bde3db';
-    } else if (status === 'declined') {
-      return '#fde7e7';
     } else if (status === 'pending') {
       return '#fbf7bb';
+    } else if (status === 'awaiting payment') {
+      return '#FD6A02';
+    } else if (status === 'completed') {
+      return '#bde3db';
     } else {
       return null;
     }
