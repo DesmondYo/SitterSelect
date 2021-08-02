@@ -52,7 +52,7 @@ export function ClientBookingPage({componentId}) {
     const unsubscribe = Firestore()
       .collection('bookings')
       .where('client_id', '==', Auth().currentUser.uid)
-      // .where('status', '!=', 'completed')
+      .where('status', '!=', 'completed')
       .onSnapshot(snapshot => {
         setBookingsDocs(snapshot.docs);
       });

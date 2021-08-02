@@ -17,6 +17,7 @@ import Firestore from '@react-native-firebase/firestore';
 const LoginPage = ({componentId}) => {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   return (
     <ScrollView
@@ -53,6 +54,7 @@ const LoginPage = ({componentId}) => {
           onPress={createUser}
           fill={true}
           align={{marginTop: 20}}
+          isLoading={isLoading}
         />
         <Text onPress={onOpenOverlay} style={styles.signUp}>
           Don't have an account? Sign Up
@@ -71,6 +73,8 @@ const LoginPage = ({componentId}) => {
   }
 
   async function createUser() {
+    setIsLoading(true);
+
     try {
       const {user} = await Auth().signInWithEmailAndPassword(email, password);
       const userDocs = await Firestore()
@@ -103,6 +107,8 @@ const LoginPage = ({componentId}) => {
           {text: 'OK'},
         ],
       );
+    } finally {
+      setIsLoading(false);
     }
   }
 

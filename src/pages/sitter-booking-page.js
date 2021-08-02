@@ -63,11 +63,11 @@ export function SitterBookingPage({componentId}) {
     const unsubscibeNewRequests = Firestore()
       .collection('bookings')
       .where('status', '==', 'pending')
-      .where('status', '!=', 'completed')
       .onSnapshot(snapshot => setNewRequestsDocs(snapshot.docs));
     const unsubscibeSitterBookings = Firestore()
       .collection('bookings')
       .where('sitter_id', '==', Auth().currentUser.uid)
+      .where('status', '!=', 'completed')
       .onSnapshot(snapshot => setSitterBookingDocs(snapshot.docs));
 
     return () => {
