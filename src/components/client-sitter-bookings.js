@@ -13,7 +13,9 @@ export function ClientSitterBookings({
 }) {
   const image = getServiceImage();
   return (
-    <TouchableOpacity onPress={approvedPress} style={styles.OutsideContainer} disabled={status === "awaiting payment"}>
+    <TouchableOpacity
+      onPress={approvedPress}
+      style={styles.OutsideContainer}>
       <View style={styles.InnerContainer}>
         <View style={styles.PhotoAndDetailsContainer}>
           {source && status === 'approved' && (

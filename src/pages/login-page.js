@@ -13,6 +13,7 @@ import {styles} from './styles/login-page-style';
 import {PrimaryButton} from '../components/primary-button';
 import Auth, {firebase} from '@react-native-firebase/auth';
 import Firestore from '@react-native-firebase/firestore';
+import _ from 'lodash';
 
 const LoginPage = ({componentId}) => {
   const [email, setEmail] = useState(null);
@@ -64,11 +65,15 @@ const LoginPage = ({componentId}) => {
   );
 
   function forgetPassword() {
-    try {
-      firebase.auth().sendPasswordResetEmail(email);
-      Alert.alert('Oops!', 'Please check your email to reset your password');
-    } catch (e) {
-      console.log(alert);
+    if (_.isEmpty(email)) {
+      Alert.alert('Oops!', 'You must enter an email to reset your password');
+    } else {
+      try {
+        firebase.auth().sendPasswordResetEmail(email);
+        Alert.alert('Your password has been reset. Please check your email');
+      } catch (e) {
+        console.log(alert);
+      }
     }
   }
 

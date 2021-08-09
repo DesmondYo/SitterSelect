@@ -116,7 +116,7 @@ export function SitterDetailsPage({componentId}) {
           <DateTimePickerModal
             isVisible={showStartTimePicker}
             mode="time"
-            date={startTime}
+            Date={startTime}
             onConfirm={val => {
               setStartTime(val);
               setShowStartTimePicker(false);
@@ -128,7 +128,7 @@ export function SitterDetailsPage({componentId}) {
           <DateTimePickerModal
             isVisible={showEndTimePicker}
             mode="time"
-            date={endTime}
+            Date={endTime}
             onConfirm={val => {
               setEndTime(val);
               setShowEndTimePicker(false);
