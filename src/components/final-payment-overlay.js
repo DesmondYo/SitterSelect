@@ -1,13 +1,18 @@
 import dayjs from 'dayjs';
 import React, {useEffect, useState} from 'react';
-import {Text, TouchableOpacity} from 'react-native';
+import {Alert, Text, TouchableOpacity} from 'react-native';
 import {AwesomeModal} from 'react-native-awesome-modal';
 import {Navigation} from 'react-native-navigation';
 import {styles} from './styles/final-payment-overlay-style.js';
 import Firestore from '@react-native-firebase/firestore';
+import Functions from '@react-native-firebase/functions';
+import { useStripe } from '@stripe/stripe-react-native';
 
 export function FinalPaymentOverlay({componentId, parentComponentId, id}) {
+  const { initPaymentSheet, presentPaymentSheet } = useStripe();
   const [bookingData, setBookingData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [clientSecret, setClientSecret] = useState(null);
 
   const hoursBetweenStartAndEndTime = Math.abs(
     dayjs(bookingData?.start_time, 'h:m A').diff(
@@ -21,6 +26,9 @@ export function FinalPaymentOverlay({componentId, parentComponentId, id}) {
   dayjs('4:15 PM', 'h:m A').isValid();
 
   useEffect(FetchClientBooking, []);
+  useEffect(() => {
+    initializePaymentSheet();
+  }, []);
 
   return (
     <AwesomeModal
@@ -46,6 +54,51 @@ export function FinalPaymentOverlay({componentId, parentComponentId, id}) {
     </AwesomeModal>
   );
 
+  async function fetchPaymentSheetParams() {
+    const result = await Functions().httpsCallable('createPaymentIntent')({ amount: 30000 });
+    console.log("Result: ", result);
+    const { paymentIntent, ephemeralKey, customer } = result.data.data;
+
+    return {
+      paymentIntent,
+      ephemeralKey,
+      customer,
+    };
+  };
+
+  async function initializePaymentSheet() {
+    const {
+      paymentIntent,
+      ephemeralKey,
+      customer,
+    } = await fetchPaymentSheetParams();
+    console.log({
+      paymentIntent,
+      ephemeralKey,
+      customer
+    });
+    const { error } = await initPaymentSheet({
+      customerId: customer,
+      customerEphemeralKeySecret: ephemeralKey,
+      paymentIntentClientSecret: paymentIntent,
+    });
+    console.log("Init: ", error);
+    if (!error) {
+      setClientSecret(paymentIntent);
+      setLoading(false);
+    }
+  };
+
+  async function openPaymentSheet() {
+    const { error } = await presentPaymentSheet({ clientSecret });
+    console.log(error);
+    if (error) {
+      Alert.alert(`Error code: ${error.code}`, error.message);
+    } else {
+      Alert.alert('Success', 'Your order is confirmed!');
+    }
+  };
+
   function FetchClientBooking() {
     const unsubscribe = Firestore()
       .collection('bookings')
@@ -61,11 +114,11 @@ export function FinalPaymentOverlay({componentId, parentComponentId, id}) {
    */
   async function onAccept() {
     await Navigation.dismissOverlay(componentId);
-    Navigation.push(parentComponentId, {
-      component: {
-        name: 'LoginPage',
-      },
-    });
+
+    setTimeout(() => {
+      openPaymentSheet();
+    }, 1000);
+    
   }
 
   /**

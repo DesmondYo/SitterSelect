@@ -2,6 +2,7 @@
  * @format
  */
 
+import React from 'react';
 import {LoginPage} from './src/pages/login-page';
 import {Navigation} from 'react-native-navigation';
 import {SignUpOverlay} from './src/components/sign-up-overlay';
@@ -20,6 +21,7 @@ import {ContactJosieOverlay} from './src/components/contact-josie-overlay';
 import {SitterSubmitTimeSuccessPage} from './src/pages/sitter-submit-time-success-page';
 import Auth from '@react-native-firebase/auth';
 import Firestore from '@react-native-firebase/firestore';
+import { StripeProvider } from '@stripe/stripe-react-native';
 
 Navigation.registerComponent('LoginPage', () => LoginPage);
 Navigation.registerComponent('SignUpOverlay', () => SignUpOverlay);
@@ -33,7 +35,7 @@ Navigation.registerComponent(
 );
 Navigation.registerComponent('CheckoutPaymentPage', () => CheckoutPaymentPage);
 Navigation.registerComponent('TippingOverlay', () => TippingOverlay);
-Navigation.registerComponent('FinalPaymentOverlay', () => FinalPaymentOverlay);
+Navigation.registerComponent('FinalPaymentOverlay', () => StripeHOC(FinalPaymentOverlay));
 Navigation.registerComponent('SitterBookingPage', () => SitterBookingPage);
 Navigation.registerComponent(
   'SitterBookingDetailsPage',
@@ -71,7 +73,7 @@ Navigation.events().registerAppLaunchedListener(async () => {
     // Returns the data associated with a user
     const userData = userDoc?.data();
     const initialRoute =
-      userData?.type === 'client' ? 'LoginPage' : 'SitterBookingPage';
+      userData?.type === 'client' ? 'ClientBookingPage' : 'SitterBookingPage';
 
     Navigation.setRoot({
       root: {
@@ -102,3 +104,17 @@ Navigation.events().registerAppLaunchedListener(async () => {
     });
   }
 });
+
+function StripeHOC(Component) {
+  return ({...props}) => {
+    return (
+      <StripeProvider
+        publishableKey="pk_test_51JHxXCDwlTwB7vnCA9qhNqB3voKU2u0sKhIglzxPltty6JWiqOkvBroyPSyyid4xXxMnUvioz00BTHPru6onoq4H00HBHMxRIN"
+        urlScheme="your-url-scheme" // required for 3D Secure and bank redirects
+        merchantIdentifier="merchant.com.{{Sittersselect}}" // required for Apple Pay
+      >
+        <Component {...props} />
+      </StripeProvider>
+    );
+  }
+}

@@ -15,11 +15,6 @@ target 'SitterSelect' do
     :hermes_enabled => false
   )
 
-  target 'SitterSelectTests' do
-    inherit! :complete
-    # Pods for testing
-  end
-
   post_install do |installer|
     react_native_post_install(installer)
   end

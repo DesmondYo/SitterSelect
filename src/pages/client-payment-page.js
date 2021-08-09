@@ -21,6 +21,10 @@ export function CheckoutPaymentPage({componentId, id}) {
       'h',
     ),
   );
+  const bookingPrice = getServicePrice(
+    bookingData?.service_type,
+    hoursBetweenStartAndEndTime,
+  );
 
   var customParseFormat = require('dayjs/plugin/customParseFormat');
   dayjs.extend(customParseFormat);
@@ -91,22 +95,12 @@ export function CheckoutPaymentPage({componentId, id}) {
         <BookingDetailRow label={'Booking fee'} value={'$8/day'} />
         <BookingDetailRow
           label={'Booking price'}
-          value={`$${getServicePrice(
-            bookingData?.service_type,
-            hoursBetweenStartAndEndTime,
-          )}`}
+          value={`$${bookingPrice}`}
         />
         <View style={styles.ViewStyleBookingInfo}>
           <Text style={styles.Total}>Total</Text>
           <View style={styles.PriceDetailsStyle}>
-            <Text style={styles.TotalText}>{`$${
-              getServicePrice(
-                bookingData?.service_type,
-                hoursBetweenStartAndEndTime,
-              ) +
-              8 +
-              parseFloat(selectedTip)
-            }`}</Text>
+            <Text style={styles.TotalText}>{`$${bookingPrice + 8 + parseFloat(selectedTip)}`}</Text>
           </View>
         </View>
         <View style={styles.PrimaryButtonStyle}>
