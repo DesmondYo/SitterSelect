@@ -18,16 +18,20 @@ export function SignUpOverlay({componentId}) {
       <TouchableOpacity style={styles.rectangle}>
         <Text
           style={styles.buttonTextStyle}
-          onPress={() => Linking.openURL('https://google.com')}>
-          I’m looking for a sitter.
+          onPress={() =>
+            Linking.openURL('https://form.jotform.com/212168521466152')
+          }>
+          I am a client looking to book a sitter.
         </Text>
       </TouchableOpacity>
 
       <TouchableOpacity style={(styles.buttonTextStyle, styles.rectangletwo)}>
         <Text
           style={styles.buttonTextStyle}
-          onPress={() => Linking.openURL('https://google.com')}>
-          I’d like to become a sitter.
+          onPress={() =>
+            Linking.openURL('https://form.jotform.com/212165478609159')
+          }>
+          I would like to apply to become a sitter.
         </Text>
       </TouchableOpacity>
     </AwesomeModal>

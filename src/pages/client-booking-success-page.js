@@ -15,7 +15,7 @@ export function BookingSuccessPage({componentId}) {
         />
         <Text style={styles.Text}>Your booking request is pending!</Text>
         <Text style={styles.ParagraphText}>
-          You will be notified once a sitter accepts your booking.
+          Please check your device periodically see if a sitter has accepted your booking.
         </Text>
         <View style={styles.PrimaryButtonStyle}>
           <PrimaryButton

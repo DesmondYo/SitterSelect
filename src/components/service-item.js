@@ -24,7 +24,7 @@ export function ServiceItem({type}) {
         return require('../img/BabySitting.png');
       case 'Child Tutoring':
         return require('../img/ChildTutoring.png');
-        case 'Pet / House Sitting Overnight':
+      case 'Pet / House Sitting Overnight':
         return require('../img/OvernightHouseSitting.png');
       default:
         return type;

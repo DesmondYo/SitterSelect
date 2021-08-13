@@ -6,10 +6,17 @@ import {Navigation} from 'react-native-navigation';
 import {styles} from './styles/final-payment-overlay-style.js';
 import Firestore from '@react-native-firebase/firestore';
 import Functions from '@react-native-firebase/functions';
-import { useStripe } from '@stripe/stripe-react-native';
+import {useStripe} from '@stripe/stripe-react-native';
 
-export function FinalPaymentOverlay({componentId, parentComponentId, id}) {
-  const { initPaymentSheet, presentPaymentSheet } = useStripe();
+export function FinalPaymentOverlay({
+  componentId,
+  id,
+  bookingPrice,
+  bookingFee,
+  tip,
+  parentComponentId,
+}) {
+  const {initPaymentSheet, presentPaymentSheet} = useStripe();
   const [bookingData, setBookingData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [clientSecret, setClientSecret] = useState(null);
@@ -55,16 +62,18 @@ export function FinalPaymentOverlay({componentId, parentComponentId, id}) {
   );
 
   async function fetchPaymentSheetParams() {
-    const result = await Functions().httpsCallable('createPaymentIntent')({ amount: 30000 });
-    console.log("Result: ", result);
-    const { paymentIntent, ephemeralKey, customer } = result.data.data;
+    const result = await Functions().httpsCallable('createPaymentIntent')({
+      amount: (bookingPrice + bookingFee + tip) * 100,
+    });
+    console.log('Result: ', result);
+    const {paymentIntent, ephemeralKey, customer} = result.data.data;
 
     return {
       paymentIntent,
       ephemeralKey,
       customer,
     };
-  };
+  }
 
   async function initializePaymentSheet() {
     const {
@@ -75,29 +84,33 @@ export function FinalPaymentOverlay({componentId, parentComponentId, id}) {
     console.log({
       paymentIntent,
       ephemeralKey,
-      customer
+      customer,
     });
-    const { error } = await initPaymentSheet({
+    const {error} = await initPaymentSheet({
       customerId: customer,
       customerEphemeralKeySecret: ephemeralKey,
       paymentIntentClientSecret: paymentIntent,
     });
-    console.log("Init: ", error);
+    console.log('Init: ', error);
     if (!error) {
       setClientSecret(paymentIntent);
-      setLoading(false);
+      setLoading(true);
     }
-  };
+  }
 
   async function openPaymentSheet() {
-    const { error } = await presentPaymentSheet({ clientSecret });
+    const {error} = await presentPaymentSheet({clientSecret});
     console.log(error);
     if (error) {
       Alert.alert(`Error code: ${error.code}`, error.message);
     } else {
-      Alert.alert('Success', 'Your order is confirmed!');
+      Navigation.push(parentComponentId, {
+        component: {
+          name: 'ClientThankYouPage',
+        },
+      });
     }
-  };
+  }
 
   function FetchClientBooking() {
     const unsubscribe = Firestore()
@@ -117,8 +130,7 @@ export function FinalPaymentOverlay({componentId, parentComponentId, id}) {
 
     setTimeout(() => {
       openPaymentSheet();
-    }, 1000);
-    
+    });
   }
 
   /**

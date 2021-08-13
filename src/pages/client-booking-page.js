@@ -80,7 +80,7 @@ export function ClientBookingPage({componentId}) {
   //   });
 
   function onPress() {
-    Navigation.pop(componentId, {
+    Navigation.push(componentId, {
       component: {
         name: 'SitterDetailsPage',
       },

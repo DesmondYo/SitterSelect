@@ -25,6 +25,8 @@ export function CheckoutPaymentPage({componentId, id}) {
     bookingData?.service_type,
     hoursBetweenStartAndEndTime,
   );
+  const bookingFee = 8;
+  const tip = parseFloat(selectedTip);
 
   var customParseFormat = require('dayjs/plugin/customParseFormat');
   dayjs.extend(customParseFormat);
@@ -93,14 +95,13 @@ export function CheckoutPaymentPage({componentId, id}) {
           <Text style={styles.BookingInfoText}> Price details </Text>
         </View>
         <BookingDetailRow label={'Booking fee'} value={'$8/day'} />
-        <BookingDetailRow
-          label={'Booking price'}
-          value={`$${bookingPrice}`}
-        />
+        <BookingDetailRow label={'Booking price'} value={`$${bookingPrice}`} />
         <View style={styles.ViewStyleBookingInfo}>
           <Text style={styles.Total}>Total</Text>
           <View style={styles.PriceDetailsStyle}>
-            <Text style={styles.TotalText}>{`$${bookingPrice + 8 + parseFloat(selectedTip)}`}</Text>
+            <Text style={styles.TotalText}>{`$${
+              bookingPrice + bookingFee + parseFloat(selectedTip)
+            }`}</Text>
           </View>
         </View>
         <View style={styles.PrimaryButtonStyle}>
@@ -140,6 +141,9 @@ export function CheckoutPaymentPage({componentId, id}) {
         passProps: {
           parentComponentId: componentId,
           id,
+          bookingPrice,
+          bookingFee,
+          tip,
         },
         options: {
           layout: {

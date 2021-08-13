@@ -21,7 +21,8 @@ import {ContactJosieOverlay} from './src/components/contact-josie-overlay';
 import {SitterSubmitTimeSuccessPage} from './src/pages/sitter-submit-time-success-page';
 import Auth from '@react-native-firebase/auth';
 import Firestore from '@react-native-firebase/firestore';
-import { StripeProvider } from '@stripe/stripe-react-native';
+import {StripeProvider} from '@stripe/stripe-react-native';
+import {ClientThankYouPage} from './src/pages/client-thank-you-page';
 
 Navigation.registerComponent('LoginPage', () => LoginPage);
 Navigation.registerComponent('SignUpOverlay', () => SignUpOverlay);
@@ -50,6 +51,7 @@ Navigation.registerComponent(
   'SitterSubmitTimeSuccessPage',
   () => SitterSubmitTimeSuccessPage,
 );
+Navigation.registerComponent('ClientThankYouPage', () => ClientThankYouPage);
 
 Navigation.setDefaultOptions({
   animations: {
@@ -73,7 +75,7 @@ Navigation.events().registerAppLaunchedListener(async () => {
     // Returns the data associated with a user
     const userData = userDoc?.data();
     const initialRoute =
-      userData?.type === 'client' ? 'ClientBookingPage' : 'SitterBookingPage';
+      userData?.type === 'client' ? 'ClientBookingPage' : 'ClientBookingPage';
 
     Navigation.setRoot({
       root: {
