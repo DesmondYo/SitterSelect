@@ -12,19 +12,17 @@ import {BookingProperty} from '../components/booking-property';
 import {BookingDetailStatus} from '../components/booking-detail-status.js';
 import Firestore from '@react-native-firebase/firestore';
 import dayjs from 'dayjs';
-const phoneNumber = '(602) 803-4851';
-
 export function ClientBookingDetails({componentId, id}) {
   const actionSheetRef = useRef(null);
   const [bookingData, setBookingData] = useState(null);
   const formattedDate = dayjs(bookingData?.booking_date).format(
     'ddd, D MMM YYYY',
   );
+  const phoneNumber = bookingData?.sitter_phone_number;
   const isPending = bookingData?.status === 'pending';
   const isAwaitingPayment = bookingData?.status === 'awaiting payment';
-
-  console.log(bookingData);
   useEffect(FetchClientBooking, []);
+  
   return (
     <>
       <ScrollView style={styles.ClientBookingDetailsContainer}>
@@ -100,7 +98,7 @@ export function ClientBookingDetails({componentId, id}) {
         />
         <PrimaryButton
           label={`Contact ${bookingData?.sitter_first_name} `}
-          onPress={onPressCallJosie}
+          onPress={onContactSitter}
           fill={false}
         />
       </View>
@@ -134,7 +132,7 @@ export function ClientBookingDetails({componentId, id}) {
     });
   }
 
-  function onPressCallJosie() {
+  function onContactSitter() {
     actionSheetRef.current.show();
   }
 

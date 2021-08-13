@@ -3,6 +3,7 @@ import {View, Image, Text, TouchableOpacity} from 'react-native';
 import {StatusBadge} from './status-badge';
 import {styles} from './styles/client-sitter-bookings-style.js';
 export function ClientSitterBookings({
+  id,
   source,
   label,
   serviceType,
@@ -37,6 +38,7 @@ export function ClientSitterBookings({
               />
               <Text style={styles.Time}>{time}</Text>
             </View>
+            {(id && __DEV__) && <Text style={styles.IdText}>ID: {id}</Text>}
           </View>
         </View>
 

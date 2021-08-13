@@ -36,6 +36,7 @@ export function SitterBookingPage({componentId}) {
           // source, label, date, type, time
           return (
             <ClientSitterBookings
+              id={item.id}
               label={booking.client_first_name}
               serviceType={booking.service_type}
               date={booking.date}

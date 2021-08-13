@@ -20,6 +20,7 @@ export function ClientBookingPage({componentId}) {
         // source, label, date, type, time
         return (
           <ClientSitterBookings
+            id={item.id}
             source={{uri: booking.sitter_image}}
             label={booking.first_name}
             serviceType={booking.service_type}
@@ -33,7 +34,7 @@ export function ClientBookingPage({componentId}) {
       ListHeaderComponent={
         <>
           <BackButton
-            onPress={onPress}
+            onPress={onNavigateBack}
             backButtonImage={require('../img/backarrow.png')}
             imageWidth={30}
             imageHeight={30}
@@ -79,12 +80,8 @@ export function ClientBookingPage({componentId}) {
   //   await Firestore().collection('bookings').add({
   //   });
 
-  function onPress() {
-    Navigation.pop(componentId, {
-      component: {
-        name: 'SitterDetailsPage',
-      },
-    });
+  function onNavigateBack() {
+    Navigation.popToRoot(componentId);
   }
 }
 

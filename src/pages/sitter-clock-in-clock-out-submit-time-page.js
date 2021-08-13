@@ -9,8 +9,6 @@ import dayjs from 'dayjs';
 import ActionSheet from '@alessiocancian/react-native-actionsheet';
 import {BookingProperty} from '../components/booking-property.js';
 import Firestore from '@react-native-firebase/firestore';
-const phoneNumber = '(602) 803-4851';
-
 export function SitterClockInClockOutSubmitTimePage({componentId, id}) {
   const [showTimePicker, setShowTimePicker] = useState(false);
   const [startTime, setStartTime] = useState(null);
@@ -27,6 +25,8 @@ export function SitterClockInClockOutSubmitTimePage({componentId, id}) {
   const formattedDate = dayjs(bookingData?.booking_date).format(
     'ddd, D MMM YYYY',
   );
+  const clientFirstName = bookingData?.client_first_name;
+  const clientPhoneNumber = bookingData?.client_phone_number;
 
   console.log(bookingData);
   useEffect(onFetchClientBooking, []);
@@ -111,8 +111,8 @@ export function SitterClockInClockOutSubmitTimePage({componentId, id}) {
 
         <ActionSheet
           ref={actionSheetRef}
-          title={'Please Contact Josie Emch'}
-          options={[phoneNumber, 'cancel']}
+          title={`Please Contact ${clientFirstName}`}
+          options={[clientPhoneNumber, 'cancel']}
           cancelButtonIndex={1}
           onPress={onSelectOption}
         />
@@ -133,7 +133,7 @@ export function SitterClockInClockOutSubmitTimePage({componentId, id}) {
           onPress={onSubmitTime}
         />
         <PrimaryButton
-          label="Contact Josie"
+          label={`Contact ${clientFirstName}`}
           fill={false}
           containerStyle={{width: 343}}
           onPress={onPressContactJosie}
@@ -202,9 +202,9 @@ export function SitterClockInClockOutSubmitTimePage({componentId, id}) {
 
     if (index === 0) {
       if (Platform.OS === 'android') {
-        Linking.openURL('tel:${' + phoneNumber + '}');
+        Linking.openURL('tel:${' + clientPhoneNumber + '}');
       } else {
-        Linking.openURL('telprompt:${' + phoneNumber + '}');
+        Linking.openURL('telprompt:${' + clientPhoneNumber + '}');
       }
     }
   }

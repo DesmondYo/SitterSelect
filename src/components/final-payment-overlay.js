@@ -82,7 +82,6 @@ export function FinalPaymentOverlay({componentId, parentComponentId, id}) {
       customerEphemeralKeySecret: ephemeralKey,
       paymentIntentClientSecret: paymentIntent,
     });
-    console.log("Init: ", error);
     if (!error) {
       setClientSecret(paymentIntent);
       setLoading(false);
@@ -91,11 +90,16 @@ export function FinalPaymentOverlay({componentId, parentComponentId, id}) {
 
   async function openPaymentSheet() {
     const { error } = await presentPaymentSheet({ clientSecret });
-    console.log(error);
+    
     if (error) {
       Alert.alert(`Error code: ${error.code}`, error.message);
     } else {
-      Alert.alert('Success', 'Your order is confirmed!');
+      // You have the naviagtion method here
+      
+      // Updates booking to 'completed' status
+      await Firestore().collection('bookings').doc(id).update({
+        status: 'completed',
+      });
     }
   };
 
