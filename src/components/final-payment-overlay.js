@@ -109,6 +109,11 @@ export function FinalPaymentOverlay({
           name: 'ClientThankYouPage',
         },
       });
+      
+      // Updates booking to 'completed' status
+      await Firestore().collection('bookings').doc(id).update({
+        status: 'completed',
+      });
     }
   }
 

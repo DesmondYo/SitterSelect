@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useReducer, useState} from 'react';
 import {ScrollView, View, Text} from 'react-native';
 import {styles} from './styles/sitter-booking-details-page-style.js';
 import {BackButton} from '../components/back-button';
@@ -114,6 +114,7 @@ export function SitterBookingDetailsPage({componentId, id}) {
       sitter_first_name: user.name,
       sitter_image: user.image_url,
       sitter_description: user.description,
+      sitter_phone_number: user.phone_number,
     });
 
     Navigation.pop(componentId);

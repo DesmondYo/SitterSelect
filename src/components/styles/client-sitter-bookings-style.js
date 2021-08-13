@@ -61,6 +61,12 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginTop: 8,
   },
+  IdText: {
+    color: '#92465a',
+    fontFamily: 'arial',
+    fontSize: 12,
+    marginTop: 8,
+  },
   ImageStyling: {
     width: 51,
     height: 51,
