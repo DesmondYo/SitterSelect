@@ -81,7 +81,7 @@ export function ClientBookingPage({componentId}) {
   //   });
 
   function onNavigateBack() {
-    Navigation.popToRoot(componentId);
+    Navigation.pop(componentId);
   }
 }
 
