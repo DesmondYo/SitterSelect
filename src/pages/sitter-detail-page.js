@@ -175,7 +175,7 @@ export function SitterDetailsPage({componentId}) {
         sitter_id: null,
         booked_length: hoursBetweenStartAndEndDate,
         client_address: user.client_address ?? null,
-        invoice_number: uuid.DNS.substr(0, 13),
+        invoice_number: uuid.v4().substr(0, 13),
         client_phone_number: user.phone_number ?? null,
         price: price,
       });
